@@ -1,13 +1,15 @@
-import Footer from './components/footer/Footer';
-import Navbar from './components/navbar/Navbar';
-import Home from './pages/home/Home';
+import Home from "./pages/home/Home"
+import Cadastro from "./pages/cadastro/Cadastro";
+import { Contact } from "./pages/contact/Contact";
+import { Login } from "./pages/login/Login";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Home />
-      <Footer />
+    <Home/>
+    <Contact/>
+    <Login/>
+    <Cadastro/>
     </>
   );
 }
