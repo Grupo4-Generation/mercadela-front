@@ -4,8 +4,8 @@ import Home from './pages/home/Home';
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
 import Cadastro from './pages/cadastro/Cadastro';
-import { Login } from './pages/login/Login';
 import { Contact } from './pages/contact/Contact';
+import { Login } from './pages/Login/Login';
 
 function App() {
   return (
