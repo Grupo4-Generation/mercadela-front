@@ -9,7 +9,7 @@ function Navbar() {
 
                 <div className="container flex justify-between text-lg font-[league spartan]">
                     <div className="self-center">
-                        <a href='#'>
+                        <a href='/home'>
                             <img src="src\assets\logo-navbar.png" alt="LogoNav" className='w-40' />
                         </a>
                     </div>
@@ -26,7 +26,7 @@ function Navbar() {
 
                     <div className="flex gap-4 text-[#DB5413] self-center font-fontProjeto font-bold">
                         <div className="flex self-center items-center">
-                            <p>Categorias</p>
+                            <a href="/produto">Categorias</a>
                             <ArrowCircleDown size={18} />
                         </div>
 
@@ -35,8 +35,10 @@ function Navbar() {
                         </div>
 
                         <div className="flex self-center flex-col">
-                            <UserCircle size={32} className="self-center"/>
-                            <p>Entrar</p>
+                            <a href="/login">
+                                <UserCircle size={32} className="self-center" />
+                                <p>Entrar</p>
+                            </a>
                         </div>
                     </div>
                 </div>
