@@ -24,6 +24,8 @@ function Footer() {
                     <div className="flex flex-col text-end">
                         <p>Politica de Privacidade</p>
                         <p>Termos e Condições</p>
+
+                        <a href="/contact">Contato</a>
                     </div>
                 </div>
             </div>
