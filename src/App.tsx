@@ -6,6 +6,7 @@ import { Login } from "./pages/login/Login";
 function App() {
   return (
     <>
+    <Home/>
     <Contact/>
     <Login/>
     <Cadastro/>
