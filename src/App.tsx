@@ -5,8 +5,8 @@ import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
 import Cadastro from './pages/cadastro/Cadastro';
 import { Contact } from './pages/contact/Contact';
-import { Login } from './pages/Login/Login';
 import Produto from './pages/produto/Produto';
+import { Login } from './pages/login/Login';
 
 function App() {
   return (
