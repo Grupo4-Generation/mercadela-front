@@ -1,25 +1,105 @@
+import CardProduto from "../../components/cardProduto/CardProduto";
+
 function Home() {
   return (
     <>
-      <div className="max-w-xs  rounded-lg p-3 shadow duration-150 hover:shadow-md">
-        {/* caminho da variavel fotoProduto */}
-        <img className="w-full rounded-lg object-cover object-center bg-gray-100" src="src\assets\pente.png" alt="product" />
-        <div>
-          <div className="my-3 flex items-center justify-center">
-            {/* caminho da variavel nomeProduto */}
-            <p className="font-bold text-xl text-orange-500">Pente</p>
+      <div
+        id="carouselExampleControls"
+        className="relative"
+        data-te-carousel-init
+        data-te-ride="carousel">
+
+        <div
+          className="sticky max-w-full max-h-64 center-items justify-center m-2 mx-14 overflow-hidden after:clear-both after:block after:content-['']">
+
+          <div
+            className="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+            data-te-carousel-item
+            data-te-carousel-active>
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
+              className="block w-full"
+              alt="Wild Landscape" />
           </div>
-          <div className="my-2 flex justify-center">
-            {/* caminho da variavel precoProduto */}
-            <p className="font-semibold text-green-500">R$ 130,00</p>
+
+          <div
+            className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+            data-te-carousel-item>
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
+              className="block w-full"
+              alt="Camera" />
           </div>
-          <div className="my-2 flex justify-center">
-            <p className="rounded-full cursor-pointer bg-green-500 px-2 text-2xl font-semibold hover:scale-105 text-white">Comprar</p>
+
+          <div
+            className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+            data-te-carousel-item>
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
+              className="block w-full"
+              alt="Exotic Fruits" />
           </div>
         </div>
+
+
+        <button
+          className="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+          type="button"
+          data-te-target="#carouselExampleControls"
+          data-te-slide="prev">
+          <span className="inline-block h-8 w-8">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="h-6 w-6">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </span>
+          <span
+            className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+          >Previous</span>
+        </button>
+
+        <button
+          className="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+          type="button"
+          data-te-target="#carouselExampleControls"
+          data-te-slide="next">
+          <span className="inline-block h-8 w-8">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="h-6 w-6">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </span>
+          <span
+            className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+          >Next</span>
+        </button>
+      </div>
+      <div className="flex space-x-3 items-center justify-between">
+        <CardProduto nomeProduto="Pente" precoProduto="R$ 130,00" fotoProduto="src/assets/Pente.png" />
+        <CardProduto nomeProduto="Outro Produto" precoProduto="R$ 150,00" fotoProduto="src/assets/Logo.png" />
+        <CardProduto nomeProduto="Camalião" precoProduto="R$ 12,98" fotoProduto="src/assets/Pente.png" />
+        <CardProduto nomeProduto="Camalião" precoProduto="R$ 12,98" fotoProduto="src/assets/Pente.png" />
+        <CardProduto nomeProduto="Camalião" precoProduto="R$ 12,98" fotoProduto="src/assets/Pente.png" />
+        <CardProduto nomeProduto="Camalião" precoProduto="R$ 12,98" fotoProduto="src/assets/Pente.png" />
       </div>
     </>
   )
 }
 
-export default Home
+export default Home;
