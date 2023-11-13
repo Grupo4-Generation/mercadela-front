@@ -1,13 +1,13 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+import Login from "./pages/Login/Login";
+import Contact from "./pages/contact/Contact";
+import Cadastro from "./pages/cadastro/Cadastro";
+import Produto from "./pages/produto/Produto";
+import Home from "./pages/home/Home";
+import Sobre from "./pages/sobre/Sobre";
 
-import Home from './pages/home/Home';
-import Footer from './components/footer/Footer';
-import Navbar from './components/navbar/Navbar';
-import Cadastro from './pages/cadastro/Cadastro';
-import { Contact } from './pages/contact/Contact';
-import Produto from './pages/produto/Produto';
-import { Login } from './pages/login/Login';
-import Sobre from './pages/sobre/sobre';
 
 function App() {
   return (
