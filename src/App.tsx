@@ -10,22 +10,24 @@ import { Login } from './pages/login/Login';
 
 function App() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <BrowserRouter>
         <Navbar />
-        <div className='min-h-[80vh]'>
+        <div className="flex-grow flex items-center justify-center">
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Home />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/produto" element={<Produto />} />
           </Routes>
-        </div>
-        <Footer />
+          </div>
+          <Routes>
+          <Route path="/home" element={<Home />} />
+          </Routes>
       </BrowserRouter>
-    </>
+      <Footer />
+    </div>
   );
 }
 
