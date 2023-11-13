@@ -5,15 +5,15 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        fontProjeto : ['League Spartan']
+        fontProjeto : ['League Spartan'],
+      },
+      screens: {
+        'xl' : {'max': '1279px'},
+        'lg' : {'max': '1023px'},
+        'md' : {'max': '767px'},
+        'sm' : {'max': '639px'},
       }
     },
   },
   plugins: [],
-
-  extend: {
-    fontFamily: {
-      sans: ["Open Sans", "sans"],
-    },
-  },
 };
