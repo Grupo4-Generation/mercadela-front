@@ -30,7 +30,6 @@ export function Login() {
     handleLogin(usuarioLogin);
   }
 
-
   return (
     <div className="flex-grow bg-[#FEEAE0] font-fontProjeto max-w-sm align-middle rounded-3xl p-10 ">
       <form onSubmit={login} className="font-fontProjeto max-w-[400px] w-full mx-auto">

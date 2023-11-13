@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'https://mercadela.onrender.com/'
+  baseURL: 'https://mercadela.onrender.com'
 }
 )
 

@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-
 import Home from './pages/home/Home';
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
@@ -13,7 +12,6 @@ import { AuthProvider } from './contexts/AuthContext';
 function App() {
   return (
     <>
-
       <div className="flex flex-col min-h-screen">
         <AuthProvider>
           <BrowserRouter>
@@ -25,14 +23,12 @@ function App() {
                 <Route path="/cadastro" element={<Cadastro />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/produto" element={<Produto />} />
+                <Route path="/home" element={<Home />} />
               </Routes>
             </div>
-            <Routes>
-              <Route path="/home" element={<Home />} />
-            </Routes>
             <Footer />
           </BrowserRouter>
-          <AuthProvider />
+        </AuthProvider>
       </div>
     </>
   );
