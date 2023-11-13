@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { RotatingLines } from 'react-loader-spinner'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { cadastrarUsuario } from '../../services/Service'
@@ -6,7 +7,7 @@ import Usuario from '../../models/Usuario'
 
 import './Cadastro.css'
 
-export default function Cadastro() {
+function Cadastro() {
 
     const navigate = useNavigate()
 
@@ -18,16 +19,9 @@ export default function Cadastro() {
         nomeUsuario: '',
         emailUsuario: '',
         senhaUsuario: '',
+        foto: '',
         generoUsuario: '',
-        foto: ''
-    })
-    const [usuarioResposta, setUsuarioResposta] = useState<Usuario>({
-        id: 0,
-        nomeUsuario: '',
-        emailUsuario: '',
-        senhaUsuario: '',
-        generoUsuario: '',
-        foto: ''
+        tipoUsuario: ''
     })
 
     useEffect(() => {
@@ -44,7 +38,7 @@ export default function Cadastro() {
         setConfirmaSenha(e.target.value)
     }
 
-    function atualizarEstado(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
         setUsuario({
             ...usuario,
             [e.target.name]: e.target.value
@@ -54,7 +48,7 @@ export default function Cadastro() {
     async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        if (usuario.senhaUsuario.length >= 8) {
+        if (confirmaSenha === usuario.senhaUsuario && usuario.senhaUsuario.length >= 8) {
             setIsLoading(true)
 
             try {
@@ -80,7 +74,9 @@ export default function Cadastro() {
                 <h1 className="text-3xl text-[#DB5413] font-bold pb-7 text-center">
                     Cadastre-se
                 </h1>
-                <form className="flex flex-col" onSubmit={cadastrarNovoUsuario}>
+                <form
+                    className="flex flex-col"
+                    onSubmit={cadastrarNovoUsuario}>
                     <div className="flex flex-row space-x-8">
                         <div className="flex flex-col space-y-4">
                             <div className="flex flex-col">
@@ -117,8 +113,7 @@ export default function Cadastro() {
                                     name="generoUsuario"
                                     className="h-8 p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
                                     value={usuario.generoUsuario}
-                                    onChange={(
-                                        e: ChangeEvent<HTMLSelectElement>) => atualizarEstado(e)}
+                                /*onChange={(e: ChangeEvent<HTMLSelectElement>) => atualizarEstado(e)} Erro, mostrar a Liza*/
                                 >
                                     <option selected disabled value="">Selecione</option>
                                     <option>Feminino</option>
@@ -153,6 +148,8 @@ export default function Cadastro() {
                                     name="confirmarSenha"
                                     placeholder="Confirmar a senha"
                                     className="p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
+                                    value={confirmaSenha}
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
                                 />
                             </div>
                             <div className="flex flex-col w-full">
@@ -164,6 +161,8 @@ export default function Cadastro() {
                                     name="foto"
                                     placeholder="Foto"
                                     className="p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
+                                    value={usuario.foto}
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                                 />
                             </div>
                         </div>
@@ -187,3 +186,5 @@ export default function Cadastro() {
         </section></>
     );
 }
+
+export default Cadastro
