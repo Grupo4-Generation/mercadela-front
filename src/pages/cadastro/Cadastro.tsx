@@ -1,6 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { RotatingLines } from 'react-loader-spinner'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { cadastrarUsuario } from '../../service/Service'
 import Usuario from '../../models/Usuario'
@@ -15,6 +14,14 @@ export default function Cadastro() {
     const [confirmaSenha, setConfirmaSenha] = useState<string>("")
 
     const [usuario, setUsuario] = useState<Usuario>({
+        id: 0,
+        nomeUsuario: '',
+        emailUsuario: '',
+        senhaUsuario: '',
+        generoUsuario: '',
+        foto: ''
+    })
+    const [usuarioResposta, setUsuarioResposta] = useState<Usuario>({
         id: 0,
         nomeUsuario: '',
         emailUsuario: '',
@@ -37,7 +44,7 @@ export default function Cadastro() {
         setConfirmaSenha(e.target.value)
     }
 
-    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+    function atualizarEstado(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
         setUsuario({
             ...usuario,
             [e.target.name]: e.target.value
@@ -110,12 +117,15 @@ export default function Cadastro() {
                                     name="generoUsuario"
                                     className="h-8 p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
                                     value={usuario.generoUsuario}
-                                    onChange={(e: ChangeEvent<HTMLSelectElement>) => atualizarEstado(e)}
+                                    onChange={(
+                                        e: ChangeEvent<HTMLSelectElement>) => atualizarEstado(e)}
                                 >
                                     <option selected disabled value="">Selecione</option>
-                                    <option>Femino</option>
+                                    <option>Feminino</option>
                                     <option>Masculino</option>
-                                    <option>Não-binário</option>
+                                    <option>Outro</option>
+                                    <option>Não quero declarar</option>
+
                                 </select>
                             </div>
                         </div>
@@ -167,7 +177,8 @@ export default function Cadastro() {
                         </div>
                         <div className="flex justify-center">
                             <p className="text-xl text-[#DB5413] font-bold">
-                                Ou entre com seu login <a className="text-xl font-bold text-[#983854] hover:text-[#DB5413]" href="/login">aqui</a>
+                                Ou entre com seu login <Link to="/login" className="text-xl font-bold text-[#983854] hover:text-[#DB5413]">aqui</Link>
+
                             </p>
                         </div>
                     </div>
