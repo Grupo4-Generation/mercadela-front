@@ -17,7 +17,7 @@ function Home() {
             data-te-carousel-item
             data-te-carousel-active>
             <img
-              src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
+              src="src\assets\m1.jpg"
               className="block w-full"
               alt="Wild Landscape" />
           </div>
@@ -90,10 +90,12 @@ function Home() {
           >Next</span>
         </button>
       </div>
+
+      <h1 className="">Produtos</h1>
+
       <div className="flex space-x-3 items-center justify-between">
         <CardProduto nomeProduto="Pente" precoProduto="R$ 130,00" fotoProduto="src/assets/Pente.png" />
         <CardProduto nomeProduto="Outro Produto" precoProduto="R$ 150,00" fotoProduto="src/assets/Logo.png" />
-        <CardProduto nomeProduto="Camalião" precoProduto="R$ 12,98" fotoProduto="src/assets/Pente.png" />
         <CardProduto nomeProduto="Camalião" precoProduto="R$ 12,98" fotoProduto="src/assets/Pente.png" />
         <CardProduto nomeProduto="Camalião" precoProduto="R$ 12,98" fotoProduto="src/assets/Pente.png" />
         <CardProduto nomeProduto="Camalião" precoProduto="R$ 12,98" fotoProduto="src/assets/Pente.png" />

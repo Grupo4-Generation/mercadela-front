@@ -2,7 +2,7 @@ export function Contact() {
   return (
     <>
       <section className="flex justify-center m-0 pr-5 pl-5">
-        <div className="w-1/2 font-fontProjeto bg-[#FEEAE0] flex flex-col justify-center items-center rounded-3xl m-10 p-8">
+        <div className="font-fontProjeto bg-[#FEEAE0] flex flex-col justify-center items-center rounded-3xl m-10 p-8">
           <h1 className="text-3xl text-[#DB5413] font-bold pb-7 text-center">
             Entre em contato
           </h1>
