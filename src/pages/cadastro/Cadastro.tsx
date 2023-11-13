@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { cadastrarUsuario } from '../../service/Service'
+import { cadastrarUsuario } from '../../services/Service'
 import Usuario from '../../models/Usuario'
 
 import './Cadastro.css'
@@ -75,8 +75,8 @@ export default function Cadastro() {
     }
 
     return (
-        <><section className="flex justify-center m-0 pr-5 pl-5">
-            <div className="w-full font-fontProjeto bg-[#FEEAE0] flex flex-col justify-center items-center rounded-3xl m-10 p-8">
+        <><section className="flex justify-center m-0 px-5">
+            <div className="w-full font-fontProjeto bg-[#FEEAE0] flex flex-col justify-center items-center rounded-3xl m-0 p-8">
                 <h1 className="text-3xl text-[#DB5413] font-bold pb-7 text-center">
                     Cadastre-se
                 </h1>
