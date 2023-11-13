@@ -15,7 +15,7 @@ function Footer() {
                     <div>
                         <p>Copyright: {data}</p>
                         <div className='flex gap-2'>
-                            <Envelope size={30} />
+                            <a href="/contact"><Envelope size={30} /></a>
                             <InstagramLogo size={30} />
                             <FacebookLogo size={30} />
                         </div>
@@ -25,7 +25,7 @@ function Footer() {
                         <p>Politica de Privacidade</p>
                         <p>Termos e Condições</p>
 
-                        <a href="/contact">Contato</a>
+                        <a href="/sobre">Sobre nós!</a>
                     </div>
                 </div>
             </div>
