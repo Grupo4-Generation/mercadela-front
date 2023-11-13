@@ -69,83 +69,106 @@ export default function Cadastro() {
 
     return (
         <><section className="flex justify-center m-0 pr-5 pl-5">
-            <div className="bg-[#FEEAE0] flex flex-col justify-center items-center m-10 rounded-3xl mt-10 mb-10 p-20">
-                <h1 className="font-sans text-3xl text-[#DB5413] font-bold pb-7 text-center">
+            <div className="w-full font-fontProjeto bg-[#FEEAE0] flex flex-col justify-center items-center rounded-3xl m-10 p-8">
+                <h1 className="text-3xl text-[#DB5413] font-bold pb-7 text-center">
                     Cadastre-se
                 </h1>
-                <form className="flex flex-row justify-between max-w-[400px] w-full mx-auto" onSubmit={cadastrarNovoUsuario}>
-                    <div className="flex flex-col pr-3">
-                        <div className="flex flex-col">
-                            <label htmlFor="nomeUsuario" className="font-sans text-xl text-[#DB5413] font-bold pb-2 pl-5">
-                                Nome
-                            </label>
-                            <input
-                                className="p-1 border border-gray-300 rounded-3xl pl-5 italic"
-                                placeholder="Digite seu nome"
-                                type="text"
-                                id="nomeUsuario"
-                                name="nomeUsuario"
-                                value={usuario.nomeUsuario}
-                                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                            />
+                <form className="flex flex-col" onSubmit={cadastrarNovoUsuario}>
+                    <div className="flex flex-row space-x-8">
+                        <div className="flex flex-col space-y-4">
+                            <div className="flex flex-col">
+                                <label htmlFor="nomeUsuario" className="text-xl text-[#DB5413] font-bold">
+                                    Nome completo</label>
+                                <input
+                                    type="text"
+                                    id="nomeUsuario"
+                                    name="nomeUsuario"
+                                    placeholder="Digite seu nome"
+                                    className="p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
+                                    value={usuario.nomeUsuario}
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                                />
+                            </div>
+                            <div className="flex flex-col">
+                                <label htmlFor="emailUsuario" className="text-xl text-[#DB5413] font-bold">
+                                    E-mail</label>
+                                <input
+                                    type="email"
+                                    id="emailUsuario"
+                                    name="emailUsuario"
+                                    placeholder="Digite o e-mail"
+                                    className="p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
+                                    value={usuario.emailUsuario}
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                                />
+                            </div>
+                            <div className="flex flex-col">
+                                <label htmlFor="generoUsuario" className="text-xl text-[#DB5413] font-bold">
+                                    Gênero</label>
+                                <select
+                                    id="generoUsuario"
+                                    name="generoUsuario"
+                                    className="h-8 p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
+                                    value={usuario.generoUsuario}
+                                    onChange={(e: ChangeEvent<HTMLSelectElement>) => atualizarEstado(e)}
+                                >
+                                    <option selected disabled value="">Selecione</option>
+                                    <option>Femino</option>
+                                    <option>Masculino</option>
+                                    <option>Não-binário</option>
+                                </select>
+                            </div>
                         </div>
-                        <div className="flex flex-col">
-                            <label className="font-sans text-xl text-[#DB5413] font-bold pb-2 pl-5">
-                                E-mail
-                            </label>
-                            <input
-                                className="p-1 border border-gray-300 rounded-3xl pl-5 italic"
-                                placeholder="Digite o e-mail"
-                                type="email"
-                                id="emailUsuario"
-                                name="emailUsuario"
-                                value={usuario.emailUsuario}
-                                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                            />
-                        </div>
-                        <div className="flex flex-col">
-                            <label className="font-sans text-xl text-[#DB5413] font-bold pb-2 pl-5 pt-5">
-                                Senha
-                            </label>
-                            <input
-                                className="p-1 border border-gray-300 rounded-3xl pl-5 italic"
-                                placeholder="Digite a senha"
-                                type="password"
-                                id="senhaUsuario"
-                                name="senhaUsuario"
-                                value={usuario.senhaUsuario}
-                                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                            />
+
+                        <div className="flex flex-col space-y-4">
+                            <div className="flex flex-col">
+                                <label htmlFor="senhaUsuario" className="text-xl text-[#DB5413] font-bold">
+                                    Senha</label>
+                                <input
+                                    type="password"
+                                    id="senhaUsuario"
+                                    name="senhaUsuario"
+                                    placeholder="Digite a senha"
+                                    className="p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
+                                    value={usuario.senhaUsuario}
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                                />
+                            </div>
+                            <div className="flex flex-col">
+                                <label htmlFor="confirmarSenha" className="text-xl text-[#DB5413] font-bold">
+                                    Confirmar senha</label>
+                                <input
+                                    type="password"
+                                    id="confirmarSenha"
+                                    name="confirmarSenha"
+                                    placeholder="Confirmar a senha"
+                                    className="p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
+                                />
+                            </div>
+                            <div className="flex flex-col w-full">
+                                <label htmlFor="foto" className="text-xl text-[#DB5413] font-bold">
+                                    Foto</label>
+                                <input
+                                    type="text"
+                                    id="foto"
+                                    name="foto"
+                                    placeholder="Foto"
+                                    className="p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
+                                />
+                            </div>
                         </div>
                     </div>
-
-                    <div className="flex flex-col pl-3">
-                        <div className="flex flex-col">
-                            <label className="font-sans text-xl text-[#DB5413] font-bold pb-2 pl-5">
-                                Gênero
-                            </label>
-                            <input
-                                className="p-1 border border-gray-300 rounded-3xl pl-5 italic"
-                                placeholder="Digite seu gênero"
-                                type="text"
-                                id="generoUsuario"
-                                name="generoUsuario"
-                                value={usuario.generoUsuario}
-                                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                            />
-                        </div>
-
+                    <div className='flex flex-col mt-10 space-y-4'>
                         <div className="flex justify-center">
-                            <p className="font-sans text-xl text-[#DB5413] font-bold pt-5">
-                                Ou entre com seu login <a className="font-sans text-xl text-[#983854] font-bold" href="/login">Aqui</a>
-                            </p>
-                        </div>
-
-                        <div className="flex justify-center pt-5">
                             <button
-                                className="flex items-center justify-center text-3xl text-white font-bold rounded-3xl py-1 px-3 bg-[#13DBB7]"
+                                className="flex text-3xl text-white font-bold rounded-3xl pt-1 px-3 bg-[#13DBB7] hover:bg-[#0F9D84]"
                                 type="submit"
-                                >Cadastrar</button>
+                            >Cadastrar</button>
+                        </div>
+                        <div className="flex justify-center">
+                            <p className="text-xl text-[#DB5413] font-bold">
+                                Ou entre com seu login <a className="text-xl font-bold text-[#983854] hover:text-[#DB5413]" href="/login">aqui</a>
+                            </p>
                         </div>
                     </div>
                 </form>
