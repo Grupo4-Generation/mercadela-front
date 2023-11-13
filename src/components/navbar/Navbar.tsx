@@ -5,12 +5,12 @@ import "./Navbar.css";
 function Navbar() {
     return (
         <>
-            <div className='w-full bg-[#FDD3BE] flex justify-center py-4'>
-
-                <div className="container flex justify-between text-lg font-[league spartan]">
+            <div className='w-full px-6 py-1 bg-[#FDD3BE] flex justify-center'>
+                <div className="w-full flex justify-between text-lg">
+                    
                     <div className="self-center">
                         <a href='/home'>
-                            <img src="src\assets\logo-navbar.png" alt="LogoNav" className='w-40' />
+                            <img src="src\assets\logo-navbar.png" alt="LogoNav" className='w-[15vw] my-1' />
                         </a>
                     </div>
 
@@ -34,9 +34,9 @@ function Navbar() {
                             <ShoppingCart size={32} />
                         </div>
 
-                        <div className="flex self-center flex-col">
+                        <div className="flex justify-items-center flex-col bg-[#FDD3BE]">
                             <a href="/login">
-                                <UserCircle size={32} className="self-center" />
+                                <UserCircle size={32}/>
                                 <p>Entrar</p>
                             </a>
                         </div>
