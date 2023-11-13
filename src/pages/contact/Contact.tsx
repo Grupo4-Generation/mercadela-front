@@ -2,48 +2,65 @@ export function Contact() {
   return (
     <>
       <section className="flex justify-center m-0 pr-5 pl-5">
-        <div className="bg-[#FEEAE0] flex flex-col justify-center items-center m-96 rounded-3xl mt-10 mb-10 p-10 max-w-md">
-          <form className="max-w-[400px] w-full mx-auto">
-            <h1 className="font-sans text-3xl text-[#DB5413] font-bold pb-7 text-center">
-              Contate-nos
-            </h1>
+        <div className="font-fontProjeto bg-[#FEEAE0] flex flex-col justify-center items-center rounded-3xl m-10 p-8">
+          <h1 className="text-3xl text-[#DB5413] font-bold pb-7 text-center">
+            Entre em contato
+          </h1>
+          <form className="flex flex-col space-y-5">
             <div className="flex flex-col">
-              <label className="font-sans text-xl text-[#DB5413] font-bold pb-2 pl-5">
-                Nome
-              </label>
+              <label htmlFor="nomeMensagem" className="text-xl text-[#DB5413] font-bold">
+                Nome</label>
               <input
-                className="p-1 border border-gray-300 rounded-3xl pl-5 italic"
+                type="text"
+                id="nomeMensagem"
+                name="nomeMensagem"
                 placeholder="Digite seu nome"
-                type="text"
+                className="p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-sans text-xl text-[#DB5413] font-bold pb-2 pl-5 pt-5">
-                E-mail
-              </label>
+              <label htmlFor="emailMensagem" className="text-xl text-[#DB5413] font-bold">
+                E-mail</label>
               <input
-                className="p-1 border border-gray-300 rounded-3xl pl-5 italic"
-                placeholder="E-mail"
                 type="email"
+                id="emailMensagem"
+                name="emailMensagem"
+                placeholder="Digite o e-mail"
+                className="p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-sans text-xl text-[#DB5413] font-bold pb-2 pl-5 pt-5">
-                Mensagem
-              </label>
-              <input
-                className="p-1 border border-gray-300 rounded-3xl pl-5 italic"
-                placeholder="Digite sua mensagem"
-                type="text"
+              <label htmlFor="assuntoMensagem" className="text-xl text-[#DB5413] font-bold">
+                Assunto</label>
+              <select
+                id="assuntoMensagem"
+                name="assuntoMensagem"
+                className="h-8 p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
+              >
+                <option selected disabled value="">Selecione</option>
+                <option>Dúvidas</option>
+                <option>Saber mais</option>
+                <option>Outros</option>
+              </select>
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="mensagem" className="text-xl text-[#DB5413] font-bold">
+                Mensagem</label>
+              <textarea
+                id="mensagem"
+                name="mensagem"
+                placeholder="Digite o e-mail"
+                className="p-1 w-[36vw] border border-gray-300 rounded-xl pl-5 italic"
               />
             </div>
-            <div className="flex justify-center pt-5">
-              <button
-                className="text-3xl font-sans text-white font-bold rounded-3xl pt-1 pb-1 pl-4 pr-4 bg-[#13DBB7]"
-                type="submit"
-              >
-                Enviar
-              </button>
+
+            <div className='flex flex-col mt-10 space-y-4'>
+              <div className="flex justify-center">
+                <button
+                  className="flex text-3xl text-white font-bold rounded-3xl pt-1 px-3 bg-[#13DBB7] hover:bg-[#0F9D84]"
+                  type="submit"
+                >Enviar</button>
+              </div>
             </div>
           </form>
         </div>
@@ -51,3 +68,5 @@ export function Contact() {
     </>
   );
 }
+
+export default Contact

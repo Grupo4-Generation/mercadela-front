@@ -1,17 +1,18 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { ArrowCircleDown, ShoppingCart, UserCircle } from "@phosphor-icons/react/dist/ssr";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
         <>
-            <div className='w-full bg-[#FDD3BE] flex justify-center py-4'>
-
-                <div className="container flex justify-between text-lg font-[league spartan]">
+            <div className="w-full px-6 py-1 bg-[#FDD3BE] flex justify-center">
+                <div className="w-full flex justify-between text-lg">
+                    
                     <div className="self-center">
-                        <a href='/home'>
-                            <img src="src\assets\logo-navbar.png" alt="LogoNav" className='w-40' />
-                        </a>
+                        <Link to="/home">
+                            <img src="src\assets\logo-navbar.png" alt="LogoNav" className="w-[15vw] my-1" />
+                        </Link>
                     </div>
 
                     <div className="self-center bg-[#FDBE9F] px-2 py-1 rounded-full">
@@ -19,14 +20,14 @@ function Navbar() {
                             <input id="BarraPesquisa" className="rounded-xl w-[30vw] me-2 flex items-center" placeholder="Digite aqui"></input>
 
                             <button className="bg-[#DB5413] rounded-full text-[#FDD3BE] p-1.5">
-                                <MagnifyingGlass size={20} weight='bold' />
+                                <MagnifyingGlass size={20} weight="bold" />
                             </button>
                         </form>
                     </div>
 
                     <div className="flex gap-4 text-[#DB5413] self-center font-fontProjeto font-bold">
                         <div className="flex self-center items-center">
-                            <a href="/produto">Categorias</a>
+                            <Link to="/produto">Categorias</Link>
                             <ArrowCircleDown size={18} />
                         </div>
 
@@ -34,11 +35,11 @@ function Navbar() {
                             <ShoppingCart size={32} />
                         </div>
 
-                        <div className="flex self-center flex-col">
-                            <a href="/login">
-                                <UserCircle size={32} className="self-center" />
+                        <div className="flex justify-items-center flex-col bg-[#FDD3BE]">
+                            <Link to="/login">
+                                <UserCircle size={32}/>
                                 <p>Entrar</p>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
