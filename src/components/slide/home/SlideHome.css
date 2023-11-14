@@ -1,0 +1,22 @@
+.container .swiper {
+    width: 80vw;
+    height: 30vh;
+    padding: 32px;
+}
+
+.container .swiper-slide{
+    display: flex;
+    justify-content: center;
+}
+
+.container .swiper-pagination-bullet-active{
+    background-color: antiquewhite;
+}
+
+.container .swiper-button-prev {
+    color: #DB5413;
+}
+
+.container .swiper-button-next{
+    color: #DB5413;
+}
