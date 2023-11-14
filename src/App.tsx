@@ -18,8 +18,8 @@ function App() {
             <Navbar />
             <div className="flex-grow flex items-center justify-center my-5">
               <Routes>
-                <Route path="/home" element={<Home />} />
                 <Route path="/" element={<Login />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
                 <Route path="/contact" element={<Contact />} />
