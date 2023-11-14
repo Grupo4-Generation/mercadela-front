@@ -6,11 +6,11 @@ function Footer() {
 
     return (
         <>
-            <div className="bg-[#C24730] flex items-center justify-center px-2 text-[#FDD3BE] font-fontProjeto font-bold">
+            <div className="bg-[#C24730] flex items-center justify-center px-1 text-[#FDD3BE] font-fontProjeto font-bold">
                 
                 <div className="container flex justify-between items-center">
                     <div>
-                        <img src="src\assets\logo-footer.png" alt="LogoFooter" className="min-w-[15px] min-h-[15px] max-w-[150px] max-h-[150px]" />
+                        <img src="src\assets\logo-footer.png" alt="LogoFooter" className="min-w-[5vw] min-h-[5vw] max-w-[12vw] max-h-[12vw]" />
                     </div>
 
                     <div>
