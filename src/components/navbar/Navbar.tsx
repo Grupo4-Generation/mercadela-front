@@ -37,7 +37,7 @@ function Navbar() {
 
                         <div className="flex justify-items-center flex-col bg-[#FDD3BE]">
                             <Link to="/login">
-                                <UserCircle size={32}/>
+                                <UserCircle className="ml-2" size={32}/>
                                 <p>Entrar</p>
                             </Link>
                         </div>

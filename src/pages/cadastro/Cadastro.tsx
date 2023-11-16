@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { RotatingLines } from 'react-loader-spinner'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { cadastrarUsuario } from '../../services/Service'
@@ -11,7 +10,7 @@ function Cadastro() {
 
     const navigate = useNavigate()
 
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [, setIsLoading] = useState<boolean>(false)
     const [confirmaSenha, setConfirmaSenha] = useState<string>("")
 
     const [usuario, setUsuario] = useState<Usuario>({
@@ -39,6 +38,12 @@ function Cadastro() {
     }
 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+        setUsuario({
+            ...usuario,
+            [e.target.name]: e.target.value
+        })
+    }
+    function atualizarEstadoGenero(e: ChangeEvent<HTMLSelectElement>) {
         setUsuario({
             ...usuario,
             [e.target.name]: e.target.value
@@ -113,7 +118,7 @@ function Cadastro() {
                                     name="generoUsuario"
                                     className="h-8 p-1 w-[36vw] border border-gray-300 rounded-3xl pl-5 italic"
                                     value={usuario.generoUsuario}
-                                /*onChange={(e: ChangeEvent<HTMLSelectElement>) => atualizarEstado(e)} Erro, mostrar a Liza*/
+                                onChange={(e: ChangeEvent<HTMLSelectElement>) => atualizarEstadoGenero(e)} 
                                 >
                                     <option selected disabled value="">Selecione</option>
                                     <option>Feminino</option>
