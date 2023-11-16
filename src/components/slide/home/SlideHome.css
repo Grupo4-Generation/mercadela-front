@@ -1,7 +1,15 @@
+.container{
+    margin: 0;
+}
+
 .container .swiper {
     width: 80vw;
     height: 30vh;
-    padding: 32px;
+}
+
+.slide-imagem {
+    width: 100vw;
+    object-fit: cover;
 }
 
 .container .swiper-slide{

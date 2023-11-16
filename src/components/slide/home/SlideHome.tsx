@@ -1,36 +1,36 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import "swiper/css/navigation"
-import "swiper/css/pagination"
-import "swiper/css"
 
-import i1 from "../../../assets/teste/1.jpg"
-import i2 from "../../../assets/teste/2.jpg"
-import i3 from "../../../assets/teste/3.jpg"
-import i4 from "../../../assets/teste/4.jpg"
 import "./SlideHome.css"
 
 function SlideHome() {
-    const slides = [i1, i2, i3, i4];
+    const slides = [
+        { id: "1", image: "src/assets/slide/1.jpg" },
+        { id: "2", image: "src/assets/slide/2.jpg" },
+        { id: "3", image: "src/assets/slide/3.jpg" },
+        { id: "4", image: "src/assets/slide/4.jpg" },
+    ];
 
     return (
         <div className="container">
             <Swiper
                 modules={[Autoplay, Pagination, Navigation]}
+                spaceBetween={50}
+                slidesPerView={1}
+                loop={true}
+                navigation
+                pagination={{ clickable: true }}
                 autoplay={{
                     delay: 4000,
                     disableOnInteraction: false,
                 }}
-                pagination={{
-                    clickable: true,
-                }}
-                navigation={true}
-                loop={true}
+                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={() => console.log('slide change')}
                 className="swiper-home"
             >
                 {slides.map(slide => (
                     <SwiperSlide>
-                        <img src={slide} alt={slide} className="min-w-[90%] min-h-[90%]"/>
+                        <img src={slide.image} alt="Slides" className="slide-imagem" />
                     </SwiperSlide>
                 ))}
             </Swiper>
