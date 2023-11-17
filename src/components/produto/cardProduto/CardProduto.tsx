@@ -7,7 +7,7 @@ interface ProductCardProps {
 }
 
 const CardProduto: React.FC<ProductCardProps> = ({ nomeProduto, precoProduto, fotoProduto }) => {
-  return (
+  return (<>
     <div className="max-w-xs rounded-lg p-3 shadow duration-150 hover:shadow-md">
       <img className="w-full rounded-lg object-cover object-center bg-gray-100" src={fotoProduto} alt="product" />
       <div>
@@ -22,7 +22,7 @@ const CardProduto: React.FC<ProductCardProps> = ({ nomeProduto, precoProduto, fo
         </div>
       </div>
     </div>
-  );
+  </>);
 }
 
 export default CardProduto;
