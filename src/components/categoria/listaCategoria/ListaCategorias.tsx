@@ -64,7 +64,7 @@ function ListaCategorias() {
                 <div className='col-span-3 flex justify-between items-center'>
                     <div className='px-4 py-2 text-2xl text-white bg-[white] hover:bg-[#0F9D84]'></div>
                     
-                    <h1 className='text-center text-5xl text-[#DB5413] font-bold'>Categorias</h1>
+                    <h1 className='text-center text-6xl text-[#DB5413] font-bold'>Categorias</h1>
 
                     <Popup
                         trigger={
