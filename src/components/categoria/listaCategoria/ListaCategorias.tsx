@@ -3,10 +3,15 @@ import { Dna } from 'react-loader-spinner';
 
 import { buscar } from '../../../services/Service';
 import { AuthContext } from '../../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 import Categoria from '../../../models/Categoria';
 import CardCategoria from '../cardCategoria/CardCategorias';
-import { useNavigate } from 'react-router-dom';
+
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
+import FormularioCategoria from '../formularioCategoria/FormularioCategoria';
 
 function ListaCategorias() {
 
@@ -54,18 +59,30 @@ function ListaCategorias() {
                 />
             )}
 
-            <div className="flex justify-center w-full my-4">
-                <div className="container flex flex-col">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="container z-0 w-[80vw] h-[100vh] px-[1vw] mx-auto my-0 grid grid-cols-3 gap-4">
 
-                        {categoria.map((categoria) => (
-                            <>
-                                <CardCategoria key={categoria.id} categoria={categoria} />
-                            </>
-                        ))}
+                <div className='col-span-3'>
+                    <h1 className='text-center text-3xl text-violet-950 font-bold'>Categorias</h1>
 
-                    </div>
+                    <Popup
+                        trigger={
+                            <button
+                                className='border rounded px-4 py-2 hover:bg-white hover:text-indigo-800'>
+                                Nova Categoria
+                            </button>
+                        }
+                        modal
+                    >
+                        <FormularioCategoria />
+                    </Popup>
                 </div>
+
+                {categoria.map((categoria) => (
+                    <>
+                        <CardCategoria key={categoria.id} categoria={categoria} />
+                    </>
+                ))}
+
             </div>
         </>
     )

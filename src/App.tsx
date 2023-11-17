@@ -9,7 +9,9 @@ import Cadastro from "./pages/cadastro/Cadastro";
 import Contact from "./pages/contact/Contact";
 import Produto from "./pages/produto/Produto";
 import Sobre from "./pages/sobre/Sobre";
-import ListaCategorias from "./components/categoria/listaCadastro/ListaCategorias";
+import ListaCategorias from "./components/categoria/listaCategoria/ListaCategorias";
+import FormularioCategoria from "./components/categoria/formularioCategoria/FormularioCategoria";
+import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
 
 
 function App() {
@@ -29,6 +31,9 @@ function App() {
                 <Route path="/produto" element={<Produto />} />
                 <Route path="/sobre" element={<Sobre />} />
                 <Route path="/categoria" element={<ListaCategorias />} />
+                <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
+                <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
+                <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
               </Routes>
             </div>
             <Footer />
