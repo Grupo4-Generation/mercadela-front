@@ -9,7 +9,7 @@ function Navbar() {
         <>
             <div className="w-full px-6 py-1 bg-[#FDD3BE] flex justify-center">
                 <div className="w-full flex justify-between text-lg">
-                    
+
                     <div className="self-center">
                         <Link to="/home">
                             <img src="src\assets\logo-navbar.png" alt="LogoNav" className="min-w-[15vw] w-[15vw] my-1" />
@@ -38,7 +38,7 @@ function Navbar() {
 
                         <div className="flex justify-items-center flex-col bg-[#FDD3BE]">
                             <Link to="/login">
-                                <UserCircle className="ml-2" size={32}/>
+                                <UserCircle className="ml-2" size={32} />
                                 <p>Entrar</p>
                             </Link>
                         </div>

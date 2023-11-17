@@ -13,7 +13,6 @@ import ListaCategorias from "./components/categoria/listaCategoria/ListaCategori
 import FormularioCategoria from "./components/categoria/formularioCategoria/FormularioCategoria";
 import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
 
-
 function App() {
   return (
     <>
@@ -21,7 +20,7 @@ function App() {
         <AuthProvider>
           <BrowserRouter>
             <Navbar />
-            <div className="flex-grow flex items-center justify-center my-5">
+            <div className="flex flex-grow items-center justify-center my-4">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />

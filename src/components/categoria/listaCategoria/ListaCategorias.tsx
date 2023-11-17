@@ -59,16 +59,18 @@ function ListaCategorias() {
                 />
             )}
 
-            <div className="container z-0 w-[80vw] h-[100vh] px-[1vw] mx-auto my-0 grid grid-cols-3 gap-4">
+            <div className="font-fontProjeto font-bold container z-0 w-[80vw] h-[100vh] px-[1vw] mx-auto my-0 grid grid-cols-3 gap-4">
 
-                <div className='col-span-3'>
-                    <h1 className='text-center text-3xl text-violet-950 font-bold'>Categorias</h1>
+                <div className='col-span-3 flex justify-between items-center'>
+                    <div className='px-4 py-2 text-2xl text-white bg-[white] hover:bg-[#0F9D84]'></div>
+                    
+                    <h1 className='text-center text-5xl text-[#DB5413] font-bold'>Categorias</h1>
 
                     <Popup
                         trigger={
                             <button
-                                className='border rounded px-4 py-2 hover:bg-white hover:text-indigo-800'>
-                                Nova Categoria
+                                className='flex justify-items-end border rounded-[35px] px-4 py-2 text-2xl text-white bg-[#13DBB7] hover:bg-[#0F9D84]'>
+                                + criar
                             </button>
                         }
                         modal
