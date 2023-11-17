@@ -36,7 +36,7 @@ function Navbar() {
                             <ShoppingCart size={32} />
                         </div>
 
-                        <div className="flex justify-items-center flex-col bg-[#FDD3BE]">
+                        <div className="flex justify-items-center flex-col">
                             <Link to="/login">
                                 <UserCircle className="ml-2" size={32} />
                                 <p>Entrar</p>
