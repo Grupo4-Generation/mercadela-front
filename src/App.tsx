@@ -1,13 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
-import Contact from "./pages/contato/Contato";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Produto from "./pages/produto/Produto";
 import Home from "./pages/home/Home";
 import Sobre from "./pages/sobre/Sobre";
 import { AuthProvider } from "./contexts/AuthContext";
 import Login from "./pages/Login/Login";
+import Contato from "./pages/contato/Contato";
+import EditarProduto from "./components/produto/editarProduto/EditarProduto";
 
 function App() {
   return (
@@ -22,9 +23,11 @@ function App() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
-                <Route path="/contact" element={<Contact />} />
+                <Route path="/contact" element={<Contato />} />
                 <Route path="/produto" element={<Produto />} />
                 <Route path="/sobre" element={<Sobre />} />
+                <Route path="/cadastroProduto" element={<EditarProduto />} />
+                <Route path="/editarProduto/:id" element={<EditarProduto />} />
               </Routes>
             </div>
             <Footer />

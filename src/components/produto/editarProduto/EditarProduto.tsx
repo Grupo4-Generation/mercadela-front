@@ -5,7 +5,7 @@ import Categoria from '../../../models/Categoria';
 import Produto from '../../../models/Produto';
 import { buscar, atualizar, cadastrar } from '../../../services/Service';
 
-function CriarProduto() {
+function EditarProduto() {
     let navigate = useNavigate();
 
     const { id } = useParams<{ id: string }>();
@@ -69,16 +69,18 @@ function CriarProduto() {
     }, [id]);
 
     useEffect(() => {
-        setProduto((produto) => ({
-            ...produto,
+        setProduto((prevProduto) => ({
+            ...prevProduto,
             idCategoria: categoria,
         }));
     }, [categoria]);
 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+        const { name, value } = e.target;
+
         setProduto((prevProduto) => ({
             ...prevProduto,
-            [e.target.name]: e.target.value,
+            [name]: value,
         }));
     }
 
@@ -93,6 +95,7 @@ function CriarProduto() {
 
         if (id !== undefined) {
             try {
+                console.log({ produto });
                 await atualizar(`/produto/${id}`, produto, setProduto, {
                     headers: {
                         Authorization: token,
@@ -161,6 +164,30 @@ function CriarProduto() {
                     />
                 </div>
                 <div className="flex flex-col gap-2">
+                    <label htmlFor="precoProduto">Preço Do Produto</label>
+                    <input
+                        value={produto.precoProduto}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        type="number"
+                        placeholder="Preço do Produto"
+                        name="precoProduto"
+                        required
+                        className="border-2 border-slate-700 rounded p-2"
+                    />
+                </div>
+                <div className="flex flex-col gap-2">
+                    <label htmlFor="fotoProduto">Foto do Produto</label>
+                    <input
+                        value={produto.fotoProduto}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        type="url"
+                        placeholder="Foto do Produto"
+                        name="fotoProduto"
+                        required
+                        className="border-2 border-slate-700 rounded p-2"
+                    />
+                </div>
+                <div className="flex flex-col gap-2">
                     <label htmlFor="idCategoria">Categoria do Produto</label>
                     <select
                         name="idCategoria"
@@ -170,7 +197,7 @@ function CriarProduto() {
                     >
                         <option value="" selected disabled>Selecione uma categoria</option>
                         {categorias.map((categoria) => (
-                            <option key={categoria.id} value={categoria.id} >{categoria.descricaoCategoria}</option>
+                            <option key={categoria.id} value={categoria.id} >{categoria.nomeCategoria}</option>
                         ))}
                     </select>
                 </div>
@@ -186,4 +213,4 @@ function CriarProduto() {
     );
 }
 
-export default CriarProduto;
+export default EditarProduto;
