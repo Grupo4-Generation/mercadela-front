@@ -3,11 +3,13 @@
 }
 
 #dropCat button {
-    background-color: white;
-    color: aquamarine;
     padding: 5px 8px;
     border: none;
     cursor: pointer;
+}
+
+#dropCat .dropIcon{
+    color:blueviolet;
 }
 
 #dropCat a {
@@ -29,10 +31,6 @@
     display: block;
 }
 
-#dropCat:hover button{
-    background-color: hsla(0, 0%, 70%);
-}
-
 #dropCat a:hover{
-    background-color: hsla(0, 0%, 90%);
+    background-color:blueviolet;
 }
