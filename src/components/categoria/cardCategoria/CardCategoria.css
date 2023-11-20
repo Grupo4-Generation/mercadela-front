@@ -1,0 +1,36 @@
+#dropCat {
+    display: inline-block;
+}
+
+#dropCat button {
+    padding: 5px 8px;
+    border: none;
+    cursor: pointer;
+}
+
+#dropCat .dropIcon{
+    color:blueviolet;
+}
+
+#dropCat a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 5px 8px;
+}
+
+#dropCat .dropFilha {
+    display: none;
+    position: absolute;
+    background-color: antiquewhite;
+    min-width: 100px;
+    box-shadow: 2px 2px 2px hsls(0%, 0%, 0%, 0.8);
+}
+
+#dropCat:hover .dropFilha{
+    display: block;
+}
+
+#dropCat a:hover{
+    background-color:blueviolet;
+}

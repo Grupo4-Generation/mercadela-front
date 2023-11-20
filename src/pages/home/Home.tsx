@@ -22,6 +22,7 @@ function Home() {
         </div>
         <div className="flex space-x-3 items-center justify-between">
           <ListagemProduto />
+
         </div>
       </div >
     </>
