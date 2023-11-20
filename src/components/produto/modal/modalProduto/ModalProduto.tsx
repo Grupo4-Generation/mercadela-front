@@ -1,6 +1,6 @@
-import EditarProduto from '../editarProduto/EditarProduto';
+import EditarProduto from '../../editarProduto/EditarProduto';
 import 'reactjs-popup/dist/index.css';
-import './modalPostagem.css';
+import '../modals.css';
 import Popup from 'reactjs-popup';
 
 function ModalProduto(){

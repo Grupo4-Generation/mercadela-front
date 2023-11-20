@@ -85,7 +85,7 @@ function EditarProduto() {
     }
 
     function retornar() {
-        navigate('/produto');
+        navigate('/');
     }
 
     async function gerarNovaPostagem(e: ChangeEvent<HTMLFormElement>) {
@@ -96,7 +96,7 @@ function EditarProduto() {
         if (id !== undefined) {
             try {
                 console.log({ produto });
-                await atualizar(`/produto/${id}`, produto, setProduto, {
+                await atualizar(`/produto`, produto, setProduto, {
                     headers: {
                         Authorization: token,
                     },
@@ -135,7 +135,7 @@ function EditarProduto() {
     const carregandoCategoria = categoria.nomeCategoria === '';
 
     return (
-        <div className="container flex flex-col mx-auto items-center">
+        <div className="container flex flex-col overflow-y-auto h-64 mx-auto items-center">
             <h1 className="text-4xl text-center my-8">{id !== undefined ? 'Editar Produto' : 'Cadastrar Produto'}</h1>
 
             <form onSubmit={gerarNovaPostagem} className="flex flex-col w-1/2 gap-4">
@@ -188,19 +188,21 @@ function EditarProduto() {
                     />
                 </div>
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="idCategoria">Categoria do Produto</label>
-                    <select
-                        name="idCategoria"
-                        id="idCategoria"
-                        className='border p-2 border-slate-800 rounded'
-                        onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
-                    >
-                        <option value="" selected disabled>Selecione uma categoria</option>
-                        {categorias.map((categoria) => (
-                            <option key={categoria.id} value={categoria.id} >{categoria.nomeCategoria}</option>
-                        ))}
-                    </select>
-                </div>
+  <label htmlFor="idCategoria">Categoria do Produto</label>
+  <select
+   name="idCategoria"
+   id="idCategoria"
+   className='border p-2 border-slate-800 rounded'
+   onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
+   value={produto.idCategoria?.id || ''} // Use value para definir o valor inicial
+ >
+   <option value="" disabled>Selecione uma categoria</option>
+   {categorias.map((categoria) => (
+     <option key={categoria.id} value={categoria.id}>{categoria.nomeCategoria}</option>
+   ))}
+  </select>
+</div>
+
                 <button
                     disabled={carregandoCategoria}
                     type='submit'
