@@ -32,7 +32,7 @@ export function Login() {
   }
 
   return (
-    <div className="flex-grow bg-[#FEEAE0] font-fontProjeto max-w-sm align-middle rounded-3xl p-10 ">
+    <div className="flex-grow bg-[#FEEAE0] font-fontProjeto max-w-sm align-middle rounded-3xl p-10">
       <form className="font-fontProjeto max-w-[400px] w-full mx-auto" onSubmit={login}>
 
         <div className="flex justify-center p-6">
@@ -95,7 +95,6 @@ export function Login() {
             Ou cadastre-se <Link to='/cadastro' className="text-[#983854] hover:text-[#DB5413]">
               aqui
             </Link>
-            !
           </p>
         </div>
 

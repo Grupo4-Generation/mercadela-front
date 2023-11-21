@@ -4,6 +4,7 @@ import Categoria from '../../../models/Categoria'
 
 import "./CardCategoria.css"
 import { Link } from 'react-router-dom';
+import ModalDelete from '../modal/ModalDelete';
 
 
 interface CardCategoriaProps {
@@ -24,9 +25,11 @@ function CardCategorias({ categoria }: CardCategoriaProps) {
                         <button className='editar'>Editar</button>
                     </Link>
 
-                    <Link to={`/deletarCategoria/${categoria.id}`}>
+                    {/* <Link to={`/deletarCategoria/${categoria.id}`}>
                         <button className='deletar'>Deletar</button>
-                    </Link>
+                    </Link> */}
+
+                    <ModalDelete id={categoria.id}/>
                 </div>
             </div>
         </div>

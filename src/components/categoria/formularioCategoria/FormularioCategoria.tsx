@@ -7,6 +7,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 
 import Categoria from "../../../models/Categoria";
 
+
 function FormularioCategoria() {
 
     const navigate = useNavigate();
@@ -106,37 +107,36 @@ function FormularioCategoria() {
     }
 
     return (
-        <div className="container flex flex-col items-center justify-center mx-auto">
-            <h1 className="text-4xl text-center my-8">
+        <div className="bg-[#FEEAE0] rounded-3xl pt-4 pb-8 font-fontProjeto w-[40vw] flex flex-col items-center justify-center">
+            <h1 className="text-4xl font-bold text-[#DB5413] text-center my-4">
                 {id === undefined ? 'Cadastrar Categoria' : 'Editar Categoria'}
             </h1>
 
             <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="nomeCategoria">Nome da Categoria</label>
+                    <label htmlFor="nomeCategoria" className="text-[#DB5413] font-bold">Nome da Categoria</label>
                     <input
                         type="text"
                         name='nomeCategoria'
                         placeholder="Digite o nome da categoria"
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="p-1 border border-gray-300 rounded-2xl px-3"
                         value={categoria.nomeCategoria}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="descricaoCategoria">Descrição:</label>
+                <div className="flex flex-col gap-2 pb-4">
+                    <label htmlFor="descricaoCategoria" className ="text-[#DB5413] font-bold">Descrição da categoria</label>
                     <input
                         type="text"
                         name='descricaoCategoria'
                         placeholder="Digite o nome da categoria"
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="p-1 border border-gray-300 rounded-2xl px-3"
                         value={categoria.descricaoCategoria}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <button
-                    className="rounded text-slate-100 bg-indigo-400 
-                    hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center" type="submit">
+                    className="w-[10vw] self-center text-2xl text-white font-bold rounded-3xl pt-[5px] bg-[#13DBB7] hover:bg-[#0F9D84]" type="submit">
 
                     {isLoading ?
                         <RotatingLines

@@ -7,12 +7,12 @@ import "./Navbar.css";
 function Navbar() {
     return (
         <>
-            <div className="w-full px-6 py-1 bg-[#FDD3BE] flex justify-center">
+            <div className="w-full h-[12vh] px-6 py-1 bg-[#FDD3BE] flex justify-center">
                 <div className="w-full flex justify-between text-lg">
 
                     <div className="self-center">
                         <Link to="/home">
-                            <img src="src\assets\logo-navbar.png" alt="LogoNav" className="min-w-[15vw] w-[15vw] my-1" />
+                            <img src="src\assets\logo-navbar.png" alt="LogoNav" className="min-w-[10vw] w-[10vw] my-1" />
                         </Link>
                     </div>
 

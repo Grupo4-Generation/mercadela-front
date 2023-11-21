@@ -9,7 +9,7 @@ import Cadastro from "./pages/cadastro/Cadastro";
 import Contact from "./pages/contact/Contact";
 import Produto from "./pages/produto/Produto";
 import Sobre from "./pages/sobre/Sobre";
-import ListaCategorias from "./components/categoria/listaCategoria/ListaCategorias";
+import ListaCategorias from "./components/categoria/listaCategoria/ListaCategoria";
 import FormularioCategoria from "./components/categoria/formularioCategoria/FormularioCategoria";
 import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
 
