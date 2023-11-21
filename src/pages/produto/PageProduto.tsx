@@ -58,7 +58,7 @@ function PageProduto() {
             alert('Quantidade mínima atingida!');
         }
     }
-    let precoFormatado = (produto.precoProduto / 100).toLocaleString('pt-BR', {
+    let precoFormatado = produto.precoProduto.toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL',
       });
