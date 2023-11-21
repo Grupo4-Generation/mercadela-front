@@ -23,7 +23,7 @@ function App() {
             <Navbar />
             <div className="flex flex-grow items-center justify-center my-4">
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Login />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />

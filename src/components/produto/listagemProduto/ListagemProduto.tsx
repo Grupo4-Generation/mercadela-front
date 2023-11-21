@@ -1,6 +1,5 @@
 import  { useContext, useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { buscar } from '../../../services/Service';
 import Produto from '../../../models/Produto';
@@ -10,17 +9,8 @@ import CardProduto from '../cardProduto/CardProduto';
 function Listaprodutos() {
   const [produtos, setprodutos] = useState<Produto[]>([]);
 
-  let navigate = useNavigate();
-
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
-
-  useEffect(() => {
-    if (token === '') {
-      alert('Você precisa estar logado');
-      navigate('/');
-    }
-  }, [token]);
 
   async function buscarprodutos() {
     try {
