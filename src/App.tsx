@@ -1,16 +1,18 @@
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import FormularioCategoria from "./components/categoria/formularioCategoria/FormularioCategoria";
-import ListaCategorias from "./components/categoria/listaCategoria/ListaCategoria";
-import Footer from "./components/footer/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
-import Login from "./pages/Login/Login";
-import Cadastro from "./pages/cadastro/Cadastro";
-import Contact from "./pages/contact/Contact";
+
 import Home from "./pages/home/Home";
-import Produto from "./pages/produto/Produto";
-import Sobre from "./pages/sobre/Sobre";
 import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+import Cadastro from "./pages/cadastro/Cadastro";
+import Sobre from "./pages/sobre/Sobre";
+import Login from "./pages/Login/Login";
+import Contato from "./pages/contato/Contato";
+import EditarProduto from "./components/produto/editarProduto/EditarProduto";
+import PageProduto from "./pages/produto/PageProduto";
+import ListaCategorias from "./components/categoria/listaCategoria/ListaCategorias";
+import FormularioCategoria from "./components/categoria/formularioCategoria/FormularioCategoria";
+import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
 
 function App() {
   return (
@@ -21,16 +23,19 @@ function App() {
             <Navbar />
             <div className="flex flex-grow items-center justify-center my-4">
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Login />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/produto/:id" element={<Produto />} />
+                <Route path="/contact" element={<Contato />} />
+                <Route path="/produto/:id" element={<PageProduto />} />
                 <Route path="/sobre" element={<Sobre />} />
+                <Route path="/cadastroProduto" element={<EditarProduto />} />
+                <Route path="/editarProduto/:id" element={<EditarProduto />} />
                 <Route path="/categoria" element={<ListaCategorias />} />
                 <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
                 <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
+                {/* <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} /> */}
               </Routes>
             </div>
             <Footer />
