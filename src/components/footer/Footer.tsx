@@ -14,7 +14,7 @@ function Footer() {
                     </div>
 
                     <div>
-                        <p>Copyright: {data}</p>
+                        <p>MercaDela | Copyright: {data}</p>
                         <div className="flex justify-evenly">
                             <a href="/contact"><Envelope size={30} /></a>
                             <InstagramLogo size={30} />

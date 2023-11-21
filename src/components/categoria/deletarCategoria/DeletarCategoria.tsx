@@ -7,19 +7,23 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
 import { RotatingLines } from "react-loader-spinner";
 
-function DeletarCategoria() {
+interface DeleteProps {
+    id: number
+}
+
+function DeletarCategoria({id} : DeleteProps) {
 
     const navigate = useNavigate()
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [categoria, setCategoria] = useState<Categoria>({} as Categoria)
 
-    const { id } = useParams<{ id: string }>()
+    // const { id } = useParams<{ id: string }>()
 
     const { usuario, handleLogout } = useContext(AuthContext)
     const token = usuario.token
 
-    async function buscarPorId(id: string) {
+    async function buscarPorId() {
         try {
             await buscar(`/categoria/${id}`, setCategoria, {
                 headers: {
@@ -43,7 +47,7 @@ function DeletarCategoria() {
 
     useEffect(() => {
         if (id !== undefined) {
-            buscarPorId(id)
+            buscarPorId()
         }
     }, [id])
 
@@ -72,30 +76,27 @@ function DeletarCategoria() {
     }
 
     return (
-        <div className='container w-1/3 mx-auto'>
-            <h1 className='text-4xl text-center my-4'>Deletar Categoria</h1>
+        <div className='font-fontProjeto p-4 container w-[60vw] mx-auto bg-[#FEEAE0] rounded-3xl'>
+            <h1 className='font-bold text-4xl text-center my-4 text-[red]'>Deletar Categoria</h1>
 
-            <p className='text-center font-semibold mb-4'>
-                Você tem certeza de que deseja apagar a categoria a seguir?
+            <p className='text-center font-semibold mb-4 text-[red]'>
+                Você tem certeza de que deseja <br></br>apagar a categoria a seguir?
             </p>
 
-            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-                <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
-                    Categoria
-                </header>
-                <p className='p-8 text-3xl bg-slate-200 h-full'>{categoria.nomeCategoria}</p>
+            <div className='text-center flex flex-col overflow-hidden justify-between'>
+                <p className='p-8 text-3xl h-full text-[#DB5413] font-bold'>{categoria.nomeCategoria}</p>
 
-                <div className="flex">
+                <div className="flex space-x-[10vw] self-center">
 
-                    <button
-                        className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'
+                    {/* <button
+                        className='font-bold text-slate-100 bg-[red] hover:bg-[#8D0101] py-2 px-5 rounded-3xl'
                         onClick={retornar}>
-                        Não
-                    </button>
+                            Não
+                    </button> */}
 
                     <button
-                        className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 
-                            flex items-center justify-center'
+                        className='font-bold text-slate-100 bg-[#13DBB7] hover:bg-[#0F9D84] 
+                            flex items-center justify-center px-5 rounded-3xl'
                         onClick={deletarCategoria}>
 
                         {isLoading ?
@@ -109,7 +110,6 @@ function DeletarCategoria() {
                             <span>Sim</span>
                         }
                     </button>
-
                 </div>
             </div>
         </div>

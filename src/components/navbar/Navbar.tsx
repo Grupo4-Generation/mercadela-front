@@ -7,12 +7,12 @@ import "./Navbar.css";
 function Navbar() {
     return (
         <>
-            <div className="w-full px-6 py-1 bg-[#FDD3BE] flex justify-center">
+            <div className="w-full h-[12vh] px-6 py-1 bg-[#FDD3BE] flex justify-center">
                 <div className="w-full flex justify-between text-lg">
 
                     <div className="self-center">
                         <Link to="/home">
-                            <img src="src\assets\logo-navbar.png" alt="LogoNav" className="min-w-[15vw] w-[15vw] my-1" />
+                            <img src="src\assets\logo-navbar.png" alt="LogoNav" className="min-w-[12vw] w-[12vw] my-1" />
                         </Link>
                     </div>
 
@@ -27,9 +27,9 @@ function Navbar() {
                     </div>
 
                     <div className="flex gap-4 text-[#DB5413] self-center font-fontProjeto font-bold">
-                        <div className="flex self-center items-center">
+                        <div className="flex self-center items-center text-xl">
                             <Link to="/categoria">Categorias</Link>
-                            <ArrowCircleDown size={18} />
+                            <ArrowCircleDown size={18} weight="bold" />
                         </div>
 
                         <div className="flex self-center">
