@@ -1,6 +1,5 @@
-import CardProduto from "../../components/cardProduto/CardProduto";
+import CardProduto from "../../components/produto/cardProduto/CardProduto";
 import SlideHome from "../../components/slide/home/SlideHome";
-import SlideProdutos from "../../components/slide/produtos/SlideProdutos";
 
 function Home() {
 
