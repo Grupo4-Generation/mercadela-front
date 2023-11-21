@@ -1,8 +1,21 @@
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ListagemProduto from "../../components/produto/listagemProduto/ListagemProduto";
 import ModalCriarProduto from "../../components/produto/modal/modalCriarProduto/ModalCriarProduto";
 import SlideHome from "../../components/slide/home/SlideHome";
+import { AuthContext } from "../../contexts/AuthContext";
 
 function Home() {
+  const { usuario } = useContext(AuthContext)
+
+  const token = usuario.token
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (token === '') {
+        alert('Você precisa estar logado')
+        navigate('/login')
+    }
+}, [token])
 
   return (
     <>
