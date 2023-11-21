@@ -9,25 +9,22 @@ function Sobre() {
                         <h1 className="font-fontProjeto text-3xl text-[#DB5413] font-bold pb-7 text-center">
                             Sobre nós
                         </h1>
-                        <div className="text-justify">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis aspernatur tenetur maxime molestiae doloribus! Vero eos autem vel asperiores, ratione voluptas earum esse debitis minima veritatis? Facere suscipit aliquid tempora?</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ullam officia laborum nostrum dicta cumque dolores soluta rerum? Deleniti iste qui odio perspiciatis animi asperiores! Ratione, similique. Corporis, est tempore!</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil cupiditate nam voluptates incidunt ullam, magnam explicabo quisquam perspiciatis doloribus quos odio totam nemo eius facilis nisi facere sapiente iusto eaque!</p>
-                        </div>
-                        <div className="text-justify">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis aspernatur tenetur maxime molestiae doloribus! Vero eos autem vel asperiores, ratione voluptas earum esse debitis minima veritatis? Facere suscipit aliquid tempora?</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ullam officia laborum nostrum dicta cumque dolores soluta rerum? Deleniti iste qui odio perspiciatis animi asperiores! Ratione, similique. Corporis, est tempore!</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil cupiditate nam voluptates incidunt ullam, magnam explicabo quisquam perspiciatis doloribus quos odio totam nemo eius facilis nisi facere sapiente iusto eaque!</p>
-                        </div>
-                        <div className="text-justify">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis aspernatur tenetur maxime molestiae doloribus! Vero eos autem vel asperiores, ratione voluptas earum esse debitis minima veritatis? Facere suscipit aliquid tempora?</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ullam officia laborum nostrum dicta cumque dolores soluta rerum? Deleniti iste qui odio perspiciatis animi asperiores! Ratione, similique. Corporis, est tempore!</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil cupiditate nam voluptates incidunt ullam, magnam explicabo quisquam perspiciatis doloribus quos odio totam nemo eius facilis nisi facere sapiente iusto eaque!</p>
-                        </div>
-                        <div className="text-justify">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis aspernatur tenetur maxime molestiae doloribus! Vero eos autem vel asperiores, ratione voluptas earum esse debitis minima veritatis? Facere suscipit aliquid tempora?</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ullam officia laborum nostrum dicta cumque dolores soluta rerum? Deleniti iste qui odio perspiciatis animi asperiores! Ratione, similique. Corporis, est tempore!</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil cupiditate nam voluptates incidunt ullam, magnam explicabo quisquam perspiciatis doloribus quos odio totam nemo eius facilis nisi facere sapiente iusto eaque!</p>
+                        <div className="text-justify text-2xl">
+                            <p>
+                                Nossa equipe é proveniente da turma 67 do bootcamp da Generation Brasil de desenvolvedores full stack em Java (Jr), estamos dedicadas ao desenvolvimento do MercaDela, um inovador comércio eletrônico baseado na estrutura de marketplace. Nosso principal propósito é ampliar a presença social e econômica das mulheres no cenário do empreendedorismo brasileiro.
+                            </p>
+                            <br />
+                            <p>
+                                O MercaDela não é apenas um comércio eletrônico, é um projeto que busca gerar impacto social positivo. Além de impulsionar empresas lideradas por mulheres e vendedoras independentes, destinamos uma parte dos lucros do e-commerce para a realização de trabalhos sociais. O nome "MercaDela" é uma fusão das palavras "Mercado" e "Ela/Dela". Inspirado na Calêndula, conhecida como "La flor de Mercadela" em espanhol, escolhemos a pétala como símbolo do nosso logotipo.
+                            </p>
+                            <br />
+                            <p>
+                                Nosso marketplace se destaca por um algoritmo que seleciona produtos de novas vendedoras ou em alta, colocando-os em evidência para impulsionar suas vendas. Embora qualquer usuário possa adquirir produtos no site, a adesão como vendedora requer uma verificação prévia. Além disso, a cada <b>[A DEFINIR]</b> de lucro, destinamos uma parcela dos recursos para doação a ONGs que se dedicam exclusivamente a causas sociais apoiando mulheres e meninas.
+                            </p>
+                            <br />
+                            <p>
+                                Desde a concepção do projeto, nossa equipe tem como valor fundamental a promoção da diversidade e inclusão. Alinhamos nossos objetivos com a ODS 5 da ONU, que trata da igualdade de gênero. Acreditamos que ao incentivar a participação feminina na economia e no empreendedorismo, estamos contribuindo para uma sociedade onde as mulheres têm independência financeira para participar ativamente na economia do país.
+                            </p>
                         </div>
                     </div>
                     <div className="space-y-4">
@@ -35,37 +32,37 @@ function Sobre() {
                         <div className="flex space-x-5">
                             <div className="bg-gradient-to-r from-[#DB5413] via-[#C24730] to-[#983853] p-6 rounded-3xl text-[white]">
                                 <div className="flex items-center flex-col text-center">
-                                    <img src="src\assets\hlw.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 border-[#FEEAE0]" />
+                                    <img src="https://cdn.discordapp.com/attachments/1050597957352833117/1176528914655490068/20230409_163831.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 border-[#FEEAE0] object-cover" />
 
-                                    <h2 className="font-fontProjeto text-2xl pt-2">Amora</h2>
+                                    <h2 className="font-fontProjeto text-2xl pt-2">Amanda Gomes</h2>
                                 </div>
                                 <div className="flex justify-center p-1">
-                                    <GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
-                                    <LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
+                                    <a href="https://github.com/Lwppytta" target="_blank"><GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
+                                    <a href="https://www.linkedin.com/in/amanda-leticia-gomes-677101160/" target="_blank"><LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
                                 </div>
                             </div>
 
                             <div className="bg-gradient-to-r from-[#DB5413] via-[#C24730] to-[#983853] p-6 rounded-3xl text-[white]">
                                 <div className="flex items-center flex-col text-center">
-                                    <img src="src\assets\hlw.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 border-[#FEEAE0]" />
+                                    <img src="https://cdn.discordapp.com/attachments/1139577278892875784/1176499788393496627/image.png" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 object-cover border-[#FEEAE0]" />
 
-                                    <h2 className="font-fontProjeto text-2xl pt-2">Amora</h2>
+                                    <h2 className="font-fontProjeto text-2xl pt-2">Flávio Farias</h2>
                                 </div>
                                 <div className="flex justify-center p-1">
-                                    <GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
-                                    <LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
+                                    <a href="https://github.com/oFurabio" target="_blank"><GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
+                                    <a href="https://www.linkedin.com/in/flaviosfarias/" target="_blank"><LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
                                 </div>
                             </div>
 
                             <div className="bg-gradient-to-r from-[#DB5413] via-[#C24730] to-[#983853] p-6 rounded-3xl text-[white]">
                                 <div className="flex items-center flex-col text-center">
-                                    <img src="src\assets\hlw.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 border-[#FEEAE0]" />
+                                    <img src="https://cdn.discordapp.com/attachments/1139577278892875784/1176502380246876220/testte-foto.png" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 object-cover border-[#FEEAE0]" />
 
-                                    <h2 className="font-fontProjeto text-2xl pt-2">Amora</h2>
+                                    <h2 className="font-fontProjeto text-2xl pt-2">Julia Domingues</h2>
                                 </div>
                                 <div className="flex justify-center p-1">
-                                    <GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
-                                    <LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
+                                    <a href="https://github.com/julooch" target="_blank"><GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
+                                    <a href="https://www.linkedin.com/in/juliadom/" target="_blank"><LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
                                 </div>
                             </div>
                         </div>
@@ -73,37 +70,38 @@ function Sobre() {
                         <div className="flex space-x-5">
                             <div className="bg-gradient-to-r from-[#DB5413] via-[#C24730] to-[#983853] p-6 rounded-3xl text-[white]">
                                 <div className="flex items-center flex-col text-center">
-                                    <img src="src\assets\hlw.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 border-[#FEEAE0]" />
+                                    <img src="https://cdn.discordapp.com/attachments/1139577278892875784/1176505671009718292/image.png" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 object-cover border-[#FEEAE0]" />
 
-                                    <h2 className="font-fontProjeto text-2xl pt-2">Amora</h2>
+                                    <h2 className="font-fontProjeto text-2xl pt-2">Larissa Dias</h2>
                                 </div>
                                 <div className="flex justify-center p-1">
-                                    <GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
-                                    <LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
+                                    <a href="https://github.com/LarissaDiasDS" target="_blank"><GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
+                                    <a href="https://www.linkedin.com/in/larissadias-santos/" target="_blank">
+                                        <LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
                                 </div>
                             </div>
 
                             <div className="bg-gradient-to-r from-[#DB5413] via-[#C24730] to-[#983853] p-6 rounded-3xl text-[white]">
                                 <div className="flex items-center flex-col text-center">
-                                    <img src="src\assets\hlw.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 border-[#FEEAE0]" />
+                                    <img src="https://cdn.discordapp.com/attachments/1139577278892875784/1176500483318358077/image.png" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 object-cover border-[#FEEAE0]" />
 
-                                    <h2 className="font-fontProjeto text-2xl pt-2">Amora</h2>
+                                    <h2 className="font-fontProjeto text-2xl pt-2">Marcos Dantas</h2>
                                 </div>
                                 <div className="flex justify-center p-1">
-                                    <GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
-                                    <LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
+                                    <a href="https://github.com/marcoosdantas" target="_blank"><GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
+                                    <a href="https://www.linkedin.com/in/marcos-dantas/" target="_blank"><LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
                                 </div>
                             </div>
 
                             <div className="bg-gradient-to-r from-[#DB5413] via-[#C24730] to-[#983853] p-6 rounded-3xl text-[white]">
                                 <div className="flex items-center flex-col text-center">
-                                    <img src="src\assets\hlw.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 border-[#FEEAE0]" />
+                                    <img src="https://media.discordapp.net/attachments/1071094420109262960/1176533442628943912/image0.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 object-cover border-[#FEEAE0]" />
 
-                                    <h2 className="font-fontProjeto text-2xl pt-2">Amora</h2>
+                                    <h2 className="font-fontProjeto text-2xl pt-2">Matheus Silva</h2>
                                 </div>
                                 <div className="flex justify-center p-1">
-                                    <GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
-                                    <LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" />
+                                    <a href="https://github.com/matheuxsx3" target="_blank"><GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
+                                    <a href="https://www.linkedin.com/in/matheus-ps-dev" target="_blank"><LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
                                 </div>
                             </div>
                         </div>
