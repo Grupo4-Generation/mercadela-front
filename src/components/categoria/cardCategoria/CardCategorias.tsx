@@ -13,7 +13,7 @@ interface CardCategoriaProps {
 function CardCategorias({ categoria }: CardCategoriaProps) {
     return (
 
-        <div className='flex h-[20vh]'>
+        <div className='flex h-[20vh] justify-center'>
             <p className='flex text-3xl text-[#C24730] font-bold'>{categoria.nomeCategoria}</p>
             <div id='dropCat'>
                 <button>
@@ -21,11 +21,11 @@ function CardCategorias({ categoria }: CardCategoriaProps) {
                 </button>
                 <div className='dropFilha'>
                     <Link to={`/editarCategoria/${categoria.id}`}>
-                        <button>Editar</button>
+                        <button className='editar'>Editar</button>
                     </Link>
 
                     <Link to={`/deletarCategoria/${categoria.id}`}>
-                        <button>Deletar</button>
+                        <button className='deletar'>Deletar</button>
                     </Link>
                 </div>
             </div>
