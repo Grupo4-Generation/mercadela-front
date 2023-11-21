@@ -5,15 +5,11 @@ import Home from "./pages/home/Home";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Cadastro from "./pages/cadastro/Cadastro";
-
-import Home from "./pages/home/Home";
 import Sobre from "./pages/sobre/Sobre";
-import { AuthProvider } from "./contexts/AuthContext";
 import Login from "./pages/Login/Login";
 import Contato from "./pages/contato/Contato";
 import EditarProduto from "./components/produto/editarProduto/EditarProduto";
 import PageProduto from "./pages/produto/PageProduto";
-import Sobre from "./pages/sobre/Sobre";
 import ListaCategorias from "./components/categoria/listaCategoria/ListaCategorias";
 import FormularioCategoria from "./components/categoria/formularioCategoria/FormularioCategoria";
 import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
