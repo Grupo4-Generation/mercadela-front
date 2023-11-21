@@ -51,10 +51,6 @@ function DeletarCategoria({id} : DeleteProps) {
         }
     }, [id])
 
-    // useEffect(() => {
-    //     buscarPorId();
-    // }, []);
-
     async function deletarCategoria() {
         setIsLoading(true)
 
@@ -80,7 +76,7 @@ function DeletarCategoria({id} : DeleteProps) {
     }
 
     return (
-        <div className='font-fontProjeto p-4 container w-[60vw] mx-auto bg-[#FFEDED] rounded-3xl'>
+        <div className='font-fontProjeto p-4 container w-[60vw] mx-auto bg-[#FEEAE0] rounded-3xl'>
             <h1 className='font-bold text-4xl text-center my-4 text-[red]'>Deletar Categoria</h1>
 
             <p className='text-center font-semibold mb-4 text-[red]'>
@@ -92,11 +88,11 @@ function DeletarCategoria({id} : DeleteProps) {
 
                 <div className="flex space-x-[10vw] self-center">
 
-                    <button
+                    {/* <button
                         className='font-bold text-slate-100 bg-[red] hover:bg-[#8D0101] py-2 px-5 rounded-3xl'
                         onClick={retornar}>
-                        Não
-                    </button>
+                            Não
+                    </button> */}
 
                     <button
                         className='font-bold text-slate-100 bg-[#13DBB7] hover:bg-[#0F9D84] 

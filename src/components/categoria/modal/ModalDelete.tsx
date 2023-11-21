@@ -7,14 +7,16 @@ interface ModalDeleteProps {
 }
 
 function ModalDelete({id} : ModalDeleteProps) {
+
+    
     return (
         <>
             <Popup
                 className='-content'
                 trigger={
                     <button
-                        className='flex justify-items-end border rounded-[35px] px-4 py-2 text-2xl text-white bg-[#13DBB7] hover:bg-[#0F9D84]'>
-                        + criar
+                        className='text-[red] hover:bg-[#D1D1D1] '>
+                        Deletar
                     </button>
                 }
                 modal

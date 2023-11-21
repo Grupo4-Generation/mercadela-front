@@ -14,23 +14,16 @@
 
 #dropCat a {
     display: block;
-    text-decoration: none;
-    padding: 5px 8px;
 }
 
 #dropCat a .editar{
     color: #13DBB7;
 }
 
-#dropCat a .deletar{
-    color: red;
-}
-
 #dropCat .dropFilha {
     display: none;
     position: absolute;
     background-color: #F1EFEF;
-    min-width: 100px;
     box-shadow: 2px 2px 2px hsls(0%, 0%, 0%, 0.8);
 }
 

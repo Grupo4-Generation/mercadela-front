@@ -25,10 +25,6 @@ function CardCategorias({ categoria }: CardCategoriaProps) {
                         <button className='editar'>Editar</button>
                     </Link>
 
-                    {/* <Link to={`/deletarCategoria/${categoria.id}`}>
-                        <button className='deletar'>Deletar</button>
-                    </Link> */}
-
                     <ModalDelete id={categoria.id}/>
                 </div>
             </div>

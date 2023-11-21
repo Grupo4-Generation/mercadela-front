@@ -136,7 +136,7 @@ function FormularioCategoria() {
                     />
                 </div>
                 <button
-                    className="w-[10vw] self-center text-2xl text-white font-bold rounded-3xl pt-[5px] bg-[#13DBB7] hover:bg-[#0F9D84]" type="submit">
+                    className="w-auto self-center text-2xl text-white font-bold rounded-3xl pt-[5px] px-2 bg-[#13DBB7] hover:bg-[#0F9D84]" type="submit">
 
                     {isLoading ?
                         <RotatingLines
