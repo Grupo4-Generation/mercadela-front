@@ -4,6 +4,7 @@ import ListagemProduto from "../../components/produto/listagemProduto/ListagemPr
 import ModalCriarProduto from "../../components/produto/modal/modalCriarProduto/ModalCriarProduto";
 import SlideHome from "../../components/slide/home/SlideHome";
 import { AuthContext } from "../../contexts/AuthContext";
+import CardProduto from "../../components/produto/cardProduto/CardProduto";
 
 function Home() {
   const { usuario } = useContext(AuthContext)
@@ -28,13 +29,13 @@ function Home() {
           <h1 className=" row-start-1 col-start-2 text-3xl text-[#DB5413] font-bold py-7 text-center">Produtos</h1>
           <ModalCriarProduto/>
         </div>
+        
         <div>
           <div>
             <hr className="border-[#DB5413] border-2 w-1/4 mx-auto" />
           </div>
         </div>
-        <div className="flex space-x-3 items-center justify-between">
-          <ListagemProduto />
+        <div className="flex px-3 items-center justify-between">
         </div>
       </div >
     </>

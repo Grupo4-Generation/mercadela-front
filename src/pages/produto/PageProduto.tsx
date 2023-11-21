@@ -14,7 +14,7 @@ function PageProduto() {
     const token = usuario.token
     const navigate = useNavigate()
     const [quantidade, setQuantidade] = useState<number>(1)
-    const [produto, setProduto] = useState<Produto >({}as Produto)
+    const [produto, setProduto] = useState<Produto>({} as Produto)
     async function buscarPorId(id: string) {
         try {
             await buscar(`/produto/${id}`, setProduto, {
@@ -49,7 +49,7 @@ function PageProduto() {
         alert('Compra efetuada com sucesso!');
     }
     let adicionar = () => {
-        setQuantidade (quantidade + 1);
+        setQuantidade(quantidade + 1);
     }
     let subtrair = () => {
         if (quantidade > 1) {
@@ -58,10 +58,10 @@ function PageProduto() {
             alert('Quantidade mínima atingida!');
         }
     }
-    let precoFormatado = (produto.precoProduto/100).toLocaleString('pt-BR', {
+    let precoFormatado = (produto.precoProduto / 1).toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL',
-      });
+    });
 
     return (
 

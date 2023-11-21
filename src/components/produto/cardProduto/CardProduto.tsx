@@ -5,12 +5,13 @@ interface ProductCardProps {
   produto: Produto;
 }
 
-function CardProduto ({ produto }: ProductCardProps) {
+function CardProduto({ produto }: ProductCardProps) {
 
-  let precoFormatado = produto.precoProduto.toLocaleString('pt-BR', {
+  let precoFormatado = (produto.precoProduto / 1).toLocaleString('pt-BR', {
     style: 'currency',
     currency: 'BRL',
   });
+
   return (<>
     <div className="max-w-xs rounded-lg p-3 shadow duration-150 hover:shadow-2xl">
       <img className="w-full rounded-lg object-cover object-center bg-gray-100" src={produto.fotoProduto} alt="produto" />
