@@ -1,22 +1,8 @@
-import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import ListagemProduto from "../../components/produto/listagemProduto/ListagemProduto";
-import ModalCriarProduto from "../../components/produto/modal/modalCriarProduto/ModalCriarProduto";
+import CardProduto from "../../components/cardProduto/CardProduto";
 import SlideHome from "../../components/slide/home/SlideHome";
-import { AuthContext } from "../../contexts/AuthContext";
-import CardProduto from "../../components/produto/cardProduto/CardProduto";
+import SlideProdutos from "../../components/slide/produtos/SlideProdutos";
 
 function Home() {
-  const { usuario } = useContext(AuthContext)
-
-  const token = usuario.token
-  const navigate = useNavigate()
-  useEffect(() => {
-    if (token === '') {
-        alert('Você precisa estar logado')
-        navigate('/login')
-    }
-}, [token])
 
   return (
     <>
@@ -24,20 +10,16 @@ function Home() {
         <div className="flex justify-center">
           <SlideHome />
         </div>
-        
-        <div className="grid grid-cols-3 items-center">
-          <h1 className=" row-start-1 col-start-2 text-3xl text-[#DB5413] font-bold py-7 text-center">Produtos</h1>
-          <ModalCriarProduto/>
+
+        <h1 className="text-3xl text-[#DB5413] font-bold pb-7 text-center">Produtos</h1>
+
+        <div className="flex space-x-3 items-center justify-between">
+          <CardProduto nomeProduto="Mouse Logitech" precoProduto="R$ 199,90" fotoProduto="https://cdn.discordapp.com/attachments/1139577278892875784/1175053140085706792/Mouse_Logitech.png" />
+          <CardProduto nomeProduto="Pente" precoProduto="R$ 12,98" fotoProduto="src/assets/Pente.png" />
+          <CardProduto nomeProduto="Pente" precoProduto="R$ 12,98" fotoProduto="src/assets/Pente.png" />
+          <CardProduto nomeProduto="Pente" precoProduto="R$ 12,98" fotoProduto="src/assets/Pente.png" />
         </div>
-        
-        <div>
-          <div>
-            <hr className="border-[#DB5413] border-2 w-1/4 mx-auto" />
-          </div>
-        </div>
-        <div className="flex px-3 items-center justify-between">
-        </div>
-      </div >
+      </div>
     </>
   )
 }
