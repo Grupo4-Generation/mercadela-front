@@ -12,7 +12,7 @@ function Navbar() {
 
                     <div className="self-center">
                         <Link to="/home">
-                            <img src="src\assets\logo-navbar.png" alt="LogoNav" className="min-w-[12vw] w-[12vw] my-1" />
+                            <img src=".\src\assets\logo-navbar.png" alt="LogoNav" className="min-w-[12vw] w-[12vw] my-1" />
                         </Link>
                     </div>
 

@@ -10,7 +10,7 @@ function Footer() {
                 
                 <div className="container flex justify-between items-center">
                     <div>
-                        <img src="src\assets\logo-footer.png" alt="LogoFooter" className="min-w-[5vw] min-h-[5vw] max-w-[12vw] max-h-[12vw]" />
+                        <img src=".\src\assets\logo-footer.png" alt="LogoFooter" className="min-w-[5vw] min-h-[5vw] max-w-[12vw] max-h-[12vw]" />
                     </div>
 
                     <div>
