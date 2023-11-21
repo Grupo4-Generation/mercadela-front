@@ -20,7 +20,7 @@ function Produto() {
                         <p className="font-bold text-5xl text-justify text-[#13dbb7]">R$ 30,00</p>
                     </div>
                     <div className="my-2 flex ml-4">
-                        <p className="rounded-full cursor-pointer bg-[#13dbb7] px-2 text-2xl font-bold hover:scale-105 hover:bg-[] text-white">Adicionar ao carrinho</p>
+                        <p className="rounded-full cursor-pointer bg-[#13dbb7] px-2 text-2xl font-bold hover:scale-105 text-white">Adicionar ao carrinho</p>
                     </div>
                 </div>
             </div>
