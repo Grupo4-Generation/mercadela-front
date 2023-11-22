@@ -8,7 +8,7 @@ import Cadastro from "./pages/cadastro/Cadastro";
 import Sobre from "./pages/sobre/Sobre";
 import Login from "./pages/Login/Login";
 import Contato from "./pages/contato/Contato";
-import EditarProduto from "./components/produto/editarProduto/EditarProduto";
+import EditarProduto from "./components/produto/crudProduto/editarProduto/EditarProduto";
 import PageProduto from "./pages/produto/PageProduto";
 
 import FormularioCategoria from "./components/categoria/formularioCategoria/FormularioCategoria";
@@ -32,13 +32,13 @@ function App() {
                 <Route path="/contact" element={<Contato />} />
                 <Route path="/produto/:id" element={<PageProduto />} />
                 <Route path="/produto" element={<Produto />} />
+                <Route path="/produtos" element={<Produtos />} />
                 <Route path="/sobre" element={<Sobre />} />
                 <Route path="/cadastroProduto" element={<EditarProduto />} />
                 <Route path="/editarProduto/:id" element={<EditarProduto />} />
                 <Route path="/categoria" element={<ListaCategorias />} />
                 <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
                 <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
-                <Route path="/produtos" element={<Produtos />} />
                 {/* <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} /> */}
               </Routes>
             </div>

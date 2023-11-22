@@ -1,8 +1,8 @@
 import { useState, useContext, useEffect } from "react"
 import { useNavigate, useParams } from "react-router"
-import { AuthContext } from "../../../contexts/AuthContext"
-import { buscar, deletar } from "../../../services/Service"
-import Produto from "../../../models/Produto"
+import { AuthContext } from "../../../../contexts/AuthContext"
+import { buscar, deletar } from "../../../../services/Service"
+import Produto from "../../../../models/Produto"
 
 function Deletarproduto() {
     const [produto, setproduto] = useState<Produto>({} as Produto)

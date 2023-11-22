@@ -1,9 +1,10 @@
 import  { useContext, useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
-import { AuthContext } from '../../../contexts/AuthContext';
-import { buscar } from '../../../services/Service';
-import Produto from '../../../models/Produto';
-import CardProduto from '../cardProduto/CardProduto';
+import { AuthContext } from '../../../../contexts/AuthContext';
+import Produto from '../../../../models/Produto';
+import { buscar } from '../../../../services/Service';
+import CardProduto from '../../cardProduto/CardProduto';
+
 
 
 function Listaprodutos() {
@@ -44,7 +45,7 @@ function Listaprodutos() {
       )}
       <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {produtos.map((produto) => (
-          <CardProduto key={produto.id} produto={produto} />
+          <CardProduto key={produto.id} fotoProduto={produto.fotoProduto} nomeProduto={produto.nomeProduto} precoProduto={produto.precoProduto}/>
         ))}
       </div>
     </>
