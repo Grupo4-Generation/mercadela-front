@@ -27,9 +27,10 @@ function Navbar() {
                     </div>
 
                     <div className="flex gap-4 text-[#DB5413] self-center font-fontProjeto font-bold">
-                        <div className="flex self-center items-center text-xl">
-                            <Link to="/categoria">Categorias</Link>
-                            <ArrowCircleDown size={18} weight="bold" />
+                        <div className="flex self-center items-center gap-2 text-xl">
+                            <Link to="/categoria" className="hover:underline">Categorias</Link>
+                            <Link to="/produtos" className="hover:underline">Produtos</Link>
+                            {/* <ArrowCircleDown size={18} weight="bold" /> */}
                         </div>
 
                         <div className="flex self-center">

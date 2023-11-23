@@ -138,7 +138,7 @@ function EditarProduto() {
         <div className="container flex flex-col overflow-y-auto min-h-full mx-auto items-center">
             <h1 className="text-4xl text-center my-8">{id !== undefined ? 'Editar Produto' : 'Cadastrar Produto'}</h1>
 
-            <form onSubmit={gerarNovoProduto} className="flex flex-col w-1/2 gap-4">
+            <form onSubmit={gerarNovoProduto} className="flex flex-col  gap-4">
                 <div className="flex flex-col gap-2">
                     <label htmlFor="nomeProduto">Nome do Produto</label>
                     <input

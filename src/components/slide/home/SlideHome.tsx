@@ -8,7 +8,7 @@ function SlideHome() {
     { id: "1", image: "src/assets/slide/1.jpg" },
     { id: "2", image: "src/assets/slide/2.jpg" },
     { id: "3", image: "src/assets/slide/3.jpg" },
-    { id: "4", image: "src/assets/slide/4.jpg" },
+    { id: "4", image: "src/assets/slide/Banner1.png" },
   ];
 
   return (
@@ -21,7 +21,7 @@ function SlideHome() {
         navigation
         pagination={{ clickable: true }}
         autoplay={{
-          delay: 4000,
+          delay: 10000,
           disableOnInteraction: false,
         }}
         onSwiper={(swiper) => console.log(swiper)}
