@@ -4,13 +4,13 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { buscar } from "../../services/Service";
 
 import Produto from "../../models/Produto";
-import ModalDeletarProduto from "../../components/produto/modal/modalDeletarProduto/ModalDeletarProduto";
+import EditarProduto from "../../components/produto/crudProduto/editarProduto/EditarProduto";
+import Deletarproduto from "../../components/produto/crudProduto/deletarProduto/DeletarProduto";
 
 import "../../models/Produto";
 
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import EditarProduto from "../../components/produto/crudProduto/editarProduto/EditarProduto";
 
 function PageProduto() {
   const { id } = useParams<{ id: string }>();
@@ -90,8 +90,8 @@ function PageProduto() {
               {precoFormatado}
             </p>
           </div>
-          <div className="flex justify-around pl-4">
-            <div className="flex justify-around items-center py-4 px-5 box-border border-[#bd5c46] border-4 rounded-full text-2xl font-semibold hover:scale-10 w-35">
+          <div className="flex space-x-20 pl-4">
+            <div className="flex items-center py-4 px-5 box-border border-[#bd5c46] border-4 rounded-full text-2xl font-semibold hover:scale-10 w-35">
               <button onClick={subtrair} className="px-2 text-[#bd5c46]">
                 -
               </button>
@@ -111,19 +111,36 @@ function PageProduto() {
           </div>
         </div>
         <div className="flex h-96 justify-between flex-col">
-
-          <Popup
-            trigger={
-              <button className="rounded-full px-4 pt-1 text-2xl text-white bg-[#13DBB7] hover:bg-[#0F9D84] font-bold">
-                Editar
-              </button>
-            }
-            modal
-          >
-            <EditarProduto />
-          </Popup>
-
-          <ModalDeletarProduto />
+          {usuario.generoUsuario === "Feminino" ||
+          usuario.generoUsuario === "Outros" ||
+          usuario.generoUsuario === "Admin"
+          ? (
+            <Popup
+              trigger={
+                <button className="rounded-full px-4 py-2 text-2xl text-white bg-[#13DBB7] hover:bg-[#0F9D84] font-bold hover:scale-105">
+                  editar
+                </button>
+              }
+              modal
+            >
+              <EditarProduto />
+            </Popup>
+          ) : null}
+          {usuario.generoUsuario === "Feminino" ||
+          usuario.generoUsuario === "Outros" ||
+          usuario.generoUsuario === "Admin"
+          ? (
+            <Popup
+              trigger={
+                <button className=" flex rounded-full justify-center text-center cursor-pointer bg-[#fe322e] px-2 py-2 text-2xl font-semibold hover:scale-105 hover:bg-[#B60E0E] text-white ">
+                  deletar
+                </button>
+              }
+              modal
+            >
+              <Deletarproduto />
+            </Popup>
+          ) : null}
         </div>
       </div>
     </>

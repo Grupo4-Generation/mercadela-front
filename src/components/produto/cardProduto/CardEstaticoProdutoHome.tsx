@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
   nomeProduto: string;
@@ -6,7 +7,7 @@ interface ProductCardProps {
   fotoProduto: string;
 }
 
-const CardProduto: React.FC<ProductCardProps> = ({ nomeProduto, precoProduto, fotoProduto }) => {
+const CardEstaticoProdutoHome: React.FC<ProductCardProps> = ({ nomeProduto, precoProduto, fotoProduto }) => {
   let precoFormatado = (precoProduto / 1).toLocaleString('pt-BR', {
     style: 'currency',
     currency: 'BRL',
@@ -23,8 +24,8 @@ const CardProduto: React.FC<ProductCardProps> = ({ nomeProduto, precoProduto, fo
           <p className="text-3xl font-semibold text-[#13DBB7]">{precoFormatado}</p>
         </div>
         <div className="my-2 flex justify-center">
-          <button className="rounded-full bg-[#13DBB7] hover:bg-[#0F9D84] px-4 hover:scale-105 duration-100">
-            <p className="text-white text-3xl font-semibold pt-[3px]">Comprar</p>
+          <button className="rounded-full bg-[#13DBB7] hover:bg-[#0F9D84] px-3 hover:scale-105 duration-100">
+            <Link to="/produtos"><p className="text-white text-3xl font-semibold pt-[3px]">ver produtos</p></Link>
           </button>
 
         </div>
@@ -33,4 +34,4 @@ const CardProduto: React.FC<ProductCardProps> = ({ nomeProduto, precoProduto, fo
   );
 }
 
-export default CardProduto;
+export default CardEstaticoProdutoHome;

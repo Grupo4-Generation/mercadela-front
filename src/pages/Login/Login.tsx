@@ -75,7 +75,7 @@ export function Login() {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="text-3xl text-white font-bold rounded-3xl pt-[5px] px-4 bg-[#13DBB7] hover:bg-[#0F9D84]">
+            className="text-3xl text-white pb-1 font-bold rounded-3xl pt-[5px] px-4 bg-[#13DBB7] hover:bg-[#0F9D84]">
             {isLoading ? <RotatingLines
               strokeColor="white"
               strokeWidth="5"
