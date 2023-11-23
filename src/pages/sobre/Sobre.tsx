@@ -19,7 +19,7 @@ function Sobre() {
                             </p>
                             <br />
                             <p>
-                                Nosso marketplace se destaca por um algoritmo que seleciona produtos de novas vendedoras ou em alta, colocando-os em evidência para impulsionar suas vendas. Embora qualquer usuário possa adquirir produtos no site, a adesão como vendedora requer uma verificação prévia. Além disso, a cada <b>[A DEFINIR]</b> de lucro, destinamos uma parcela dos recursos para doação a ONGs que se dedicam exclusivamente a causas sociais apoiando mulheres e meninas.
+                                Nosso marketplace se destaca por um algoritmo que seleciona produtos de novas vendedoras ou em alta, colocando-os em evidência para impulsionar suas vendas. Embora qualquer usuário possa adquirir produtos no site, a adesão como vendedora requer uma verificação prévia. Além disso, destinamos 10% dos lucros para doação a ONGs que se dedicam exclusivamente a causas sociais apoiando mulheres e meninas.
                             </p>
                             <br />
                             <p>

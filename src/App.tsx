@@ -25,8 +25,8 @@ function App() {
             <Navbar />
             <div className="flex flex-grow items-center justify-center my-4">
               <Routes>
-                <Route path="/" element={<Login />} />
                 <Route path="/home" element={<Home />} />
+                <Route path="/" element={<Login />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
                 <Route path="/contato" element={<Contato />} />
