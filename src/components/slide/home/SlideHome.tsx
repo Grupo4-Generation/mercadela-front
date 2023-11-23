@@ -5,14 +5,14 @@ import "./SlideHome.css";
 
 function SlideHome() {
   const slides = [
-    { id: "1", image: "src/assets/slide/1.jpg" },
-    { id: "2", image: "src/assets/slide/2.jpg" },
-    { id: "3", image: "src/assets/slide/3.jpg" },
-    { id: "4", image: "http://cdn.discordapp.com/attachments/1139577278892875784/1177226472671412315/Banner1.png" },
+    { id: "1", image: "http://cdn.discordapp.com/attachments/1139577278892875784/1177249762215477319/1.png" },
+    { id: "2", image: "http://cdn.discordapp.com/attachments/1139577278892875784/1177249757354270800/2.png" },
+    { id: "3", image: "http://cdn.discordapp.com/attachments/1139577278892875784/1177249757748543518/3.png" },
+    { id: "4", image: "http://cdn.discordapp.com/attachments/1139577278892875784/1177249758105051256/4.png" },
   ];
 
   return (
-    <div className="container">
+    <div className="w-[90vw] h-fit">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         spaceBetween={50}
@@ -25,8 +25,8 @@ function SlideHome() {
           disableOnInteraction: false,
         }}
         onSwiper={(swiper) => console.log(swiper)}
-        className="swiper-home"
-      >
+        className="container">
+          
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <img src={slide.image} alt={`Slide ${slide.id}`} className="slide-imagem" />

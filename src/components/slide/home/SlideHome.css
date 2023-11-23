@@ -1,12 +1,3 @@
-.container{
-    margin: 0;
-}
-
-.container .swiper {
-    width: 90vw;
-    height: 35vh;
-}
-
 .slide-imagem {
     width: 100vw;
     object-fit: cover;

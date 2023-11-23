@@ -32,7 +32,7 @@ export function Login() {
   }
 
   return (
-    <div className="flex-grow bg-[#FEEAE0] font-fontProjeto max-w-sm align-middle rounded-3xl p-10">
+    <div className="flex-grow bg-[#FEEAE0] font-fontProjeto max-w-sm align-middle rounded-3xl px-10 py-8">
       <form className="font-fontProjeto max-w-[400px] w-full mx-auto" onSubmit={login}>
 
         <div className="flex justify-center p-6">
@@ -49,7 +49,7 @@ export function Login() {
             type="text"
             id="emailUsuario"
             name="emailUsuario"
-            className="p-1 border border-gray-300 rounded-2xl px-3"
+            className="p-1 border border-gray-300 rounded-2xl px-3 focus:outline-none"
             placeholder="Email@exemplo.com"
             value={usuarioLogin.emailUsuario}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -65,7 +65,7 @@ export function Login() {
             type="password"
             id="senhaUsuario"
             name="senhaUsuario"
-            className="p-1 border border-gray-300 rounded-2xl px-3"
+            className="p-1 border border-gray-300 rounded-2xl px-3 focus:outline-none"
             placeholder="Digite a senha"
             value={usuarioLogin.senhaUsuario}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -87,7 +87,7 @@ export function Login() {
           </button>
         </div>
 
-        <div className="flex justify-center pb-2">
+        <div className="flex justify-center pt-5">
           <p className="text-xl text-[#DB5413] font-bold">
             Ou cadastre-se <Link to='/cadastro' className="text-[#983854] hover:text-[#DB5413]">
               aqui

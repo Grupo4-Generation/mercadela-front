@@ -13,7 +13,6 @@ interface CardCategoriaProps {
 
 function CardCategorias({ categoria }: CardCategoriaProps) {
     return (
-
         <div className='flex h-[20vh] justify-center'>
             <p className='flex text-3xl text-[#C24730] font-bold'>{categoria.nomeCategoria}</p>
             <div id='dropCat'>

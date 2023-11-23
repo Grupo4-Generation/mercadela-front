@@ -4,6 +4,7 @@ import { RotatingLines } from "react-loader-spinner";
 
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { toastAlerta } from '../../../util/toastAlerta';
 
 import Categoria from "../../../models/Categoria";
 
@@ -29,7 +30,7 @@ function FormularioCategoria() {
             })
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta("O token expirou, favor logar novamente","info")
                 handleLogout()
             }
         }
@@ -37,7 +38,7 @@ function FormularioCategoria() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            toastAlerta("Você precisa estar logado","erro");
             navigate('/login');
         }
     }, [token]);
@@ -67,14 +68,14 @@ function FormularioCategoria() {
                     }
                 })
 
-                alert('Categoria atualizada com sucesso')
+                toastAlerta("Categoria atualizada com sucesso","sucesso")
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta("O token expirou, favor logar novamente","info")
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar a Categoria')
+                    toastAlerta("Erro ao atualizar a Categoria","erro")
                 }
             }
 
@@ -129,7 +130,7 @@ function FormularioCategoria() {
                     <input
                         type="text"
                         name='descricaoCategoria'
-                        placeholder="Digite o nome da categoria"
+                        placeholder="Digite a descrição da categoria"
                         className="p-1 border border-gray-300 rounded-2xl px-3"
                         value={categoria.descricaoCategoria}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}

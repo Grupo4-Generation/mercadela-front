@@ -49,7 +49,7 @@ export function Contact() {
               <textarea
                 id="mensagem"
                 name="mensagem"
-                placeholder="Digite o e-mail"
+                placeholder="Digite sua mensagem"
                 className="p-1 w-[36vw] border border-gray-300 rounded-xl pl-5 italic"
               />
             </div>
