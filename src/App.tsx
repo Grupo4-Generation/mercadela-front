@@ -9,13 +9,12 @@ import Sobre from "./pages/sobre/Sobre";
 import Login from "./pages/Login/Login";
 import Contato from "./pages/contato/Contato";
 import EditarProduto from "./components/produto/crudProduto/editarProduto/EditarProduto";
-import PageProduto from "./pages/produto/PageProduto";
+import PageProduto from "./pages/produto/ProdutoDinamico";
 
 import FormularioCategoria from "./components/categoria/formularioCategoria/FormularioCategoria";
 import ListaCategorias from "./components/categoria/listaCategoria/ListaCategoria";
-import Produto from "./pages/produto/Produto";
 import Produtos from "./pages/produto/Produtos";
-import Load from "./pages/produto/Load";
+import Load from "./pages/produto/ProdutoLoad";
 
 function App() {
   return (
@@ -32,7 +31,6 @@ function App() {
                 <Route path="/cadastro" element={<Cadastro />} />
                 <Route path="/contato" element={<Contato />} />
                 <Route path="/produto/:id" element={<PageProduto />} />
-                <Route path="/produto" element={<Produto />} />
                 <Route path="/produtos" element={<Produtos />} />
                 <Route path="/sobre" element={<Sobre />} />
                 <Route path="/cadastroProduto" element={<EditarProduto />} />

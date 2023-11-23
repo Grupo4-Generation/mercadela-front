@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
-import { buscar } from "../../services/Service";
+import { buscarSemToken } from "../../services/Service";
 import { AuthContext } from "../../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 import Produto from "../../models/Produto";
 import CardProdutos from "./CardProdutos";
@@ -15,18 +14,11 @@ import { ProgressBar } from "react-loader-spinner";
 function Produtos() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
 
-  const navigate = useNavigate();
-
   const { usuario } = useContext(AuthContext);
-  const token = usuario.token;
 
   async function buscarProdutos() {
     try {
-      await buscar("/produto", setProdutos, {
-        headers: {
-          Authorization: token,
-        },
-      });
+      await buscarSemToken("/produto", setProdutos);
     } catch (error: any) {
       if (error.toString().includes("403")) {
         toastAlerta("Sessão expirada...", "erro");
@@ -35,36 +27,36 @@ function Produtos() {
   }
 
   useEffect(() => {
-    if (token === "") {
-      alert("Você precisa estar logado");
-      navigate("/login");
-    }
-  }, [token]);
-
-  useEffect(() => {
     buscarProdutos();
   }, []);
 
   return (
     <>
-      <div className="font-fontProjeto font-bold container z-0 w-[80vw] px-[1vw] mx-auto my-0 grid grid-cols-5 gap-4">
-        <div className="col-span-5 flex justify-between items-center mt-8 mb-10">
-          <div className="px-4 py-2 text-2xl text-white bg-[white] hover:bg-[#0F9D84]"></div>
+      <div className="font-fontProjeto font-bold container w-[80vw] px-[1vw] grid grid-cols-5 gap-5">
+        <div className="col-span-5 grid grid-col-3 gap-4 items-center mt-8 mb-10">
 
-          <h1 className="text-center text-6xl text-[#DB5413] font-bold">
+          <div className="col-start-1 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>
+
+          <h1 className="col-start-2 justify-self-center px-4 text-6xl text-[#DB5413] font-bold">
             Produtos
           </h1>
 
-          <Popup
-            trigger={
-              <button className="flex justify-items-end border rounded-[35px] px-4 py-2 text-2xl text-white bg-[#13DBB7] hover:bg-[#0F9D84]">
-                + criar
-              </button>
-            }
-            modal
-          >
-            <EditarProduto />
-          </Popup>
+          {usuario.generoUsuario === "Feminino" ||
+          usuario.generoUsuario === "Outros" ||
+          usuario.generoUsuario === "Admin" ? (
+            <Popup
+              trigger={
+                <button className="col-start-3 justify-self-end border rounded-[35px] px-4 py-2 text-2xl text-white bg-[#13DBB7] hover:bg-[#0F9D84]">
+                  + criar
+                </button>
+              }
+              modal
+            >
+              <EditarProduto />
+            </Popup>
+          ) : (
+            <div className="col-start-3 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>
+          )}
         </div>
 
         {produtos.length === 0 && (

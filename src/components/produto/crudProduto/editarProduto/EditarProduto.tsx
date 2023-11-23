@@ -135,66 +135,66 @@ function EditarProduto() {
   const carregandoCategoria = categoria.nomeCategoria === "";
 
   return (
-    <div className="flex-col items-center w-[80vh] px-10">
-      <h1 className="text-4xl text-center my-8">
+    <div className="font-fontProjeto text-[#DB5413] flex-col items-center w-[80vh] px-10 pb-10">
+      <h1 className="text-4xl text-center my-8 font-bold">
         {id !== undefined ? "Editar Produto" : "Cadastrar Produto"}
       </h1>
 
       <form onSubmit={gerarNovoProduto} className="flex flex-col gap-4">
-        <div className="flex flex-col gap-2">
-          <label htmlFor="nomeProduto">Nome do Produto</label>
+        <div className="flex flex-col gap-2 text-[#DB5413]">
+          <label htmlFor="nomeProduto" className="font-bold">Nome do Produto</label>
           <input
             value={produto.nomeProduto}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             type="text"
-            placeholder="Nome do Produto"
+            placeholder="Digite o nome do produto"
             name="nomeProduto"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricaoProduto">Descrição do Produto</label>
+          <label htmlFor="descricaoProduto" className="font-bold">Descrição do produto</label>
           <input
             value={produto.descricaoProduto}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             type="text"
-            placeholder="Descrição do Produto"
+            placeholder="Digite a descrição do produto"
             name="descricaoProduto"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="precoProduto">Preço Do Produto</label>
+          <label htmlFor="precoProduto" className="font-bold">Preço do produto</label>
           <input
             value={produto.precoProduto}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             type="number"
-            placeholder="Preço do Produto"
+            placeholder="Digite o preço do produto"
             name="precoProduto"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="fotoProduto">Foto do Produto</label>
+          <label htmlFor="fotoProduto" className="font-bold">Foto do produto</label>
           <input
             value={produto.fotoProduto}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             type="url"
-            placeholder="Foto do Produto"
+            placeholder="Insira a URL do produto"
             name="fotoProduto"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="idCategoria">Categoria do Produto</label>
+          <label htmlFor="idCategoria" className="font-bold">Categoria do Produto</label>
           <select
             name="idCategoria"
             id="idCategoria"
-            className="border p-2 border-slate-800 rounded"
+            className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
             onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
             value={produto.idCategoria?.id || ""}
           >
@@ -212,7 +212,7 @@ function EditarProduto() {
         <button
           disabled={carregandoCategoria}
           type="submit"
-          className="rounded disabled:bg-slate-200 bg-[#13DBB7] hover:bg-[#0F9D84] text-white font-bold w-1/2 mx-auto block py-2"
+          className="font-fontProjeto rounded-[20px] disabled:bg-slate-200 bg-[#13DBB7] hover:bg-[#0F9D84] text-white font-bold text-2xl px-10 mx-auto block py-2"
         >
           {carregandoCategoria ? (
             <span>Carregando</span>
