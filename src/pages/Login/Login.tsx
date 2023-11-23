@@ -37,9 +37,6 @@ export function Login() {
 
         <div className="flex justify-center p-6">
           <img src="src\assets\logo-navbar.png" alt="Ícone" className="max-h-20" />
-          {/* <h1 className="font-fontProjeto text-[#DB5413] font-bold text-2xl">
-            MercaDela
-          </h1> */}
         </div>
 
 

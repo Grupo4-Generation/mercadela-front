@@ -21,7 +21,7 @@ function SlideHome() {
         navigation
         pagination={{ clickable: true }}
         autoplay={{
-          delay: 10000,
+          delay: 4000,
           disableOnInteraction: false,
         }}
         onSwiper={(swiper) => console.log(swiper)}

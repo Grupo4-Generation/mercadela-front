@@ -1,5 +1,5 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
-import { ArrowCircleDown, ShoppingCart, UserCircle } from "@phosphor-icons/react/dist/ssr";
+import { ShoppingCart, UserCircle } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "react-router-dom";
 
 import "./Navbar.css";
@@ -30,7 +30,6 @@ function Navbar() {
                         <div className="flex self-center items-center gap-2 text-xl">
                             <Link to="/categoria" className="hover:underline">Categorias</Link>
                             <Link to="/produtos" className="hover:underline">Produtos</Link>
-                            {/* <ArrowCircleDown size={18} weight="bold" /> */}
                         </div>
 
                         <div className="flex self-center">

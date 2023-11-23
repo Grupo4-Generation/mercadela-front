@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import { buscar, deletar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
@@ -17,8 +17,6 @@ function DeletarCategoria({id} : DeleteProps) {
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [categoria, setCategoria] = useState<Categoria>({} as Categoria)
-
-    // const { id } = useParams<{ id: string }>()
 
     const { usuario, handleLogout } = useContext(AuthContext)
     const token = usuario.token
@@ -87,12 +85,6 @@ function DeletarCategoria({id} : DeleteProps) {
                 <p className='p-8 text-3xl h-full text-[#DB5413] font-bold'>{categoria.nomeCategoria}</p>
 
                 <div className="flex space-x-[10vw] self-center">
-
-                    {/* <button
-                        className='font-bold text-slate-100 bg-[red] hover:bg-[#8D0101] py-2 px-5 rounded-3xl'
-                        onClick={retornar}>
-                            Não
-                    </button> */}
 
                     <button
                         className='font-bold text-slate-100 bg-[#13DBB7] hover:bg-[#0F9D84] 

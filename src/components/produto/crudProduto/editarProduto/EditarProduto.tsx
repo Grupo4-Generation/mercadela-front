@@ -194,7 +194,7 @@ function EditarProduto() {
    id="idCategoria"
    className='border p-2 border-slate-800 rounded'
    onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
-   value={produto.idCategoria?.id || ''} // Use value para definir o valor inicial
+   value={produto.idCategoria?.id || ''}
  >
    <option value="" disabled>Selecione uma categoria</option>
    {categorias.map((categoria) => (
