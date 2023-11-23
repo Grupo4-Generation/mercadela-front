@@ -15,6 +15,7 @@ import FormularioCategoria from "./components/categoria/formularioCategoria/Form
 import ListaCategorias from "./components/categoria/listaCategoria/ListaCategoria";
 import Produto from "./pages/produto/Produto";
 import Produtos from "./pages/produto/Produtos";
+import Load from "./pages/produto/Load";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/categoria" element={<ListaCategorias />} />
                 <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
                 <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
+                <Route path="/load" element={<Load />} />
               </Routes>
             </div>
             <Footer />

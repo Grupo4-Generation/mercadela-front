@@ -85,7 +85,7 @@ function EditarProduto() {
   }
 
   function retornar() {
-    navigate("/produtos");
+    navigate("/load");
   }
 
   async function gerarNovoProduto(e: ChangeEvent<HTMLFormElement>) {
