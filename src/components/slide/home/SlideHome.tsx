@@ -8,7 +8,7 @@ function SlideHome() {
     { id: "1", image: "src/assets/slide/1.jpg" },
     { id: "2", image: "src/assets/slide/2.jpg" },
     { id: "3", image: "src/assets/slide/3.jpg" },
-    { id: "4", image: "src/assets/slide/Banner1.png" },
+    { id: "4", image: "http://cdn.discordapp.com/attachments/1139577278892875784/1177226472671412315/Banner1.png" },
   ];
 
   return (

@@ -14,9 +14,9 @@ function Home() {
 
         <div className="flex space-x-3 items-center justify-between">
           <CardProduto nomeProduto="Mouse Logitech" precoProduto={199.90}fotoProduto="https://cdn.discordapp.com/attachments/1139577278892875784/1175053140085706792/Mouse_Logitech.png" />
-          <CardProduto nomeProduto="Pente" precoProduto={12.98}fotoProduto="src/assets/Pente.png" />
-          <CardProduto nomeProduto="Pente" precoProduto={12.98}fotoProduto="src/assets/Pente.png" />
-          <CardProduto nomeProduto="Pente" precoProduto={12.98}fotoProduto="src/assets/Pente.png" />
+          <CardProduto nomeProduto="Pente" precoProduto={12.98}fotoProduto="http://cdn.discordapp.com/attachments/1139577278892875784/1177225007064158290/Pente.png" />
+          <CardProduto nomeProduto="Pente" precoProduto={12.98}fotoProduto="http://cdn.discordapp.com/attachments/1139577278892875784/1177225007064158290/Pente.png" />
+          <CardProduto nomeProduto="Pente" precoProduto={12.98}fotoProduto="http://cdn.discordapp.com/attachments/1139577278892875784/1177225007064158290/Pente.png" />
         </div>
       </div>
     </>
