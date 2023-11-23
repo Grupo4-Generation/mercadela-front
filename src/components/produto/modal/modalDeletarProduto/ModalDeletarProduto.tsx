@@ -1,7 +1,7 @@
 import 'reactjs-popup/dist/index.css';
 import '../modals.css';
 import Popup from 'reactjs-popup';
-import DeletarProduto from '../../deletarProduto/DeletarProduto';
+import DeletarProduto from '../../crudProduto/deletarProduto/DeletarProduto';
 
 function ModalDeletarProduto() {
     return (

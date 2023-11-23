@@ -1,4 +1,4 @@
-import EditarProduto from '../../editarProduto/EditarProduto';
+import EditarProduto from '../../crudProduto/editarProduto/EditarProduto';
 import 'reactjs-popup/dist/index.css';
 import '../modals.css';
 import Popup from 'reactjs-popup';
