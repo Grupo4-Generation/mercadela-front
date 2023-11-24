@@ -38,7 +38,7 @@ function Sobre() {
                                 </div>
                                 <div className="flex justify-center p-1">
                                     <a href="https://github.com/Lwppytta" target="_blank"><GithubLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
-                                    <a href="https://www.linkedin.com/in/amanda-leticia-gomes-677101160/" target="_blank"><LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
+                                    <a href="https://www.linkedin.com/in/amanda-leticia-gomes/" target="_blank"><LinkedinLogo size={40} className="bg-[#FEEAE0] m-1 p-2 rounded-xl text-[#DB5413] hover:bg-[#983853] hover:text-[white]" /></a>
                                 </div>
                             </div>
 
