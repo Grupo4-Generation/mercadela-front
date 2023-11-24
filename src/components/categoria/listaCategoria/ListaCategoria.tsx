@@ -15,12 +15,22 @@ import "reactjs-popup/dist/index.css";
 import "./ListaCategoria.css";
 
 import FormularioCategoria from "../formularioCategoria/FormularioCategoria";
+import { useNavigate } from "react-router-dom";
 
 function ListaCategorias() {
   const [categoria, setCategoria] = useState<Categoria[]>([]);
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token === '') {
+        toastAlerta("Sessão expirada...", "erro");
+        navigate('/');
+    }
+}, [token])
 
   async function buscarCategoria() {
     try {
@@ -36,7 +46,6 @@ function ListaCategorias() {
   }
 
   
-
   useEffect(() => {
     buscarCategoria();
   }, [categoria.length]);
