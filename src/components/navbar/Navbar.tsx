@@ -1,6 +1,6 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { ShoppingCart, UserCircle } from "@phosphor-icons/react/dist/ssr";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./Navbar.css";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -9,7 +9,7 @@ import { toastAlerta } from "../../util/toastAlerta";
 
 function Navbar() {
   const { usuario, handleLogout } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   return (
     <>
       <div className="w-full h-[12vh] px-6 py-1 bg-[#FDD3BE] flex justify-center">
@@ -69,6 +69,8 @@ function Navbar() {
                       onClick={() => {
                         toastAlerta("Usuário deslogado com sucesso", "sucesso");
                         handleLogout();
+                        navigate("/");
+                        
                       }}
                     />
                     <p className="justify-self-center">Sair</p>

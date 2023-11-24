@@ -38,12 +38,7 @@ function ListaCategorias() {
     }
   }
 
-  useEffect(() => {
-    if (token === "") {
-      toastAlerta("Sessão expirada...", "info");
-      navigate("/login");
-    }
-  }, [token]);
+  
 
   useEffect(() => {
     buscarCategoria();

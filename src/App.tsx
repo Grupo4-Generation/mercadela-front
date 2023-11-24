@@ -16,6 +16,8 @@ import ListaCategorias from "./components/categoria/listaCategoria/ListaCategori
 import Produtos from "./pages/produto/Produtos";
 import Load from "./pages/produto/ProdutoLoad";
 import { ToastContainer } from "react-toastify";
+import LoadCategoria from "./components/categoria/LoadCategoria";
+import LoadContato from "./pages/contato/LoadContato";
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
         <ToastContainer/>
           <BrowserRouter>
             <Navbar />
-            <div className="flex flex-grow items-center justify-center my-4">
+            <div className="flex flex-grow items-center justify-center mt-7">
               <Routes>
                 <Route path="/home" element={<Home />} />
                 <Route path="/" element={<Login />} />
@@ -41,6 +43,8 @@ function App() {
                 <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
                 <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
                 <Route path="/load" element={<Load />} />
+                <Route path="/loadCategoria" element={<LoadCategoria />} />
+                <Route path="/loadContato" element={<LoadContato />} />
               </Routes>
             </div>
             <Footer />

@@ -1,4 +1,13 @@
+import { useNavigate } from "react-router-dom";
+import { toastAlerta } from "../../util/toastAlerta";
+
 export function Contact() {
+  const navigate = useNavigate();
+  function retornar(){
+    navigate ('/LoadContato')
+    toastAlerta('Mensagem enviada com sucesso', 'sucesso')
+  }
+
   return (
     <>
       <section className="flex justify-center m-0 pr-5 pl-5">
@@ -57,6 +66,7 @@ export function Contact() {
             <div className='flex flex-col mt-10 space-y-4'>
               <div className="flex justify-center">
                 <button
+                onClick={retornar}
                   className="flex text-3xl text-white font-bold rounded-3xl pt-1 px-3 bg-[#13DBB7] hover:bg-[#0F9D84]"
                   type="submit"
                 >Enviar</button>
