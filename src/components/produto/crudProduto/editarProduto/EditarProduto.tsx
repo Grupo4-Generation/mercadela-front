@@ -91,7 +91,6 @@ function EditarProduto() {
 
   async function gerarNovoProduto(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-
     console.log({ produto });
 
     if (id !== undefined) {
@@ -103,7 +102,6 @@ function EditarProduto() {
           },
         });
         toastAlerta("Produto atualizado com sucesso", "sucesso");
-        retornar();
       } catch (error: any) {
         if (error.toString().includes("403")) {
           toastAlerta("O token expirou, favor logar novamente", "erro");
@@ -112,6 +110,8 @@ function EditarProduto() {
           toastAlerta("Erro ao atualizar o Produto", "erro");
         }
       }
+      retornar();
+
     } else {
       try {
         await cadastrar(`/produto`, produto, setProduto, {
@@ -121,7 +121,6 @@ function EditarProduto() {
         });
 
         toastAlerta("Produto cadastrado com sucesso", "sucesso");
-        retornar();
       } catch (error: any) {
         if (error.toString().includes("403")) {
           toastAlerta("O token expirou, favor logar novamente", "erro");

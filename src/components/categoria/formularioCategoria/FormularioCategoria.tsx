@@ -59,6 +59,7 @@ function FormularioCategoria() {
     async function gerarNovaCategoria(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         setIsLoading(true)
+        navigate('/loadCategoria')
 
         if (id !== undefined) {
             try {
@@ -67,7 +68,7 @@ function FormularioCategoria() {
                         'Authorization': token
                     }
                 })
-
+                navigate('/loadCategoria')
                 toastAlerta("Categoria atualizada com sucesso","sucesso")
 
             } catch (error: any) {
@@ -86,7 +87,6 @@ function FormularioCategoria() {
                         'Authorization': token
                     }
                 })
-
                 toastAlerta('Categoria cadastrada com sucesso', 'sucesso')
 
             } catch (error: any) {

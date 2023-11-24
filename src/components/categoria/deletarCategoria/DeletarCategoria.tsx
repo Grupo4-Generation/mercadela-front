@@ -52,6 +52,7 @@ function DeletarCategoria({id} : DeleteProps) {
 
     async function deletarCategoria() {
         setIsLoading(true)
+        navigate('/loadCategoria')
 
         try {
             await deletar(`/categoria/${id}`, {
