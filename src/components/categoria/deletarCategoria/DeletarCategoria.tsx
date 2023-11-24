@@ -6,6 +6,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 
 import Categoria from "../../../models/Categoria";
 import { RotatingLines } from "react-loader-spinner";
+import { toastAlerta } from "../../../util/toastAlerta";
 
 interface DeleteProps {
     id: number
@@ -30,7 +31,7 @@ function DeletarCategoria({id} : DeleteProps) {
             })
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente', 'erro')
                 handleLogout()
             }
         }
@@ -38,7 +39,7 @@ function DeletarCategoria({id} : DeleteProps) {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
+            toastAlerta('Você precisa estar logado', 'erro')
             navigate('/login')
         }
     }, [token])
@@ -59,10 +60,10 @@ function DeletarCategoria({id} : DeleteProps) {
                 }
             })
 
-            alert('Categoria apagada com sucesso')
+            toastAlerta('Categoria apagada com sucesso', 'sucesso')
 
         } catch (error) {
-            alert('Erro ao apagar Categoria')
+            toastAlerta('Erro ao apagar Categoria', 'erro')
         }
 
         setIsLoading(false)

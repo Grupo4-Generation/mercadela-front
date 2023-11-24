@@ -4,9 +4,9 @@ import { RotatingLines } from "react-loader-spinner";
 
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { toastAlerta } from '../../../util/toastAlerta';
 
 import Categoria from "../../../models/Categoria";
+import { toastAlerta } from "../../../util/toastAlerta";
 
 
 function FormularioCategoria() {
@@ -87,14 +87,14 @@ function FormularioCategoria() {
                     }
                 })
 
-                alert('Categoria cadastrada com sucesso')
+                toastAlerta('Categoria cadastrada com sucesso', 'sucesso')
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', 'erro')
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar a categoria')
+                    toastAlerta('Erro ao cadastrar a categoria', 'erro')
                 }
             }
         }

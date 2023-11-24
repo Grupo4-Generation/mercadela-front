@@ -5,6 +5,8 @@ import Categoria from '../../../models/Categoria'
 import "./CardCategoria.css"
 import { Link } from 'react-router-dom';
 import ModalDelete from '../modal/ModalDelete';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 
 interface CardCategoriaProps {
@@ -12,10 +14,15 @@ interface CardCategoriaProps {
 }
 
 function CardCategorias({ categoria }: CardCategoriaProps) {
+    
+    const {usuario} = useContext(AuthContext)
+
     return (
         <div className='flex h-[20vh] justify-center'>
             <p className='flex text-3xl text-[#C24730] font-bold'>{categoria.nomeCategoria}</p>
-            <div id='dropCat'>
+            
+            {usuario.generoUsuario === "Admin"? (<div id='dropCat'>
+                
                 <button>
                     <ArrowCircleDown size={26} weight="bold" className='dropIcon' />
                 </button>
@@ -26,7 +33,7 @@ function CardCategorias({ categoria }: CardCategoriaProps) {
 
                     <ModalDelete id={categoria.id}/>
                 </div>
-            </div>
+            </div>) : null}
         </div>
     )
 }

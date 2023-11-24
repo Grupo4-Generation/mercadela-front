@@ -5,7 +5,7 @@ export function toastAlerta(mensagem: string, tipo: string) {
             
         case 'sucesso':
             toast.success(mensagem, {
-                position: 'bottom-left',
+                position: 'top-right',
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -13,46 +13,44 @@ export function toastAlerta(mensagem: string, tipo: string) {
                 draggable: false,
                 theme: 'colored',
                 progress: undefined,
-                icon: "❤️",
             });
             break;
 
         case 'info':
             toast.info(mensagem, {
-                position: 'bottom-left',
+                position: 'top-right',
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,
                 draggable: false,
-                theme: 'dark',
+                theme: 'colored',
                 progress: undefined,
-                icon: "🚀",
             });
             break;
 
         case 'erro':
             toast.error(mensagem, {
-                position: 'bottom-left',
+                position: 'top-right',
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,
                 draggable: false,
-                theme: 'dark',
+                theme: 'colored',
                 progress: undefined,
             });
             break;
 
         default:
             toast.info(mensagem, {
-                position: 'bottom-left',
+                position: 'top-right',
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,
                 draggable: false,
-                theme: 'dark',
+                theme: 'colored',
                 progress: undefined,
             });
             break;
