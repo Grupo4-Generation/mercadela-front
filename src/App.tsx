@@ -15,12 +15,14 @@ import FormularioCategoria from "./components/categoria/formularioCategoria/Form
 import ListaCategorias from "./components/categoria/listaCategoria/ListaCategoria";
 import Produtos from "./pages/produto/Produtos";
 import Load from "./pages/produto/ProdutoLoad";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <>
       <div className="flex flex-col min-h-screen">
         <AuthProvider>
+        <ToastContainer/>
           <BrowserRouter>
             <Navbar />
             <div className="flex flex-grow items-center justify-center my-4">

@@ -42,8 +42,8 @@ function Produtos() {
           </h1>
 
           {usuario.generoUsuario === "Feminino" ||
-          usuario.generoUsuario === "Outros" ||
-          usuario.generoUsuario === "Admin" ? (
+            usuario.generoUsuario === "Outros" ||
+            usuario.generoUsuario === "Admin" ? (
             <Popup
               trigger={
                 <button className="col-start-3 justify-self-end border rounded-[35px] px-4 py-2 text-2xl text-white bg-[#13DBB7] hover:bg-[#0F9D84]">
@@ -60,15 +60,17 @@ function Produtos() {
         </div>
 
         {produtos.length === 0 && (
-          <ProgressBar
-            height="80"
-            width="80"
-            ariaLabel="progress-bar-loading"
-            wrapperStyle={{}}
-            wrapperClass="progress-bar-wrapper"
-            borderColor="#DB5413"
-            barColor="#FDD3BE"
-          />
+          <div className="col-span-5 justify-self-center">
+            <ProgressBar
+              height="80"
+              width="80"
+              ariaLabel="progress-bar-loading"
+              wrapperStyle={{}}
+              wrapperClass="progress-bar-wrapper"
+              borderColor="#DB5413"
+              barColor="#FDD3BE"
+            />
+          </div>
         )}
 
         {produtos &&

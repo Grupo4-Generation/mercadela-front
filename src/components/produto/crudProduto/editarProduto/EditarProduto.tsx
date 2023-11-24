@@ -4,6 +4,7 @@ import { AuthContext } from "../../../../contexts/AuthContext";
 import Categoria from "../../../../models/Categoria";
 import Produto from "../../../../models/Produto";
 import { buscar, atualizar, cadastrar } from "../../../../services/Service";
+import { toastAlerta } from "../../../../util/toastAlerta";
 
 function EditarProduto() {
   let navigate = useNavigate();
@@ -56,7 +57,7 @@ function EditarProduto() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      toastAlerta("Você precisa estar logado", "erro");
       navigate("/");
     }
   }, [token]);
@@ -101,14 +102,14 @@ function EditarProduto() {
             Authorization: token,
           },
         });
-        alert("Produto atualizado com sucesso");
+        toastAlerta("Produto atualizado com sucesso", "sucesso");
         retornar();
       } catch (error: any) {
         if (error.toString().includes("403")) {
-          alert("O token expirou, favor logar novamente");
+          toastAlerta("O token expirou, favor logar novamente", "erro");
           handleLogout();
         } else {
-          alert("Erro ao atualizar o Produto");
+          toastAlerta("Erro ao atualizar o Produto", "erro");
         }
       }
     } else {
@@ -119,14 +120,14 @@ function EditarProduto() {
           },
         });
 
-        alert("Produto cadastrado com sucesso");
+        toastAlerta("Produto cadastrado com sucesso", "sucesso");
         retornar();
       } catch (error: any) {
         if (error.toString().includes("403")) {
-          alert("O token expirou, favor logar novamente");
+          toastAlerta("O token expirou, favor logar novamente", "erro");
           handleLogout();
         } else {
-          alert("Erro ao cadastrar o Produto");
+          toastAlerta("Erro ao cadastrar o Produto", "erro");
         }
       }
     }

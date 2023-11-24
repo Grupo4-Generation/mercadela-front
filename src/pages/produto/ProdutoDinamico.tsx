@@ -11,6 +11,7 @@ import "../../models/Produto";
 
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import { toastAlerta } from "../../util/toastAlerta";
 
 function PageProduto() {
   const { id } = useParams<{ id: string }>();
@@ -29,7 +30,7 @@ function PageProduto() {
       });
     } catch (error: any) {
       if (error.toString().includes("403")) {
-        alert("O token expirou, favor logar novamente");
+        toastAlerta("O token expirou, favor logar novamente", "info");
         handleLogout();
       }
     }
@@ -37,7 +38,7 @@ function PageProduto() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      toastAlerta("Você precisa estar logado", "erro");
       navigate("/login");
     }
   }, [token]);
@@ -48,10 +49,8 @@ function PageProduto() {
     }
   }, [id]);
 
-  const [, setMensagem] = useState("");
   let handleClick = () => {
-    setMensagem("Compra efetuada com sucesso!");
-    alert("Compra efetuada com sucesso!");
+    toastAlerta("Compra efetuada com sucesso!", "sucesso");
   };
   let adicionar = () => {
     setQuantidade(quantidade + 1);
@@ -60,7 +59,7 @@ function PageProduto() {
     if (quantidade > 1) {
       setQuantidade(quantidade - 1);
     } else {
-      alert("Quantidade mínima atingida!");
+      toastAlerta("Quantidade mínima atingida!", "erro");
     }
   };
   let precoFormatado = (produto.precoProduto / 1).toLocaleString("pt-BR", {

@@ -42,12 +42,13 @@ function Navbar() {
 
           <div className="flex gap-4 text-[#DB5413] self-center font-fontProjeto font-bold">
             <div className="flex self-center items-center gap-8 text-xl">
-              <Link to="/categoria" className="hover:text-[#bc4710] text-3xl">
-                Categorias
-              </Link>
               <Link to="/produtos" className="hover:text-[#bc4710] text-3xl">
                 Produtos
               </Link>
+              <Link to="/categoria" className="hover:text-[#bc4710] text-3xl">
+                Categorias
+              </Link>
+
               <ShoppingCart
                 className="hover:text-[#bc4710] cursor-pointer"
                 size={40}
@@ -55,20 +56,22 @@ function Navbar() {
               <div>
                 {usuario && usuario.token === "" ? (
                   <Link to="/login">
-                    <div className="hover:text-[#bc4710] cursor-pointer"></div>
-                    <UserCircle size={40} />
-                    <p>Entrar</p>
+                    <div className="hover:text-[#bc4710] grid justify-items-stretch cursor-pointer">
+                      <UserCircle size={40} className="justify-self-center" />
+                      <p>Entrar</p>
+                    </div>
                   </Link>
                 ) : (
-                  <div className="flex flex-col justify-center items-center hover:text-[#bc4710] cursor-pointer">
+                  <div className="grid justify-items-stretch hover:text-[#bc4710] cursor-pointer">
                     <UserCircle
                       size={40}
+                      className="justify-self-center"
                       onClick={() => {
                         toastAlerta("Usuário deslogado com sucesso", "sucesso");
                         handleLogout();
                       }}
                     />
-                    <p>Sair</p>
+                    <p className="justify-self-center">Sair</p>
                   </div>
                 )}
               </div>
