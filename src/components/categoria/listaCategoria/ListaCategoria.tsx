@@ -3,7 +3,6 @@ import { ProgressBar } from "react-loader-spinner";
 
 import { buscar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 import { toastAlerta } from "../../../util/toastAlerta";
 
@@ -19,8 +18,6 @@ import FormularioCategoria from "../formularioCategoria/FormularioCategoria";
 
 function ListaCategorias() {
   const [categoria, setCategoria] = useState<Categoria[]>([]);
-
-  const navigate = useNavigate();
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
