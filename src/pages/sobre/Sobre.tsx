@@ -23,7 +23,7 @@ function Sobre() {
                             </p>
                             <br />
                             <p>
-                                Desde a concepção do projeto, nossa equipe tem como valor fundamental a promoção da diversidade e inclusão. Alinhamos nossos objetivos com a ODS 5 da ONU, que trata da igualdade de gênero. Acreditamos que ao incentivar a participação feminina na economia e no empreendedorismo, estamos contribuindo para uma sociedade onde as mulheres têm independência financeira para participar ativamente na economia do país.
+                                Desde a concepção do projeto, nossa equipe tem como valor fundamental a promoção da diversidade e inclusão. Alinhamos nossos objetivos com a ODS 5 da ONU, que trata da igualdade de gênero. Acreditamos que ao incentivar a participação feminina na economia e no empreendedorismo, estaremos contribuindo para uma sociedade onde as mulheres terão independência financeira para participar ativamente na economia do país.
                             </p>
                         </div>
                     </div>
