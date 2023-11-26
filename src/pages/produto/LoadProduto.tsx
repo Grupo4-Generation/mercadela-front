@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect,useContext } from 'react';
 import { AuthContext } from "../../contexts/AuthContext";
 
-function Load() {
+function LoadProduto() {
 
     const navigate = useNavigate();
     const { usuario } = useContext(AuthContext)
@@ -23,4 +23,4 @@ function Load() {
   )
 }
 
-export default Load;
+export default LoadProduto;

@@ -1,15 +1,13 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../../../../contexts/AuthContext";
-import Categoria from "../../../../models/Categoria";
-import Produto from "../../../../models/Produto";
-import { buscar, atualizar, cadastrar } from "../../../../services/Service";
-import { toastAlerta } from "../../../../util/toastAlerta";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
+import Categoria from "../../../models/Categoria";
+import Produto from "../../../models/Produto";
+import { buscar, atualizar, cadastrar } from "../../../services/Service";
+import { toastAlerta } from "../../../util/toastAlerta";
 
-function EditarProduto() {
+function EditarProduto(produtoSelecionado: Produto | any) {
   let navigate = useNavigate();
-
-  const { id } = useParams<{ id: string }>();
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
@@ -31,7 +29,7 @@ function EditarProduto() {
     usuario: null,
   });
 
-  async function buscarProdutoPorId(id: string) {
+  async function buscarProdutoPorId(id: number) {
     await buscar(`/produto/${id}`, setProduto, {
       headers: {
         Authorization: token,
@@ -64,10 +62,10 @@ function EditarProduto() {
 
   useEffect(() => {
     buscarCategorias();
-    if (id !== undefined) {
-      buscarProdutoPorId(id);
+    if (produtoSelecionado.id !== undefined) {
+      buscarProdutoPorId(produtoSelecionado.id);
     }
-  }, [id]);
+  }, []);
 
   useEffect(() => {
     setProduto((prevProduto) => ({
@@ -86,14 +84,14 @@ function EditarProduto() {
   }
 
   function retornar() {
-    navigate("/load");
+    navigate("/loadProduto");
   }
 
   async function gerarNovoProduto(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log({ produto });
 
-    if (id !== undefined) {
+    if (produtoSelecionado.id !== undefined) {
       try {
         console.log({ produto });
         await atualizar(`/produto`, produto, setProduto, {
@@ -129,6 +127,7 @@ function EditarProduto() {
           toastAlerta("Erro ao cadastrar o Produto", "erro");
         }
       }
+      retornar();
     }
   }
 
@@ -137,7 +136,7 @@ function EditarProduto() {
   return (
     <div className="font-fontProjeto text-[#DB5413] flex-col items-center w-[80vh] px-10 pb-10">
       <h1 className="text-4xl text-center my-8 font-bold">
-        {id !== undefined ? "Editar Produto" : "Cadastrar Produto"}
+        {produtoSelecionado.id !== undefined ? "Editar Produto" : "Cadastrar Produto"}
       </h1>
 
       <form onSubmit={gerarNovoProduto} className="flex flex-col gap-4">
@@ -216,7 +215,7 @@ function EditarProduto() {
         >
           {carregandoCategoria ? (
             <span>Carregando</span>
-          ) : id !== undefined ? (
+          ) : produtoSelecionado.id !== undefined ? (
             "Editar"
           ) : (
             "Cadastrar"

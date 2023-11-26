@@ -1,21 +1,19 @@
 import { useState, useContext, useEffect } from "react";
-import { useNavigate, useParams } from "react-router";
-import { AuthContext } from "../../../../contexts/AuthContext";
-import { buscar, deletar } from "../../../../services/Service";
-import Produto from "../../../../models/Produto";
-import { toastAlerta } from "../../../../util/toastAlerta";
+import { useNavigate } from "react-router";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { buscar, deletar } from "../../../services/Service";
+import Produto from "../../../models/Produto";
+import { toastAlerta } from "../../../util/toastAlerta";
 
-function Deletarproduto() {
+function Deletarproduto(produtoSelecionado: Produto | any) {
   const [produto, setproduto] = useState<Produto>({} as Produto);
 
   let navigate = useNavigate();
 
-  const { id } = useParams<{ id: string }>();
-
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-  async function buscarPorId(id: string) {
+  async function buscarPorId(id: number) {
     try {
       await buscar(`/produto/${id}`, setproduto, {
         headers: {
@@ -38,18 +36,18 @@ function Deletarproduto() {
   }, [token]);
 
   useEffect(() => {
-    if (id !== undefined) {
-      buscarPorId(id);
+    if (produtoSelecionado.id !== undefined) {
+      buscarPorId(produtoSelecionado.id);
     }
-  }, [id]);
+  }, []);
 
   function retornar() {
-    navigate("/produtos");
+    navigate("/LoadProduto");
   }
 
   async function deletarProduto() {
     try {
-      await deletar(`/produto/${id}`, {
+      await deletar(`/produto/${produtoSelecionado.id}`, {
         headers: {
           Authorization: token,
         },
