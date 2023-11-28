@@ -1,4 +1,7 @@
-import { Envelope, FacebookLogo, InstagramLogo } from "@phosphor-icons/react";
+import {
+  Envelope,
+  GithubLogo,
+} from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -16,24 +19,24 @@ function Footer() {
             />
           </div>
 
-          <div>
+          <div className="py-2">
             <p className="text-2xl">MercaDela | Copyright: {data}</p>
             <div className="flex justify-evenly">
               <Link to="/contato">
-                <Envelope size={40} />
+                <Envelope size={40} className="hover:text-[#ffffff]" />
               </Link>
+
               <div className="cursor-pointer">
-                <InstagramLogo size={40} />
-              </div>
-              <div className="cursor-pointer">
-                <FacebookLogo size={40} />
+                <a href="https://github.com/Grupo4-Generation" target="_blank">
+                  <GithubLogo size={40} className="hover:text-[#ffffff]" />
+                </a>
               </div>
             </div>
           </div>
 
           <div className="text-2xl flex flex-col text-end">
             <p className="hover:text-[#ffffff] cursor-pointer">
-              Politica de Privacidade
+              Política de Privacidade
             </p>
             <p className="hover:text-[#ffffff] cursor-pointer">
               Termos e Condições

@@ -62,17 +62,12 @@ function Navbar() {
                     </div>
                   </Link>
                 ) : (
-                  <div className="grid justify-items-stretch hover:text-[#bc4710] cursor-pointer">
-                    <UserCircle
-                      size={40}
-                      className="justify-self-center"
-                      onClick={() => {
-                        toastAlerta("Usuário deslogado com sucesso", "sucesso");
+                  <div className="grid justify-items-stretch hover:text-[#bc4710] cursor-pointer" onClick={() => {
+                    toastAlerta("Usuário deslogado com sucesso", "sucesso");
                         handleLogout();
                         navigate("/");
-                        
-                      }}
-                    />
+                  }}>
+                    <UserCircle size={40} className="justify-self-center"/>
                     <p className="justify-self-center">Sair</p>
                   </div>
                 )}
