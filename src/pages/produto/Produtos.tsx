@@ -1,21 +1,18 @@
 import { useState, useEffect, useContext } from "react";
 import { buscarSemToken } from "../../services/Service";
-import { AuthContext } from "../../contexts/AuthContext";
 
 import Produto from "../../models/Produto";
 import CardProdutos from "./CardProdutos";
-
-import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import EditarProduto from "../../components/produto/crudProduto/editarProduto/EditarProduto";
 import { toastAlerta } from "../../util/toastAlerta";
 import { ProgressBar } from "react-loader-spinner";
+import Popup from "reactjs-popup";
+import { AuthContext } from "../../contexts/AuthContext";
+import EditarProduto from "./crudProduto/EditarProduto";
 
 function Produtos() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
-
   const { usuario } = useContext(AuthContext);
-
   async function buscarProdutos() {
     try {
       await buscarSemToken("/produto", setProdutos);
@@ -34,16 +31,14 @@ function Produtos() {
     <>
       <div className="font-fontProjeto font-bold container w-[80vw] px-[1vw] grid grid-cols-5 gap-5">
         <div className="col-span-5 grid grid-col-3 gap-4 items-center mt-8 mb-10">
-
           <div className="col-start-1 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>
 
           <h1 className="col-start-2 justify-self-center px-4 text-6xl text-[#DB5413] font-bold">
             Produtos
           </h1>
-
           {usuario.generoUsuario === "Feminino" ||
-            usuario.generoUsuario === "Outros" ||
-            usuario.generoUsuario === "Admin" ? (
+          usuario.generoUsuario === "Outros" ||
+          usuario.generoUsuario === "Admin" ? (
             <Popup
               trigger={
                 <button className="col-start-3 justify-self-end border rounded-[35px] px-4 py-2 text-2xl text-white bg-[#13DBB7] hover:bg-[#0F9D84]">
@@ -58,7 +53,6 @@ function Produtos() {
             <div className="col-start-3 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>
           )}
         </div>
-
         {produtos.length === 0 && (
           <div className="col-span-5 justify-self-center">
             <ProgressBar

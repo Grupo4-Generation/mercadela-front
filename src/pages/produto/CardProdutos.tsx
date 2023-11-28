@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
 import Produto from "../../models/Produto";
+import EditarProduto from "./crudProduto/EditarProduto";
+import Popup from "reactjs-popup";
+import Deletarproduto from "./crudProduto/DeletarProduto";
+import { AuthContext } from "../../contexts/AuthContext";
+import { useContext } from "react";
 
 interface ProductCardProps {
   produto: Produto;
@@ -10,6 +15,7 @@ function CardProdutos({ produto }: ProductCardProps) {
     style: "currency",
     currency: "BRL",
   });
+  const { usuario } = useContext(AuthContext);
 
   return (
     <>
@@ -40,6 +46,42 @@ function CardProdutos({ produto }: ProductCardProps) {
                 Comprar
               </p>
             </Link>
+          </div>
+          <div className="my-2 flex justify-center">
+            <div className="mr-1">
+              {usuario.generoUsuario === "Feminino" ||
+              usuario.generoUsuario === "Outros" ||
+              usuario.generoUsuario === "Admin" ? (
+                <Popup
+                  trigger={
+                    <button className="col-start-3 justify-self-end border rounded-[35px] px-4 py-2 text-2xl text-white bg-yellow-400 hover:bg-yellow-600">
+                      Editar
+                    </button>
+                  }
+                  modal
+                >
+                  <EditarProduto id={produto.id} fotoProduto={produto.fotoProduto} nomeProduto={produto.nomeProduto} idCategoria={produto.idCategoria
+                  } precoProduto={produto.precoProduto} usuario={produto.usuario} descricaoProduto={produto.descricaoProduto}  />
+                </Popup>
+              ) : null}
+            </div>
+            <div className="ml-1">
+              {usuario.generoUsuario === "Feminino" ||
+              usuario.generoUsuario === "Outros" ||
+              usuario.generoUsuario === "Admin" ? (
+                <Popup
+                  trigger={
+                    <button className="flex rounded-full justify-center text-center cursor-pointer bg-[#fe322e] px-2 py-2 text-2xl font-semibold hover:scale-105 hover:bg-[#B60E0E] text-white">
+                      Deletar
+                    </button>
+                  }
+                  modal
+                >
+                  <Deletarproduto id={produto.id} fotoProduto={produto.fotoProduto} nomeProduto={produto.nomeProduto} idCategoria={produto.idCategoria
+                  } precoProduto={produto.precoProduto} usuario={produto.usuario} descricaoProduto={produto.descricaoProduto}  />
+                </Popup>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>
