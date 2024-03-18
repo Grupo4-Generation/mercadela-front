@@ -8,23 +8,19 @@ function SlideHome() {
   const slides = [
     {
       id: "1",
-      image:
-        "http://cdn.discordapp.com/attachments/1139577278892875784/1177249762215477319/1.png",
+      image: "https://iili.io/JX1jgtV.png",
     },
     {
       id: "2",
-      image:
-        "http://cdn.discordapp.com/attachments/1139577278892875784/1177249757354270800/2.png",
+      image: "https://iili.io/JX1NFqP.png",
     },
     {
       id: "3",
-      image:
-        "http://cdn.discordapp.com/attachments/1139577278892875784/1177249757748543518/3.png",
+      image: "https://iili.io/JX1j89j.png",
     },
     {
       id: "4",
-      image:
-        "http://cdn.discordapp.com/attachments/1139577278892875784/1177249758105051256/4.png",
+      image: "https://iili.io/JX1jUwQ.png",
     },
   ];
 
