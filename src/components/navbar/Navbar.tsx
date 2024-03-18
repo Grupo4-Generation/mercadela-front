@@ -17,7 +17,7 @@ function Navbar() {
           <div className="self-center">
             <Link to="/home">
               <img
-                src="https://iili.io/JX1VgEu.png"
+                src="https://iili.io/JX1Xt0g.png"
                 alt="LogoNav"
                 className="min-w-[12vw] w-[12vw] my-1 hover:scale-105 duration-100"
               />
