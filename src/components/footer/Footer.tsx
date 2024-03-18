@@ -13,7 +13,7 @@ function Footer() {
         <div className="container flex justify-between items-center">
           <div>
             <img
-              src="http://cdn.discordapp.com/attachments/1139577278892875784/1177223443146616862/logo-footer.png"
+              src="https://iili.io/JX1hGLP.png"
               alt="LogoFooter"
               className="min-w-[5vw] min-h-[5vw] max-w-[12vw] max-h-[12vw]"
             />
