@@ -36,7 +36,7 @@ export function Login() {
       <form className="font-fontProjeto max-w-[400px] w-full mx-auto" onSubmit={login}>
 
         <div className="flex justify-center p-6">
-          <img src="https://iili.io/JX1VgEu.png" alt="Ícone" className="max-h-20" />
+          <img src="https://iili.io/JX1Xt0g.png" alt="Ícone" className="max-h-20" />
         </div>
 
 
