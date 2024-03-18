@@ -32,7 +32,7 @@ function Sobre() {
                         <div className="flex space-x-5">
                             <div className="bg-gradient-to-r from-[#DB5413] via-[#C24730] to-[#983853] p-6 rounded-3xl text-[white]">
                                 <div className="flex items-center flex-col text-center">
-                                    <img src="https://cdn.discordapp.com/attachments/1050597957352833117/1176528914655490068/20230409_163831.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 border-[#FEEAE0] object-cover" />
+                                    <img src="https://iili.io/JX1r63Q.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 border-[#FEEAE0] object-cover" />
 
                                     <h2 className="font-fontProjeto text-2xl pt-2">Amanda Gomes</h2>
                                 </div>
@@ -95,7 +95,7 @@ function Sobre() {
 
                             <div className="bg-gradient-to-r from-[#DB5413] via-[#C24730] to-[#983853] p-6 rounded-3xl text-[white]">
                                 <div className="flex items-center flex-col text-center">
-                                    <img src="https://media.discordapp.net/attachments/1071094420109262960/1176533442628943912/image0.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 object-cover border-[#FEEAE0]" />
+                                    <img src="https://iili.io/JX1rr6x.jpg" alt="imagemPerfil" className="w-[14vw] h-[14vw] rounded-full border-2 object-cover border-[#FEEAE0]" />
 
                                     <h2 className="font-fontProjeto text-2xl pt-2">Matheus Silva</h2>
                                 </div>
