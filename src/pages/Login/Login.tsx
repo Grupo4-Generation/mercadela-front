@@ -89,9 +89,7 @@ export function Login() {
 
         <div className="flex justify-center pt-5">
           <p className="text-xl text-[#DB5413] font-bold">
-            Ou cadastre-se <Link to='/cadastro' className="text-[#983854] hover:text-[#DB5413]">
-              aqui
-            </Link>
+            Ou <Link to='/cadastro' className="text-[#983854] hover:text-[#DB5413]">cadastre-se aqui</Link>
           </p>
         </div>
 
