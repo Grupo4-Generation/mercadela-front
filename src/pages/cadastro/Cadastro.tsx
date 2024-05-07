@@ -183,7 +183,7 @@ function Cadastro() {
                             </div>
                             <div className="flex justify-center">
                                 <p className="text-xl text-[#DB5413] font-bold">
-                                    Ou entre com seu login <Link to="/login" className="text-xl font-bold text-[#983854] hover:text-[#DB5413]">aqui</Link>
+                                    Ou <Link to="/login" className="text-xl font-bold text-[#983854] hover:text-[#DB5413]">entre com seu login</Link>
 
                                 </p>
                             </div>
