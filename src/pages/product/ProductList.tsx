@@ -1,7 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { buscarSemToken } from "../../services/Service";
 
-import Produto from "../../models/Product";
 import CardProducts from "../../components/product/cardProduto/DinamicCard";
 import "reactjs-popup/dist/index.css";
 import { toastAlerta } from "../../util/toastAlerta";
@@ -9,13 +7,15 @@ import { ProgressBar } from "react-loader-spinner";
 import Popup from "reactjs-popup";
 import { AuthContext } from "../../contexts/AuthContext";
 import Product from "../../models/Product";
+import { FindWithoutToken } from "../../services/Service";
+import EditProduct from "../../components/product/cardProduto/crud/EditProduct";
 
 function ProductList() {
   const [Products, setProducts] = useState<Product[]>([]);
-  const { users } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   async function findProducts() {
     try {
-      await buscarSemToken("/product", setProducts);
+      await FindWithoutToken("/product", setProducts);
     } catch (error: any) {
       if (error.toString().includes("403")) {
         toastAlerta("Sessão expirada...", "erro");
@@ -24,7 +24,7 @@ function ProductList() {
   }
 
   useEffect(() => {
-    buscarProducts();
+    findProducts();
   }, []);
 
   return (
@@ -36,9 +36,9 @@ function ProductList() {
           <h1 className="col-start-2 justify-self-center px-4 text-6xl text-[#DB5413] font-bold">
             Products
           </h1>
-          {usuario.generoUsuario === "Feminino" ||
-          usuario.generoUsuario === "Outros" ||
-          usuario.generoUsuario === "Admin" ? (
+          {user.gender === "Feminino" ||
+          user.gender === "Outros" ||
+          user.gender === "Admin" ? (
             <Popup
               trigger={
                 <button className="col-start-3 justify-self-end border rounded-[35px] px-4 py-2 text-2xl text-white bg-[#13DBB7] hover:bg-[#0F9D84]">
@@ -47,7 +47,7 @@ function ProductList() {
               }
               modal
             >
-              <Edit />
+              <EditProduct />
             </Popup>
           ) : (
             <div className="col-start-3 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>

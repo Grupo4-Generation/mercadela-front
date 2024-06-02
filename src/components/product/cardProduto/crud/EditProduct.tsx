@@ -90,7 +90,7 @@ function EditProduct(selectedProduct: Product | any) {
 
   async function createProduct(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log({ product });
+    console.log(product);
 
     if (selectedProduct.id !== undefined) {
       try {
@@ -113,12 +113,12 @@ function EditProduct(selectedProduct: Product | any) {
 
     } else {
       try {
+        console.log(product );
         await CreateWitchToken(`/product`, product, setProduct, {
           headers: {
             Authorization: token,
           },
         });
-
         toastAlerta("product cadastrado com sucesso", "sucesso");
       } catch (error: any) {
         if (error.toString().includes("403")) {
@@ -142,64 +142,64 @@ function EditProduct(selectedProduct: Product | any) {
 
       <form onSubmit={createProduct} className="flex flex-col gap-4">
         <div className="flex flex-col gap-2 text-[#DB5413]">
-          <label htmlFor="nomeproduct" className="font-bold">Nome do product</label>
+          <label htmlFor="name" className="font-bold">Nome do product</label>
           <input
             value={product.name}
             onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
             type="text"
-            placeholder="Digite o nome do product"
-            name="nomeproduct"
+            placeholder="Digite o nome do produto"
+            name="name"
             required
             className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricaoproduct" className="font-bold">Descrição do product</label>
+          <label htmlFor="description" className="font-bold">Descrição do product</label>
           <input
             value={product.description}
             onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
             type="text"
             placeholder="Digite a descrição do product"
-            name="descricaoproduct"
+            name="description"
             required
             className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="precoproduct" className="font-bold">Preço do product</label>
+          <label htmlFor="price" className="font-bold">Preço do product</label>
           <input
             value={product.price}
             onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
             type="number"
             placeholder="Digite o preço do product"
-            name="precoproduct"
+            name="price"
             required
             className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="fotoproduct" className="font-bold">Foto do product</label>
+          <label htmlFor="photo" className="font-bold">Foto do product</label>
           <input
             value={product.photo}
             onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
             type="url"
             placeholder="Insira a URL do product"
-            name="fotoproduct"
+            name="photo"
             required
             className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="idcategory" className="font-bold">category do product</label>
+          <label htmlFor="category" className="font-bold">category do product</label>
           <select
-            name="idcategory"
-            id="idcategory"
+            name="category"
+            id="category"
             className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
             onChange={(e) => buscarcategoryPorId(e.currentTarget.value)}
             value={product.category?.id || ""}
           >
             <option value="" disabled>
-              Selecione uma category
+              Selecione uma categoria
             </option>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>

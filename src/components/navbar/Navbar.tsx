@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { toastAlerta } from "../../util/toastAlerta";
 
 function Navbar() {
-  const { usuario, handleLogout } = useContext(AuthContext);
+  const { user, handleLogout } = useContext(AuthContext);
   const navigate = useNavigate();
   return (
     <>
@@ -42,10 +42,10 @@ function Navbar() {
 
           <div className="flex gap-4 text-[#DB5413] self-center font-fontProjeto font-bold">
             <div className="flex self-center items-center gap-8 text-xl">
-              <Link to="/produtos" className="hover:text-[#bc4710] text-3xl">
+              <Link to="/products" className="hover:text-[#bc4710] text-3xl">
                 Produtos
               </Link>
-              <Link to="/categoria" className="hover:text-[#bc4710] text-3xl">
+              <Link to="/category" className="hover:text-[#bc4710] text-3xl">
                 Categorias
               </Link>
 
@@ -54,7 +54,7 @@ function Navbar() {
                 size={40}
               />
               <div>
-                {usuario && usuario.token === "" ? (
+                {user && user.token === "" ? (
                   <Link to="/login">
                     <div className="hover:text-[#bc4710] grid justify-items-stretch cursor-pointer">
                       <UserCircle size={40} className="justify-self-center" />

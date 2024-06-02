@@ -1,21 +1,22 @@
 import { Link } from "react-router-dom";
 import Produto from "../../../models/Product";
-import EditarProduto from "../../../pages/product/crud/EditProduct";
 import Popup from "reactjs-popup";
-import Deletarproduto from "../../../pages/product/crud/DeleteProduct";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { useContext } from "react";
+import EditProduct from "./crud/EditProduct";
+import DeleteProduct from "./crud/DeleteProduct";
+
 
 interface ProductCardProps {
   produto: Produto;
 }
 
-function CardProdutos({ produto }: ProductCardProps) {
-  let precoFormatado = (produto.precoProduto / 1).toLocaleString("pt-BR", {
+function DinamicCard({ produto }: ProductCardProps) {
+  let precoFormatado = (produto.price / 1).toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
   });
-  const { usuario } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <>
@@ -23,14 +24,14 @@ function CardProdutos({ produto }: ProductCardProps) {
         <div className=" flex w-full">
           <img
             className="w-full h-full sm:h-auto rounded-lg object-cover object-center bg-gray-100"
-            src={produto.fotoProduto}
+            src={produto.photo}
             alt="produto"
           />
         </div>
         <div className="flex flex-col justify-between">
           <div className="my-3 flex justify-center">
             <p className="font-bold truncate text-2xl text-orange-500">
-              {produto.nomeProduto}
+              {produto.name}
             </p>
           </div>
 
@@ -49,9 +50,9 @@ function CardProdutos({ produto }: ProductCardProps) {
           </div>
           <div className="my-2 flex justify-center">
             <div className="mr-1">
-              {usuario.generoUsuario === "Feminino" ||
-              usuario.generoUsuario === "Outros" ||
-              usuario.generoUsuario === "Admin" ? (
+              {user.gender === "Feminino" ||
+              user.gender === "Outros" ||
+              user.gender === "Admin" ? (
                 <Popup
                   trigger={
                     <button className="col-start-3 justify-self-end border rounded-[35px] px-4 py-2 text-2xl text-white bg-yellow-400 hover:bg-yellow-600">
@@ -60,15 +61,15 @@ function CardProdutos({ produto }: ProductCardProps) {
                   }
                   modal
                 >
-                  <EditarProduto id={produto.id} fotoProduto={produto.fotoProduto} nomeProduto={produto.nomeProduto} idCategoria={produto.idCategoria
-                  } precoProduto={produto.precoProduto} usuario={produto.usuario} descricaoProduto={produto.descricaoProduto}  />
+                  <EditProduct id={produto.id} fotoProduto={produto.photo} nomeProduto={produto.name} idCategoria={produto.category
+                  } precoProduto={produto.price} user={produto.user} descricaoProduto={produto.description}  />
                 </Popup>
               ) : null}
             </div>
             <div className="ml-1">
-              {usuario.generoUsuario === "Feminino" ||
-              usuario.generoUsuario === "Outros" ||
-              usuario.generoUsuario === "Admin" ? (
+              {user.gender === "Feminino" ||
+              user.gender === "Outros" ||
+              user.gender === "Admin" ? (
                 <Popup
                   trigger={
                     <button className="flex rounded-full justify-center text-center cursor-pointer bg-[#fe322e] px-2 py-2 text-2xl font-semibold hover:scale-105 hover:bg-[#B60E0E] text-white">
@@ -77,8 +78,8 @@ function CardProdutos({ produto }: ProductCardProps) {
                   }
                   modal
                 >
-                  <Deletarproduto id={produto.id} fotoProduto={produto.fotoProduto} nomeProduto={produto.nomeProduto} idCategoria={produto.idCategoria
-                  } precoProduto={produto.precoProduto} usuario={produto.usuario} descricaoProduto={produto.descricaoProduto}  />
+                  <DeleteProduct id={produto.id} fotoProduto={produto.photo} nomeProduto={produto.name} idCategoria={produto.category
+                  } precoProduto={produto.price} user={produto.user} descricaoProduto={produto.description}  />
                 </Popup>
               ) : null}
             </div>
@@ -89,4 +90,4 @@ function CardProdutos({ produto }: ProductCardProps) {
   );
 }
 
-export default CardProdutos;
+export default DinamicCard;

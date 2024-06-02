@@ -1,34 +1,33 @@
 import { useState, useContext, useEffect, ChangeEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import UsuarioLogin from "../../models/UserLogin";
+import UserLogin from "../../models/UserLogin";
 import { AuthContext } from "../../contexts/AuthContext";
 import { RotatingLines } from "react-loader-spinner";
 
 export function Login() {
 
   const navigate = useNavigate();
-  const { usuario, handleLogin, isLoading } = useContext(AuthContext);
+  const { user, handleLogin, isLoading } = useContext(AuthContext);
 
-  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
-    {} as UsuarioLogin
+  const [userLogin, setuserLogin] = useState<UserLogin>(
+    {} as UserLogin
   );
 
   useEffect(() => {
-    if (usuario.token !== "") {
+    if (user.token !== "") {
       navigate('/home')
     }
-  }, [usuario])
+  }, [user])
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    setUsuarioLogin({
-      ...usuarioLogin,
+    setuserLogin({
+      ...userLogin,
       [e.target.name]: e.target.value
     })
   }
-
   function login(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
-    handleLogin(usuarioLogin)
+    handleLogin(userLogin)
   }
 
   return (
@@ -41,33 +40,33 @@ export function Login() {
 
 
         <div className="flex flex-col pb-6">
-          <label htmlFor="emailUsuario" className="text-xl text-[#DB5413] font-bold pb-2 pl-5">
+          <label htmlFor="email" className="text-xl text-[#DB5413] font-bold pb-2 pl-5">
             E-mail
           </label>
 
           <input
             type="text"
-            id="emailUsuario"
-            name="emailUsuario"
+            id="email"
+            name="email"
             className="p-1 border border-gray-300 rounded-2xl px-3 focus:outline-none"
             placeholder="Email@exemplo.com"
-            value={usuarioLogin.emailUsuario}
+            value={userLogin.email}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
         </div>
 
         <div className="flex flex-col pb-6">
-          <label htmlFor="senhaUsuario" className="text-xl text-[#DB5413] font-bold pb-2 pl-5">
+          <label htmlFor="password" className="text-xl text-[#DB5413] font-bold pb-2 pl-5">
             Senha
           </label>
 
           <input
             type="password"
-            id="senhaUsuario"
-            name="senhaUsuario"
+            id="password"
+            name="password"
             className="p-1 border border-gray-300 rounded-2xl px-3 focus:outline-none"
             placeholder="Digite a senha"
-            value={usuarioLogin.senhaUsuario}
+            value={userLogin.password}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
         </div>
@@ -89,7 +88,7 @@ export function Login() {
 
         <div className="flex justify-center pt-5">
           <p className="text-xl text-[#DB5413] font-bold">
-            Ou <Link to='/cadastro' className="text-[#983854] hover:text-[#DB5413]">cadastre-se aqui</Link>
+            Ou <Link to='/register' className="text-[#983854] hover:text-[#DB5413]">cadastre-se aqui</Link>
           </p>
         </div>
 

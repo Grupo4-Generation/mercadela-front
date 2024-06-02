@@ -113,10 +113,10 @@ function CategoryForm() {
 
             <form className="w-1/2 flex flex-col gap-4" onSubmit={createCategory}>
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="nomecategory" className="text-[#DB5413] font-bold">Nome da category</label>
+                    <label htmlFor="n" className="text-[#DB5413] font-bold">Nome da category</label>
                     <input
                         type="text"
-                        name='nomecategory'
+                        name='name'
                         placeholder="Digite o nome da category"
                         className="p-1 border border-gray-300 rounded-2xl px-3"
                         value={category.name}
@@ -124,10 +124,10 @@ function CategoryForm() {
                     />
                 </div>
                 <div className="flex flex-col gap-2 pb-4">
-                    <label htmlFor="descricaocategory" className ="text-[#DB5413] font-bold">Descrição da category</label>
+                    <label htmlFor="description" className ="text-[#DB5413] font-bold">Descrição da category</label>
                     <input
                         type="text"
-                        name='descricaocategory'
+                        name='description'
                         placeholder="Digite a descrição da category"
                         className="p-1 border border-gray-300 rounded-2xl px-3"
                         value={category.description}

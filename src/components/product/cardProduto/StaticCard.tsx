@@ -7,7 +7,7 @@ interface ProductCardProps {
   fotoProduto: string;
 }
 
-const CardEstaticoProdutoHome: React.FC<ProductCardProps> = ({ nomeProduto, precoProduto, fotoProduto }) => {
+const StaticCard: React.FC<ProductCardProps> = ({ nomeProduto, precoProduto, fotoProduto }) => {
   let precoFormatado = (precoProduto / 1).toLocaleString('pt-BR', {
     style: 'currency',
     currency: 'BRL',
@@ -34,4 +34,4 @@ const CardEstaticoProdutoHome: React.FC<ProductCardProps> = ({ nomeProduto, prec
   );
 }
 
-export default CardEstaticoProdutoHome;
+export default StaticCard;

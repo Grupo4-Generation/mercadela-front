@@ -2,7 +2,7 @@ import { ArrowCircleDown } from '@phosphor-icons/react';
 
 import category from '../../../models/Category'
 
-import "./Cardcategory.css"
+import "./CategoryCard.css"
 import { Link } from 'react-router-dom';
 import ModalDelete from '../modal/ModalDelete';
 import { useContext } from 'react';

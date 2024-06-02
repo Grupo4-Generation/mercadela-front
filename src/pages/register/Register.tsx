@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import user from '../../models/User'
 
-import './Cadastro.css'
+import './Register.css'
 import { toastAlerta } from '../../util/toastAlerta'
 import { CreateWithoutToken } from '../../services/Service'
 

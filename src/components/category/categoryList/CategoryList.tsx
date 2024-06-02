@@ -5,7 +5,7 @@ import { toastAlerta } from "../../../util/toastAlerta";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 
-import "./Listacategory.css";
+import "./CategoryList.css";
 
 import Formulariocategory from "../categoryForm/CategoryForm";
 import { useNavigate } from "react-router-dom";

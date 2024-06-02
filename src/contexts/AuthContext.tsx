@@ -31,10 +31,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     const [isLoading, setIsLoading] = useState(false)
 
-    async function handleLogin(userLogin:   UserLogin) {
+    async function handleLogin(userLogin:UserLogin) {
         setIsLoading(true)
         try {
-            await Login(`/users/logar`, userLogin, setuser)
+            console.log("aqui", userLogin)
+            await Login(`/user/login`, userLogin, setuser)
             toastAlerta("Usuário logado com sucesso", "sucesso")
             setIsLoading(false)
 
