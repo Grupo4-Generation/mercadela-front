@@ -2,25 +2,25 @@ import { useNavigate } from "react-router-dom";
 import { useEffect,useContext } from 'react';
 import { AuthContext } from "../../contexts/AuthContext";
 
-function LoadCategoria() {
+function LoadProduto() {
 
     const navigate = useNavigate();
-    const { usuario } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     function sair(){
-        navigate('/categoria');
+        navigate('/products');
     }
 
     useEffect(() => {
 
-        if (usuario !== undefined) {
+        if (user !== undefined) {
             sair()
         }
-    }, [usuario])
+    }, [user])
 
   return (
     <div>ModalSair</div>
   )
 }
 
-export default LoadCategoria;
+export default LoadProduto;

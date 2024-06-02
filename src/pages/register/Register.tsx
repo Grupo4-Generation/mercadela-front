@@ -1,64 +1,64 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { cadastrarUsuario } from '../../services/Service'
-import Usuario from '../../models/User'
+import user from '../../models/User'
 
 import './Cadastro.css'
 import { toastAlerta } from '../../util/toastAlerta'
+import { CreateWithoutToken } from '../../services/Service'
 
-function Cadastro() {
+function Register() {
 
     const navigate = useNavigate()
 
     const [, setIsLoading] = useState<boolean>(false)
-    const [confirmaSenha, setConfirmaSenha] = useState<string>("")
+    const [enterPassword, setEnterPassword] = useState<string>("")
 
-    const [usuario, setUsuario] = useState<Usuario>({
+    const [user, setuser] = useState<user>({
         id: 0,
-        nomeUsuario: '',
-        emailUsuario: '',
-        senhaUsuario: '',
-        foto: '',
-        generoUsuario: '',
-        tipoUsuario: ''
+        cpf: "",
+        email: "",
+        name: "",
+        password: "",
+        photo: "",
+        gender: "",
     })
 
     useEffect(() => {
-        if (usuario.id !== 0) {
-            retornar()
+        if (user.id !== 0) {
+            exit()
         }
-    }, [usuario])
+    }, [user])
 
-    function retornar() {
+    function exit() {
         navigate('/login')
     }
 
     function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
-        setConfirmaSenha(e.target.value)
+        setEnterPassword(e.target.value)
     }
 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-        setUsuario({
-            ...usuario,
+        setuser({
+            ...user,
             [e.target.name]: e.target.value
         })
     }
     function atualizarEstadoGenero(e: ChangeEvent<HTMLSelectElement>) {
-        setUsuario({
-            ...usuario,
+        setuser({
+            ...user,
             [e.target.name]: e.target.value
         })
     }
 
-    async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
+    async function cadastrarNovouser(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        if (confirmaSenha === usuario.senhaUsuario && usuario.senhaUsuario.length >= 8) {
+        if (enterPassword === user.password && user.password.length >= 8) {
             setIsLoading(true)
 
             try {
-                await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
+                await CreateWithoutToken(`/users/cadastrar`, user, setuser)
                 toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
 
             } catch (error) {
@@ -67,8 +67,8 @@ function Cadastro() {
 
         } else {
             toastAlerta('Dados inconsistentes. Verifique as informações de cadastro.', 'erro')
-            setUsuario({ ...usuario, senhaUsuario: "" })
-            setConfirmaSenha("")
+            setuser({ ...user, password: "" })
+            setEnterPassword("")
         }
 
         setIsLoading(false)
@@ -83,43 +83,43 @@ function Cadastro() {
                     </h1>
                     <form
                         className="flex flex-col"
-                        onSubmit={cadastrarNovoUsuario}>
+                        onSubmit={cadastrarNovouser}>
                         <div className="flex flex-row space-x-8">
                             <div className="flex flex-col space-y-4">
                                 <div className="flex flex-col">
-                                    <label htmlFor="nomeUsuario" className="text-xl text-[#DB5413] font-bold">
+                                    <label htmlFor="nomeuser" className="text-xl text-[#DB5413] font-bold">
                                         Nome completo</label>
                                     <input
                                         type="text"
-                                        id="nomeUsuario"
-                                        name="nomeUsuario"
+                                        id="nomeuser"
+                                        name="nomeuser"
                                         placeholder="Digite seu nome"
                                         className="p-1 w-[25vw] border border-gray-300 rounded-3xl pl-5 italic focus:outline-none"
-                                        value={usuario.nomeUsuario}
+                                        value={user.name}
                                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                                     />
                                 </div>
                                 <div className="flex flex-col">
-                                    <label htmlFor="emailUsuario" className="text-xl text-[#DB5413] font-bold">
+                                    <label htmlFor="emailuser" className="text-xl text-[#DB5413] font-bold">
                                         E-mail</label>
                                     <input
                                         type="email"
-                                        id="emailUsuario"
-                                        name="emailUsuario"
+                                        id="emailuser"
+                                        name="emailuser"
                                         placeholder="email@exemplo.com"
                                         className="p-1 w-[25vw] border border-gray-300 rounded-3xl pl-5 italic focus:outline-none"
-                                        value={usuario.emailUsuario}
+                                        value={user.email}
                                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                                     />
                                 </div>
                                 <div className="flex flex-col">
-                                    <label htmlFor="generoUsuario" className="text-xl text-[#DB5413] font-bold">
+                                    <label htmlFor="generouser" className="text-xl text-[#DB5413] font-bold">
                                         Gênero</label>
                                     <select
-                                        id="generoUsuario"
-                                        name="generoUsuario"
+                                        id="generouser"
+                                        name="generouser"
                                         className="h-8 p-1 w-[25vw] border border-gray-300 rounded-3xl pl-5 italic focus:outline-none"
-                                        value={usuario.generoUsuario}
+                                        value={user.gender}
                                         onChange={(e: ChangeEvent<HTMLSelectElement>) => atualizarEstadoGenero(e)}
                                     >
                                         <option selected disabled value="">Selecione</option>
@@ -134,15 +134,15 @@ function Cadastro() {
 
                             <div className="flex flex-col space-y-4">
                                 <div className="flex flex-col">
-                                    <label htmlFor="senhaUsuario" className="text-xl text-[#DB5413] font-bold">
+                                    <label htmlFor="senhauser" className="text-xl text-[#DB5413] font-bold">
                                         Senha</label>
                                     <input
                                         type="password"
-                                        id="senhaUsuario"
-                                        name="senhaUsuario"
+                                        id="senhauser"
+                                        name="senhauser"
                                         placeholder="Digite a senha"
                                         className="p-1 w-[25vw] border border-gray-300 rounded-3xl pl-5 italic focus:outline-none"
-                                        value={usuario.senhaUsuario}
+                                        value={user.password}
                                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                                     />
                                 </div>
@@ -155,7 +155,7 @@ function Cadastro() {
                                         name="confirmarSenha"
                                         placeholder="Confirmar a senha"
                                         className="p-1 w-[25vw] border border-gray-300 rounded-3xl pl-5 italic focus:outline-none"
-                                        value={confirmaSenha}
+                                        value={enterPassword}
                                         onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
                                     />
                                 </div>
@@ -168,7 +168,7 @@ function Cadastro() {
                                         name="foto"
                                         placeholder="Insira a URL da foto"
                                         className="p-1 w-[25vw] border border-gray-300 rounded-3xl pl-5 italic focus:outline-none"
-                                        value={usuario.foto}
+                                        value={user.photo}
                                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                                     />
                                 </div>
@@ -194,4 +194,4 @@ function Cadastro() {
     );
 }
 
-export default Cadastro
+export default Register

@@ -1,29 +1,27 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
-
-import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
-
-import Categoria from "../../../models/Category";
 import { toastAlerta } from "../../../util/toastAlerta";
+import Category from "../../../models/Category";
+import { CreateWitchToken, FindWitchToken, Update } from "../../../services/Service";
 
 
-function FormularioCategoria() {
+function CategoryForm() {
 
     const navigate = useNavigate();
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
+    const [category, setCategory] = useState<Category>({} as Category);
 
     const { id } = useParams<{ id: string }>();
 
-    const { usuario, handleLogout } = useContext(AuthContext);
-    const token = usuario.token;
+    const { user, handleLogout } = useContext(AuthContext);
+    const token = user.token;
 
     async function buscarPorId(id: string) {
         try {
-            await buscar(`/categoria/${id}`, setCategoria, {
+            await FindWitchToken(`/category/${id}`, setCategory, {
                 headers: {
                     'Authorization': token
                 }
@@ -49,52 +47,52 @@ function FormularioCategoria() {
         }
     }, [id])
 
-    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-        setCategoria({
-            ...categoria,
+    function updateState(e: ChangeEvent<HTMLInputElement>) {
+        setCategory({
+            ...category,
             [e.target.name]: e.target.value
         })
     }
 
-    async function gerarNovaCategoria(e: ChangeEvent<HTMLFormElement>) {
+    async function createCategory(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         setIsLoading(true)
-        navigate('/loadCategoria')
+        navigate('/loadCategory')
 
         if (id !== undefined) {
             try {
-                await atualizar(`/categoria`, categoria, setCategoria, {
+                await Update(`/category`, category, setCategory, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                navigate('/loadCategoria')
-                toastAlerta("Categoria atualizada com sucesso","sucesso")
+                navigate('/loadcategory')
+                toastAlerta("category atualizada com sucesso","sucesso")
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     toastAlerta("O token expirou, favor logar novamente","info")
                     handleLogout()
                 } else {
-                    toastAlerta("Erro ao atualizar a Categoria","erro")
+                    toastAlerta("Erro ao atualizar a category","erro")
                 }
             }
 
         } else {
             try {
-                await cadastrar(`/categoria`, categoria, setCategoria, {
+                await CreateWitchToken(`/category`, category, setCategory, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                toastAlerta('Categoria cadastrada com sucesso', 'sucesso')
+                toastAlerta('category cadastrada com sucesso', 'sucesso')
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     toastAlerta('O token expirou, favor logar novamente', 'erro')
                     handleLogout()
                 } else {
-                    toastAlerta('Erro ao cadastrar a categoria', 'erro')
+                    toastAlerta('Erro ao cadastrar a category', 'erro')
                 }
             }
         }
@@ -104,36 +102,36 @@ function FormularioCategoria() {
     }
 
     function retornar() {
-        navigate("/categoria")
+        navigate("/category")
     }
 
     return (
         <div className="bg-[#FEEAE0] rounded-3xl pt-4 pb-8 font-fontProjeto w-[40vw] flex flex-col items-center justify-center">
             <h1 className="text-4xl font-bold text-[#DB5413] text-center my-4">
-                {id === undefined ? 'Cadastrar Categoria' : 'Editar Categoria'}
+                {id === undefined ? 'Cadastrar category' : 'Editar category'}
             </h1>
 
-            <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
+            <form className="w-1/2 flex flex-col gap-4" onSubmit={createCategory}>
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="nomeCategoria" className="text-[#DB5413] font-bold">Nome da Categoria</label>
+                    <label htmlFor="nomecategory" className="text-[#DB5413] font-bold">Nome da category</label>
                     <input
                         type="text"
-                        name='nomeCategoria'
-                        placeholder="Digite o nome da categoria"
+                        name='nomecategory'
+                        placeholder="Digite o nome da category"
                         className="p-1 border border-gray-300 rounded-2xl px-3"
-                        value={categoria.nomeCategoria}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={category.name}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
                     />
                 </div>
                 <div className="flex flex-col gap-2 pb-4">
-                    <label htmlFor="descricaoCategoria" className ="text-[#DB5413] font-bold">Descrição da categoria</label>
+                    <label htmlFor="descricaocategory" className ="text-[#DB5413] font-bold">Descrição da category</label>
                     <input
                         type="text"
-                        name='descricaoCategoria'
-                        placeholder="Digite a descrição da categoria"
+                        name='descricaocategory'
+                        placeholder="Digite a descrição da category"
                         className="p-1 border border-gray-300 rounded-2xl px-3"
-                        value={categoria.descricaoCategoria}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        value={category.description}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
                     />
                 </div>
                 <button
@@ -155,4 +153,4 @@ function FormularioCategoria() {
     )
 }
 
-export default FormularioCategoria
+export default CategoryForm

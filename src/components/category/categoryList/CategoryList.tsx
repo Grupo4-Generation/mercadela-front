@@ -1,27 +1,23 @@
 import { useContext, useEffect, useState } from "react";
 import { ProgressBar } from "react-loader-spinner";
-
-import { buscar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
-
 import { toastAlerta } from "../../../util/toastAlerta";
-
-import Categoria from "../../../models/Category";
-import CardCategoria from "../cardCategoria/CardCategorias";
-
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 
-import "./ListaCategoria.css";
+import "./Listacategory.css";
 
-import FormularioCategoria from "../formularioCategoria/FormularioCategoria";
+import Formulariocategory from "../categoryForm/CategoryForm";
 import { useNavigate } from "react-router-dom";
+import Category from "../../../models/Category";
+import { FindWitchToken } from "../../../services/Service";
+import CategoryCard from "../categoryCard/CategoryCard";
 
-function ListaCategorias() {
-  const [categoria, setCategoria] = useState<Categoria[]>([]);
+function CategoryList() {
+  const [category, setcategory] = useState<Category[]>([]);
 
-  const { usuario, handleLogout } = useContext(AuthContext);
-  const token = usuario.token;
+  const { user, handleLogout } = useContext(AuthContext);
+  const token = user.token;
 
   const navigate = useNavigate();
 
@@ -32,9 +28,9 @@ function ListaCategorias() {
     }
 }, [token])
 
-  async function buscarCategoria() {
+  async function categoryFind() {
     try {
-      await buscar("/categoria", setCategoria, {
+      await FindWitchToken("/category", setcategory, {
         headers: { Authorization: token },
       });
     } catch (error: any) {
@@ -47,8 +43,8 @@ function ListaCategorias() {
 
   
   useEffect(() => {
-    buscarCategoria();
-  }, [categoria.length]);
+    categoryFind();
+  }, [category.length]);
 
   return (
     <>
@@ -58,10 +54,10 @@ function ListaCategorias() {
           <div className="col-start-1 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>
 
           <h1 className="text-center text-6xl text-[#DB5413] font-bold">
-            Categorias
+            categorys
           </h1>
 
-          {usuario.generoUsuario === "Admin" ? (
+          {user.gender === "Admin" ? (
             <Popup
               className="-content"
               trigger={
@@ -71,13 +67,13 @@ function ListaCategorias() {
               }
               modal
             >
-              <FormularioCategoria />
+              <Formulariocategory />
             </Popup>
           ) : <div className="col-start-1 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>}
 
         </div>
 
-        {categoria.length === 0 && (
+        {category.length === 0 && (
           <div className="col-span-3 justify-self-center">
             <ProgressBar
               height="80"
@@ -91,9 +87,9 @@ function ListaCategorias() {
           </div>
         )}
 
-        {categoria.map((categoria) => (
+        {category.map((category) => (
           <>
-            <CardCategoria key={categoria.id} categoria={categoria} />
+            <CategoryCard key={category.id} category={category} />
           </>
         ))}
       </div>
@@ -101,4 +97,4 @@ function ListaCategorias() {
   );
 }
 
-export default ListaCategorias;
+export default CategoryList;

@@ -1,6 +1,6 @@
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import DeletarCategoria from '../deletarCategoria/DeletarCategoria';
+import DeletarCategoria from '../deleteCategory/DeleteCategory';
 
 interface ModalDeleteProps {
     id: number

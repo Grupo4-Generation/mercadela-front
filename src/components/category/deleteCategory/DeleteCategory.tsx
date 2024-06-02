@@ -1,30 +1,31 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 
-import { buscar, deletar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
 
-import Categoria from "../../../models/Category";
+import category from "../../../models/Category";
 import { RotatingLines } from "react-loader-spinner";
 import { toastAlerta } from "../../../util/toastAlerta";
+import Category from "../../../models/Category";
+import { Delete, FindWitchToken } from "../../../services/Service";
 
 interface DeleteProps {
     id: number
 }
 
-function DeletarCategoria({id} : DeleteProps) {
+function DeleteCategory({id} : DeleteProps) {
 
     const navigate = useNavigate()
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [categoria, setCategoria] = useState<Categoria>({} as Categoria)
+    const [category, setCategory] = useState<Category>({} as category)
 
-    const { usuario, handleLogout } = useContext(AuthContext)
-    const token = usuario.token
+    const { user, handleLogout } = useContext(AuthContext)
+    const token = user.token
 
-    async function buscarPorId() {
+    async function FindById() {
         try {
-            await buscar(`/categoria/${id}`, setCategoria, {
+            await FindWitchToken(`/category/${id}`, setCategory, {
                 headers: {
                     'Authorization': token
                 }
@@ -46,52 +47,52 @@ function DeletarCategoria({id} : DeleteProps) {
 
     useEffect(() => {
         if (id !== undefined) {
-            buscarPorId()
+            FindById()
         }
     }, [id])
 
-    async function deletarCategoria() {
+    async function deleteCategory() {
         setIsLoading(true)
-        navigate('/loadCategoria')
+        navigate('/loadcategory')
 
         try {
-            await deletar(`/categoria/${id}`, {
+            await Delete(`/category/${id}`, {
                 headers: {
                     'Authorization': token
                 }
             })
 
-            toastAlerta('Categoria apagada com sucesso', 'sucesso')
+            toastAlerta('category apagada com sucesso', 'sucesso')
 
         } catch (error) {
-            toastAlerta('Erro ao apagar Categoria', 'erro')
+            toastAlerta('Erro ao apagar category', 'erro')
         }
 
         setIsLoading(false)
-        retornar()
+        back()
     }
 
-    function retornar() {
-        navigate("/categoria")
+    function back() {
+        navigate("/category")
     }
 
     return (
         <div className='font-fontProjeto p-4 container w-[60vw] mx-auto bg-[#FEEAE0] rounded-3xl'>
-            <h1 className='font-bold text-4xl text-center my-4 text-[red]'>Deletar Categoria</h1>
+            <h1 className='font-bold text-4xl text-center my-4 text-[red]'>Deletar category</h1>
 
             <p className='text-center font-semibold mb-4 text-[red]'>
-                Você tem certeza de que deseja <br></br>apagar a categoria a seguir?
+                Você tem certeza de que deseja <br></br>apagar a category a seguir?
             </p>
 
             <div className='text-center flex flex-col overflow-hidden justify-between'>
-                <p className='p-8 text-3xl h-full text-[#DB5413] font-bold'>{categoria.nomeCategoria}</p>
+                <p className='p-8 text-3xl h-full text-[#DB5413] font-bold'>{category.name}</p>
 
                 <div className="flex space-x-[10vw] self-center">
 
                     <button
                         className='font-bold text-slate-100 bg-[#13DBB7] hover:bg-[#0F9D84] 
                             flex items-center justify-center px-5 rounded-3xl'
-                        onClick={deletarCategoria}>
+                        onClick={deleteCategory}>
 
                         {isLoading ?
                             <RotatingLines
@@ -110,4 +111,4 @@ function DeletarCategoria({id} : DeleteProps) {
     )
 }
 
-export default DeletarCategoria
+export default DeleteCategory;

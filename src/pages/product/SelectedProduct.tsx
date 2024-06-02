@@ -1,23 +1,24 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import { buscar } from "../../services/Service";
+
 import Produto from "../../models/Product";
 import "../../models/Product";
 import "reactjs-popup/dist/index.css";
 import { toastAlerta } from "../../util/toastAlerta";
+import { FindWitchToken } from "../../services/Service";
 
-function PageProduto() {
+function SelectedProduct() {
   const { id } = useParams<{ id: string }>();
 
-  const { usuario, handleLogout } = useContext(AuthContext);
-  const token = usuario.token;
+  const { user, handleLogout } = useContext(AuthContext);
+  const token = user.token;
   const navigate = useNavigate();
   const [quantidade, setQuantidade] = useState<number>(1);
   const [produto, setProduto] = useState<Produto>({} as Produto);
-  async function buscarPorId(id: string) {
+  async function findById(id: string) {
     try {
-      await buscar(`/produto/${id}`, setProduto, {
+      await FindWitchToken(`/produto/${id}`, setProduto, {
         headers: {
           Authorization: token,
         },
@@ -39,7 +40,7 @@ function PageProduto() {
 
   useEffect(() => {
     if (id !== undefined) {
-      buscarPorId(id);
+      findById(id);
     }
   }, [id]);
 
@@ -56,7 +57,7 @@ function PageProduto() {
       toastAlerta("Quantidade mínima atingida!", "erro");
     }
   };
-  let precoFormatado = (produto.precoProduto / 1).toLocaleString("pt-BR", {
+  let precoFormatado = (produto.price / 1).toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
   });
@@ -66,17 +67,17 @@ function PageProduto() {
       <div className="flex m-0 items-center justify-center font-fontProjeto">
         <img
           className="shadow-2xl max-w-sm rounded-lg object-cover object-center bg-white-500"
-          src={produto.fotoProduto}
+          src={produto.photo}
           alt="product"
         />
         <div className="flex flex-col flex-wrap pl-5">
           <div className="my-5 flex ml-4 align-top">
             <p className="align-top font-bold text-5xl text-justify text-[#d95613]">
-              {produto?.nomeProduto}
+              {produto?.name}
             </p>
           </div>
           <div className="ml-4 mr-6">
-            <p className="text-justify max-w-md">{produto.descricaoProduto}</p>
+            <p className="text-justify max-w-md">{produto.description}</p>
           </div>
           <div className="my-5 flex ml-4">
             <p className="font-bold text-5xl text-justify text-[#13dbb7]">
@@ -108,4 +109,4 @@ function PageProduto() {
   );
 }
 
-export default PageProduto;
+export default SelectedProduct;

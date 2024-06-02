@@ -1,40 +1,40 @@
 import { ArrowCircleDown } from '@phosphor-icons/react';
 
-import Categoria from '../../../models/Category'
+import category from '../../../models/Category'
 
-import "./CardCategoria.css"
+import "./Cardcategory.css"
 import { Link } from 'react-router-dom';
 import ModalDelete from '../modal/ModalDelete';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 
-interface CardCategoriaProps {
-    categoria: Categoria
+interface CategoryCardProps {
+    category: category
 }
 
-function CardCategorias({ categoria }: CardCategoriaProps) {
+function CategoryCard({ category }: CategoryCardProps) {
     
-    const {usuario} = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
 
     return (
         <div className='flex h-[20vh] justify-center'>
-            <p className='flex text-3xl text-[#C24730] font-bold'>{categoria.nomeCategoria}</p>
+            <p className='flex text-3xl text-[#C24730] font-bold'>{category.name}</p>
             
-            {usuario.generoUsuario === "Admin"? (<div id='dropCat'>
+            {user.gender === "Admin"? (<div id='dropCat'>
                 
                 <button>
                     <ArrowCircleDown size={26} weight="bold" className='dropIcon' />
                 </button>
                 <div className='dropFilha'>
-                    <Link to={`/editarCategoria/${categoria.id}`}>
+                    <Link to={`/editarcategory/${category.id}`}>
                         <button className='editar'>Editar</button>
                     </Link>
 
-                    <ModalDelete id={categoria.id}/>
+                    <ModalDelete id={category.id}/>
                 </div>
             </div>) : null}
         </div>
     )
 }
 
-export default CardCategorias;
+export default CategoryCard;

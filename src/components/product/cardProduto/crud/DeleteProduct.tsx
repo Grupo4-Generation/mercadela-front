@@ -6,7 +6,7 @@ import { AuthContext } from "../../../../contexts/AuthContext";
 import Product from "../../../../models/Product";
 
 function DeleteProduct(selectedProduct: Product | any) {
-  const [produto, setproduct] = useState<Product>({} as Product);
+  const [produto, setProduct] = useState<Product>({} as Product);
 
   let navigate = useNavigate();
 
@@ -15,7 +15,7 @@ function DeleteProduct(selectedProduct: Product | any) {
 
   async function findById(id: number) {
     try {
-      await FindWitchToken(`/product/${id}`, setproduct, {
+      await FindWitchToken(`/product/${id}`, setProduct, {
         headers: {
           Authorization: token,
         },
