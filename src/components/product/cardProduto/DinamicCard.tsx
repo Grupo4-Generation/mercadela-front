@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import Produto from "../../models/Produto";
-import EditarProduto from "./crudProduto/EditarProduto";
+import Produto from "../../../models/Product";
+import EditarProduto from "../../../pages/product/crud/EditProduct";
 import Popup from "reactjs-popup";
-import Deletarproduto from "./crudProduto/DeletarProduto";
-import { AuthContext } from "../../contexts/AuthContext";
+import Deletarproduto from "../../../pages/product/crud/DeleteProduct";
+import { AuthContext } from "../../../contexts/AuthContext";
 import { useContext } from "react";
 
 interface ProductCardProps {

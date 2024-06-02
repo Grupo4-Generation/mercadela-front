@@ -5,7 +5,7 @@ import { RotatingLines } from "react-loader-spinner";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
 
-import Categoria from "../../../models/Categoria";
+import Categoria from "../../../models/Category";
 import { toastAlerta } from "../../../util/toastAlerta";
 
 

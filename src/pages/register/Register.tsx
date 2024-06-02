@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { cadastrarUsuario } from '../../services/Service'
-import Usuario from '../../models/Usuario'
+import Usuario from '../../models/User'
 
 import './Cadastro.css'
 import { toastAlerta } from '../../util/toastAlerta'

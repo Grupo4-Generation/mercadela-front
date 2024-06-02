@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect, ChangeEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import UsuarioLogin from "../../models/UsuarioLogin";
+import UsuarioLogin from "../../models/UserLogin";
 import { AuthContext } from "../../contexts/AuthContext";
 import { RotatingLines } from "react-loader-spinner";
 

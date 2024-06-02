@@ -1,6 +1,6 @@
 import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
 
-function Sobre() {
+function AboutUs() {
     return (
         <>
             <section className="flex justify-center m-0 px-[12vw]">
@@ -112,4 +112,4 @@ function Sobre() {
     )
 }
 
-export default Sobre;
+export default AboutUs;

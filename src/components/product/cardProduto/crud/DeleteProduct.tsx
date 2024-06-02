@@ -1,21 +1,21 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { AuthContext } from "../../../contexts/AuthContext";
-import { buscar, deletar } from "../../../services/Service";
-import Produto from "../../../models/Produto";
-import { toastAlerta } from "../../../util/toastAlerta";
+import { Delete, FindWitchToken } from "../../../../services/Service";
+import { toastAlerta } from "../../../../util/toastAlerta";
+import { AuthContext } from "../../../../contexts/AuthContext";
+import Product from "../../../../models/Product";
 
-function Deletarproduto(produtoSelecionado: Produto | any) {
-  const [produto, setproduto] = useState<Produto>({} as Produto);
+function DeleteProduct(selectedProduct: Product | any) {
+  const [produto, setproduct] = useState<Product>({} as Product);
 
   let navigate = useNavigate();
 
-  const { usuario, handleLogout } = useContext(AuthContext);
-  const token = usuario.token;
+  const { user, handleLogout } = useContext(AuthContext);
+  const token = user.token;
 
-  async function buscarPorId(id: number) {
+  async function findById(id: number) {
     try {
-      await buscar(`/produto/${id}`, setproduto, {
+      await FindWitchToken(`/product/${id}`, setproduct, {
         headers: {
           Authorization: token,
         },
@@ -36,18 +36,18 @@ function Deletarproduto(produtoSelecionado: Produto | any) {
   }, [token]);
 
   useEffect(() => {
-    if (produtoSelecionado.id !== undefined) {
-      buscarPorId(produtoSelecionado.id);
+    if (selectedProduct.id !== undefined) {
+      findById(selectedProduct.id);
     }
   }, []);
 
-  function retornar() {
+  function back() {
     navigate("/LoadProduto");
   }
 
-  async function deletarProduto() {
+  async function DeleteProduct() {
     try {
-      await deletar(`/produto/${produtoSelecionado.id}`, {
+      await Delete (`/product/${selectedProduct.id}`, {
         headers: {
           Authorization: token,
         },
@@ -58,7 +58,7 @@ function Deletarproduto(produtoSelecionado: Produto | any) {
       toastAlerta("Erro ao apagar a produto", "erro");
     }
 
-    retornar();
+    back();
   }
 
   return (
@@ -74,7 +74,7 @@ function Deletarproduto(produtoSelecionado: Produto | any) {
       <div className="flex flex-col rounded-2xl overflow-hidden text-center">
         <div className="p-4">
           <p className="p-8 text-3xl h-full text-[#DB5413] font-bold">
-            {produto.nomeProduto}
+            {produto.name}
           </p>
         </div>
 
@@ -82,14 +82,14 @@ function Deletarproduto(produtoSelecionado: Produto | any) {
           <button
             className="text-slate-100 bg-[red] hover:bg-[#B60E0E] 
                             flex items-center justify-center px-5 rounded-3xl py-2"
-            onClick={retornar}
+            onClick={back}
           >
             Não
           </button>
           <button
             className="text-slate-100 bg-[#13DBB7] hover:bg-[#0F9D84]  
                             flex items-center justify-center px-5 rounded-3xl"
-            onClick={deletarProduto}
+            onClick={DeleteProduct}
           >
             Sim
           </button>
@@ -99,4 +99,4 @@ function Deletarproduto(produtoSelecionado: Produto | any) {
   );
 }
 
-export default Deletarproduto;
+export default DeleteProduct;

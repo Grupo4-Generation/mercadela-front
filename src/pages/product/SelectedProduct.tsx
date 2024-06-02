@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { buscar } from "../../services/Service";
-import Produto from "../../models/Produto";
-import "../../models/Produto";
+import Produto from "../../models/Product";
+import "../../models/Product";
 import "reactjs-popup/dist/index.css";
 import { toastAlerta } from "../../util/toastAlerta";
 

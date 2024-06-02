@@ -2,21 +2,21 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 
-function LoadContato() {
+function LoadContact() {
   const navigate = useNavigate();
-  const { usuario } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  function sair() {
-    navigate("/contato");
+  function exit() {
+    navigate("/contact");
   }
 
   useEffect(() => {
-    if (usuario !== undefined) {
-      sair();
+    if (user !== undefined) {
+      exit();
     }
-  }, [usuario]);
+  }, [user]);
 
   return <div></div>;
 }
 
-export default LoadContato;
+export default LoadContact;

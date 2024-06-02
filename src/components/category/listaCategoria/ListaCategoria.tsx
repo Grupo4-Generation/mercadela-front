@@ -6,7 +6,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 
 import { toastAlerta } from "../../../util/toastAlerta";
 
-import Categoria from "../../../models/Categoria";
+import Categoria from "../../../models/Category";
 import CardCategoria from "../cardCategoria/CardCategorias";
 
 import Popup from "reactjs-popup";

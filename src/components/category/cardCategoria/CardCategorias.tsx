@@ -1,6 +1,6 @@
 import { ArrowCircleDown } from '@phosphor-icons/react';
 
-import Categoria from '../../../models/Categoria'
+import Categoria from '../../../models/Category'
 
 import "./CardCategoria.css"
 import { Link } from 'react-router-dom';

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { buscar, deletar } from "../../../services/Service";
 import { AuthContext } from "../../../contexts/AuthContext";
 
-import Categoria from "../../../models/Categoria";
+import Categoria from "../../../models/Category";
 import { RotatingLines } from "react-loader-spinner";
 import { toastAlerta } from "../../../util/toastAlerta";
 

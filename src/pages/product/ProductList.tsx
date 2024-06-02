@@ -1,21 +1,21 @@
 import { useState, useEffect, useContext } from "react";
 import { buscarSemToken } from "../../services/Service";
 
-import Produto from "../../models/Produto";
-import CardProdutos from "./CardProdutos";
+import Produto from "../../models/Product";
+import CardProducts from "../../components/product/cardProduto/DinamicCard";
 import "reactjs-popup/dist/index.css";
 import { toastAlerta } from "../../util/toastAlerta";
 import { ProgressBar } from "react-loader-spinner";
 import Popup from "reactjs-popup";
 import { AuthContext } from "../../contexts/AuthContext";
-import EditarProduto from "./crudProduto/EditarProduto";
+import Product from "../../models/Product";
 
-function Produtos() {
-  const [produtos, setProdutos] = useState<Produto[]>([]);
-  const { usuario } = useContext(AuthContext);
-  async function buscarProdutos() {
+function ProductList() {
+  const [Products, setProducts] = useState<Product[]>([]);
+  const { users } = useContext(AuthContext);
+  async function findProducts() {
     try {
-      await buscarSemToken("/produto", setProdutos);
+      await buscarSemToken("/product", setProducts);
     } catch (error: any) {
       if (error.toString().includes("403")) {
         toastAlerta("Sessão expirada...", "erro");
@@ -24,7 +24,7 @@ function Produtos() {
   }
 
   useEffect(() => {
-    buscarProdutos();
+    buscarProducts();
   }, []);
 
   return (
@@ -34,7 +34,7 @@ function Produtos() {
           <div className="col-start-1 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>
 
           <h1 className="col-start-2 justify-self-center px-4 text-6xl text-[#DB5413] font-bold">
-            Produtos
+            Products
           </h1>
           {usuario.generoUsuario === "Feminino" ||
           usuario.generoUsuario === "Outros" ||
@@ -47,13 +47,13 @@ function Produtos() {
               }
               modal
             >
-              <EditarProduto />
+              <Edit />
             </Popup>
           ) : (
             <div className="col-start-3 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>
           )}
         </div>
-        {produtos.length === 0 && (
+        {Products.length === 0 && (
           <div className="col-span-5 justify-self-center">
             <ProgressBar
               height="80"
@@ -67,13 +67,13 @@ function Produtos() {
           </div>
         )}
 
-        {produtos &&
-          produtos.map((produto) => (
-            <CardProdutos key={produto.id} produto={produto} />
+        {Products &&
+          Products.map((produto) => (
+            <CardProducts key={produto.id} produto={produto} />
           ))}
       </div>
     </>
   );
 }
 
-export default Produtos;
+export default ProductList;

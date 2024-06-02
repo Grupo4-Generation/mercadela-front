@@ -1,52 +1,53 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../contexts/AuthContext";
-import Categoria from "../../../models/Categoria";
-import Produto from "../../../models/Produto";
-import { buscar, atualizar, cadastrar } from "../../../services/Service";
-import { toastAlerta } from "../../../util/toastAlerta";
+import { AuthContext } from "../../../../contexts/AuthContext";
 
-function EditarProduto(produtoSelecionado: Produto | any) {
+import { toastAlerta } from "../../../../util/toastAlerta";
+import Category from "../../../../models/Category";
+import Product from "../../../../models/Product";
+import { FindWitchToken } from "../../../../services/Service";
+
+function EditProduct(selectedProduct: Product | any) {
   let navigate = useNavigate();
 
-  const { usuario, handleLogout } = useContext(AuthContext);
-  const token = usuario.token;
+  const { user, handleLogout } = useContext(AuthContext);
+  const token = user.token;
 
-  const [categorias, setCategorias] = useState<Categoria[]>([]);
-  const [categoria, setCategoria] = useState<Categoria>({
+  const [categorys, setcategorys] = useState<Category[]>([]);
+  const [category, setcategory] = useState<Category>({
     id: 0,
-    nomeCategoria: "",
-    descricaoCategoria: "",
+    name: "",
+    description: "",
   });
 
-  const [produto, setProduto] = useState<Produto>({
+  const [product, setproduct] = useState<Product>({
     id: 0,
-    nomeProduto: "",
-    descricaoProduto: "",
-    fotoProduto: "",
-    precoProduto: 0,
-    idCategoria: null,
-    usuario: null,
+    name: "",
+    description: "",
+    photo: "",
+    price: 0,
+    category: null,
+    user: null,
   });
 
-  async function buscarProdutoPorId(id: number) {
-    await buscar(`/produto/${id}`, setProduto, {
+  async function buscarproductPorId(id: number) {
+    await FindWitchToken(`/product/${id}`, setproduct, {
       headers: {
         Authorization: token,
       },
     });
   }
 
-  async function buscarCategoriaPorId(id: string) {
-    await buscar(`/categoria/${id}`, setCategoria, {
+  async function buscarcategoryPorId(id: string) {
+    await FindWitchToken(`/category/${id}`, setcategory, {
       headers: {
         Authorization: token,
       },
     });
   }
 
-  async function buscarCategorias() {
-    await buscar("/categoria", setCategorias, {
+  async function buscarcategorys() {
+    await FindWitchToken("/category", setcategorys, {
       headers: {
         Authorization: token,
       },
@@ -61,161 +62,161 @@ function EditarProduto(produtoSelecionado: Produto | any) {
   }, [token]);
 
   useEffect(() => {
-    buscarCategorias();
-    if (produtoSelecionado.id !== undefined) {
-      buscarProdutoPorId(produtoSelecionado.id);
+    buscarcategorys();
+    if (selectedProduct.id !== undefined) {
+      buscarproductPorId(selectedProduct.id);
     }
   }, []);
 
   useEffect(() => {
-    setProduto((prevProduto) => ({
-      ...prevProduto,
-      idCategoria: categoria,
+    setproduct((prevproduct) => ({
+      ...prevproduct,
+      idcategory: category,
     }));
-  }, [categoria]);
+  }, [category]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
 
-    setProduto((prevProduto) => ({
-      ...prevProduto,
+    setproduct((prevproduct) => ({
+      ...prevproduct,
       [name]: value,
     }));
   }
 
   function retornar() {
-    navigate("/loadProduto");
+    navigate("/loadproduct");
   }
 
-  async function gerarNovoProduto(e: ChangeEvent<HTMLFormElement>) {
+  async function gerarNovoproduct(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log({ produto });
+    console.log({ product });
 
-    if (produtoSelecionado.id !== undefined) {
+    if (selectedProduct.id !== undefined) {
       try {
-        console.log({ produto });
-        await atualizar(`/produto`, produto, setProduto, {
+        console.log({ product });
+        await atualizar(`/product`, product, setproduct, {
           headers: {
             Authorization: token,
           },
         });
-        toastAlerta("Produto atualizado com sucesso", "sucesso");
+        toastAlerta("product atualizado com sucesso", "sucesso");
       } catch (error: any) {
         if (error.toString().includes("403")) {
           toastAlerta("O token expirou, favor logar novamente", "erro");
           handleLogout();
         } else {
-          toastAlerta("Erro ao atualizar o Produto", "erro");
+          toastAlerta("Erro ao atualizar o product", "erro");
         }
       }
       retornar();
 
     } else {
       try {
-        await cadastrar(`/produto`, produto, setProduto, {
+        await cadastrar(`/product`, product, setproduct, {
           headers: {
             Authorization: token,
           },
         });
 
-        toastAlerta("Produto cadastrado com sucesso", "sucesso");
+        toastAlerta("product cadastrado com sucesso", "sucesso");
       } catch (error: any) {
         if (error.toString().includes("403")) {
           toastAlerta("O token expirou, favor logar novamente", "erro");
           handleLogout();
         } else {
-          toastAlerta("Erro ao cadastrar o Produto", "erro");
+          toastAlerta("Erro ao cadastrar o product", "erro");
         }
       }
       retornar();
     }
   }
 
-  const carregandoCategoria = categoria.nomeCategoria === "";
+  const carregandocategory = category.name === "";
 
   return (
     <div className="font-fontProjeto text-[#DB5413] flex-col items-center w-[80vh] px-10 pb-10">
       <h1 className="text-4xl text-center my-8 font-bold">
-        {produtoSelecionado.id !== undefined ? "Editar Produto" : "Cadastrar Produto"}
+        {selectedProduct.id !== undefined ? "Editar product" : "Cadastrar product"}
       </h1>
 
-      <form onSubmit={gerarNovoProduto} className="flex flex-col gap-4">
+      <form onSubmit={gerarNovoproduct} className="flex flex-col gap-4">
         <div className="flex flex-col gap-2 text-[#DB5413]">
-          <label htmlFor="nomeProduto" className="font-bold">Nome do Produto</label>
+          <label htmlFor="nomeproduct" className="font-bold">Nome do product</label>
           <input
-            value={produto.nomeProduto}
+            value={product.name}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             type="text"
-            placeholder="Digite o nome do produto"
-            name="nomeProduto"
+            placeholder="Digite o nome do product"
+            name="nomeproduct"
             required
             className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricaoProduto" className="font-bold">Descrição do produto</label>
+          <label htmlFor="descricaoproduct" className="font-bold">Descrição do product</label>
           <input
-            value={produto.descricaoProduto}
+            value={product.description}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             type="text"
-            placeholder="Digite a descrição do produto"
-            name="descricaoProduto"
+            placeholder="Digite a descrição do product"
+            name="descricaoproduct"
             required
             className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="precoProduto" className="font-bold">Preço do produto</label>
+          <label htmlFor="precoproduct" className="font-bold">Preço do product</label>
           <input
-            value={produto.precoProduto}
+            value={product.price}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             type="number"
-            placeholder="Digite o preço do produto"
-            name="precoProduto"
+            placeholder="Digite o preço do product"
+            name="precoproduct"
             required
             className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="fotoProduto" className="font-bold">Foto do produto</label>
+          <label htmlFor="fotoproduct" className="font-bold">Foto do product</label>
           <input
-            value={produto.fotoProduto}
+            value={product.photo}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             type="url"
-            placeholder="Insira a URL do produto"
-            name="fotoProduto"
+            placeholder="Insira a URL do product"
+            name="fotoproduct"
             required
             className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="idCategoria" className="font-bold">Categoria do Produto</label>
+          <label htmlFor="idcategory" className="font-bold">category do product</label>
           <select
-            name="idCategoria"
-            id="idCategoria"
+            name="idcategory"
+            id="idcategory"
             className="p-1 w-full border border-gray-300 text-[black] rounded-3xl pl-5 italic focus:outline-none"
-            onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
-            value={produto.idCategoria?.id || ""}
+            onChange={(e) => buscarcategoryPorId(e.currentTarget.value)}
+            value={product.category?.id || ""}
           >
             <option value="" disabled>
-              Selecione uma categoria
+              Selecione uma category
             </option>
-            {categorias.map((categoria) => (
-              <option key={categoria.id} value={categoria.id}>
-                {categoria.nomeCategoria}
+            {categorys.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
               </option>
             ))}
           </select>
         </div>
 
         <button
-          disabled={carregandoCategoria}
+          disabled={carregandocategory}
           type="submit"
           className="font-fontProjeto rounded-[20px] disabled:bg-slate-200 bg-[#13DBB7] hover:bg-[#0F9D84] text-white font-bold text-2xl px-10 mx-auto block py-2"
         >
-          {carregandoCategoria ? (
+          {carregandocategory ? (
             <span>Carregando</span>
-          ) : produtoSelecionado.id !== undefined ? (
+          ) : selectedProduct.id !== undefined ? (
             "Editar"
           ) : (
             "Cadastrar"
@@ -226,4 +227,4 @@ function EditarProduto(produtoSelecionado: Produto | any) {
   );
 }
 
-export default EditarProduto;
+export default EditProduct;
