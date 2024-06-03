@@ -7,32 +7,20 @@ import "reactjs-popup/dist/index.css";
 
 import "./CategoryList.css";
 
-import Formulariocategory from "../categoryForm/CategoryForm";
-import { useNavigate } from "react-router-dom";
 import Category from "../../../models/Category";
-import { FindWitchToken } from "../../../services/Service";
+import { FindWithoutToken } from "../../../services/Service";
 import CategoryCard from "../categoryCard/CategoryCard";
+import CategoryForm from "../categoryForm/CategoryForm";
 
 function CategoryList() {
   const [category, setcategory] = useState<Category[]>([]);
 
   const { user, handleLogout } = useContext(AuthContext);
   const token = user.token;
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (token === '') {
-        toastAlerta("Sessão expirada...", "erro");
-        navigate('/');
-    }
-}, [token])
-
+  
   async function categoryFind() {
     try {
-      await FindWitchToken("/category", setcategory, {
-        headers: { Authorization: token },
-      });
+      await FindWithoutToken("/category", setcategory);
     } catch (error: any) {
       if (error.toString().includes("403")) {
         toastAlerta("Erro, tente novamente", "erro");
@@ -41,7 +29,6 @@ function CategoryList() {
     }
   }
 
-  
   useEffect(() => {
     categoryFind();
   }, [category.length]);
@@ -50,7 +37,6 @@ function CategoryList() {
     <>
       <div className="font-fontProjeto font-bold container z-0 w-[80vw] px-[1vw] mx-auto my-0 grid grid-cols-3 gap-4">
         <div className="col-span-3 flex justify-between items-center mt-8 mb-10">
-
           <div className="col-start-1 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>
 
           <h1 className="text-center text-6xl text-[#DB5413] font-bold">
@@ -67,10 +53,11 @@ function CategoryList() {
               }
               modal
             >
-              <Formulariocategory />
+              <CategoryForm />
             </Popup>
-          ) : <div className="col-start-1 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>}
-
+          ) : (
+            <div className="col-start-1 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>
+          )}
         </div>
 
         {category.length === 0 && (

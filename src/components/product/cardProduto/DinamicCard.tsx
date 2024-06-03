@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
-import Produto from "../../../models/Product";
 import Popup from "reactjs-popup";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { useContext } from "react";
 import EditProduct from "./crud/EditProduct";
 import DeleteProduct from "./crud/DeleteProduct";
+import Product from "../../../models/Product";
 
 
 interface ProductCardProps {
-  produto: Produto;
+  product: Product;
 }
 
-function DinamicCard({ produto }: ProductCardProps) {
-  let precoFormatado = (produto.price / 1).toLocaleString("pt-BR", {
+function DinamicCard({ product }: ProductCardProps) {
+  let precoFormatado = (product.price / 1).toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
   });
@@ -24,14 +24,14 @@ function DinamicCard({ produto }: ProductCardProps) {
         <div className=" flex w-full">
           <img
             className="w-full h-full sm:h-auto rounded-lg object-cover object-center bg-gray-100"
-            src={produto.photo}
-            alt="produto"
+            src={product.photo}
+            alt="product"
           />
         </div>
         <div className="flex flex-col justify-between">
           <div className="my-3 flex justify-center">
             <p className="font-bold truncate text-2xl text-orange-500">
-              {produto.name}
+              {product.name}
             </p>
           </div>
 
@@ -42,7 +42,7 @@ function DinamicCard({ produto }: ProductCardProps) {
           </div>
 
           <div className="my-2 flex justify-center">
-            <Link to={`/produto/${produto.id}`}>
+            <Link to={`/product/${product.id}`}>
               <p className="rounded-full cursor-pointer bg-[#13DBB7] hover:bg-[#0F9D84] px-4 pt-1 text-3xl font-semibold hover:scale-105 text-white">
                 Comprar
               </p>
@@ -61,8 +61,8 @@ function DinamicCard({ produto }: ProductCardProps) {
                   }
                   modal
                 >
-                  <EditProduct id={produto.id} fotoProduto={produto.photo} nomeProduto={produto.name} idCategoria={produto.category
-                  } precoProduto={produto.price} user={produto.user} descricaoProduto={produto.description}  />
+                  <EditProduct id={product.id} fotoproduct={product.photo} nomeproduct={product.name} idCategoria={product.category
+                  } precoproduct={product.price} user={product.user} descricaoproduct={product.description}  />
                 </Popup>
               ) : null}
             </div>
@@ -78,8 +78,8 @@ function DinamicCard({ produto }: ProductCardProps) {
                   }
                   modal
                 >
-                  <DeleteProduct id={produto.id} fotoProduto={produto.photo} nomeProduto={produto.name} idCategoria={produto.category
-                  } precoProduto={produto.price} user={produto.user} descricaoProduto={produto.description}  />
+                  <DeleteProduct id={product.id} fotoproduct={product.photo} nomeproduct={product.name} idCategoria={product.category
+                  } precoproduct={product.price} user={product.user} descricaoproduct={product.description}  />
                 </Popup>
               ) : null}
             </div>

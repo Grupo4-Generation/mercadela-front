@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
 
-import CardProducts from "../../components/product/cardProduto/DinamicCard";
 import "reactjs-popup/dist/index.css";
 import { toastAlerta } from "../../util/toastAlerta";
 import { ProgressBar } from "react-loader-spinner";
@@ -9,6 +8,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import Product from "../../models/Product";
 import { FindWithoutToken } from "../../services/Service";
 import EditProduct from "../../components/product/cardProduto/crud/EditProduct";
+import DinamicCard from "../../components/product/cardProduto/DinamicCard";
 
 function ProductList() {
   const [Products, setProducts] = useState<Product[]>([]);
@@ -68,8 +68,8 @@ function ProductList() {
         )}
 
         {Products &&
-          Products.map((produto) => (
-            <CardProducts key={produto.id} produto={produto} />
+          Products.map((product) => (
+            <DinamicCard key={product.id} product={product} />
           ))}
       </div>
     </>
