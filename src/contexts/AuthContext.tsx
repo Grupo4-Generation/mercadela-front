@@ -21,8 +21,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     const [user, setuser] = useState<UserLogin>({
         id: 0,
-        cpf: "",
-        name: "",
+        cpf: null,
+        name: null,
         email: "",
         password: "",
         gender: "",
@@ -34,7 +34,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     async function handleLogin(userLogin:UserLogin) {
         setIsLoading(true)
         try {
-            console.log("aqui", userLogin)
             await Login(`/user/login`, userLogin, setuser)
             toastAlerta("Usuário logado com sucesso", "sucesso")
             setIsLoading(false)
@@ -49,8 +48,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     function handleLogout() {
         setuser({
             id: 0,
-            cpf: "",
-            name: "",
+            cpf: null,
+            name: null,
             email: "",
             password: "",
             gender: "",

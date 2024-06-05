@@ -14,7 +14,7 @@ import CategoryList from "./components/category/categoryList/CategoryList";
 import CategoryForm from "./components/category/categoryForm/CategoryForm";
 import LoadProduto from "./components/loads/ProductLoad";
 import Register from "./pages/register/Register";
-import Login from "./pages/Login/Login";
+import Login from "./pages/login/Login";
 import AboutUs from "./pages/aboutUs/AboutUs";
 import CategoryLoad from "./components/loads/CategoryLoad";
 
