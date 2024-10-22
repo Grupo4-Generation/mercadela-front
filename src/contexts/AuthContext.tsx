@@ -20,14 +20,17 @@ export const AuthContext = createContext({} as AuthContextProps)
 export function AuthProvider({ children }: AuthProviderProps) {
 
     const [user, setuser] = useState<UserLogin>({
-        id: 0,
-        cpf: null,
-        name: null,
-        email: "",
-        password: "",
-        gender: "",
-        token: ""
-    })
+      id: 0,
+      email: "",
+      password: "",
+      cpf: "",
+      name: "",
+      gender: "",
+      photo:"",
+      token: "",
+      admin: null,
+      products : []
+    });
 
     const [isLoading, setIsLoading] = useState(false)
 
@@ -47,14 +50,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     function handleLogout() {
         setuser({
-            id: 0,
-            cpf: null,
-            name: null,
-            email: "",
-            password: "",
-            gender: "",
-            token: ""
-        })
+          id: 0,
+          email: "",
+          password: "",
+          cpf: "",
+          name: "",
+          gender: "",
+          photo: "",
+          token: "",
+          admin: null,
+          products: [],
+        });
     }
 
     return (

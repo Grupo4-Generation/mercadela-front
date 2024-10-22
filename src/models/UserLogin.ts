@@ -1,10 +1,14 @@
-export default interface UserLogin {
+import Product from "./Product";
 
-    id: number;
-    cpf: string | null;
-    name: string | null;
-    email: string;
-    password: string;
-    gender: string;
-    token: string;
+export default interface UserLogin {
+  id: number;
+  email: string;
+  password: string;
+  name: string | null;
+  cpf: string | null;
+  gender: string | null;
+  photo: string | null;
+  token: string;
+  admin: boolean | null;
+  products?: Product[];
 }

@@ -1,12 +1,14 @@
 import Product from "./Product";
 
 export default interface User {
-    id: number;
-    cpf: string | null;
-    name: string | null;
-    email: string;
-    password: string;
-    gender: string;
-    photo: string;
-    product?: Product | null;
-  }
+  id: number;
+  email: string;
+  password: string;
+  name: string | null;
+  cpf: string | null;
+  gender: string | null;
+  photo: string | null;
+  token: string;
+  admin: boolean | null;
+  product?: Product | null;
+}
