@@ -7,8 +7,8 @@ import Popup from "reactjs-popup";
 import { AuthContext } from "../../contexts/AuthContext";
 import Product from "../../models/Product";
 import { FindWithoutToken } from "../../services/Service";
-import EditProduct from "../../components/product/cardProduto/crud/EditProduct";
-import DinamicCard from "../../components/product/cardProduto/DinamicCard";
+import EditProduct from "../../components/product/productCard/crud/EditProduct";
+import DinamicCard from "../../components/product/productCard/DinamicCard";
 
 function ProductList() {
   const [Products, setProducts] = useState<Product[]>([]);

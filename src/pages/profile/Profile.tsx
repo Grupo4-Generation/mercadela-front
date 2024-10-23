@@ -1,13 +1,14 @@
 import { useContext, useState, useEffect } from "react";
+
 import { AuthContext } from "../../contexts/AuthContext";
-import { FindWitchToken } from "../../services/Service";
 import UserLogin from "../../models/UserLogin";
 import Product from "../../models/Product";
+import { FindWitchToken } from "../../services/Service";
 import { toastAlerta } from "../../util/toastAlerta";
-import ProfileMenu from "./components/ProfileMenu";
-import ProfileInfo from "./components/ProfileInfo";
-import ProfileSecurity from "./components/ProfileSecurity";
-import ProfileProducts from "./components/ProfileProducts";
+import ProfileMenu from "../../components/profile/ProfileMenu";
+import ProfileInfo from "../../components/profile/ProfileInfo";
+import ProfileSecurity from "../../components/profile/ProfileSecurity";
+import ProfileProducts from "../../components/profile/ProfileProducts";
 
 
 const Profile: React.FC = () => {

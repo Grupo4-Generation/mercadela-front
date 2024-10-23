@@ -1,7 +1,8 @@
-import React from "react";
-import UserLogin from "../../../models/UserLogin";
-import { Update } from "../../../services/Service";
-import { toastAlerta } from "../../../util/toastAlerta";
+import React, { useState } from "react";
+import UserLogin from "../../models/UserLogin";
+import { Update } from "../../services/Service";
+import { toastAlerta } from "../../util/toastAlerta";
+import { validateProfileInfo } from "../../util/validations/ProfileValidation";
 
 interface ProfileInfoProps {
   formData: UserLogin;
@@ -14,11 +15,17 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({
   setFormData,
   isUpdated,
 }) => {
+  const [validationErrors, setValidationErrors] = useState<string[]>([]);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name as keyof UserLogin]: value });
+
+    // Validação em tempo real
+    const errors = validateProfileInfo({ ...formData, [name]: value });
+    setValidationErrors(errors);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -52,7 +59,11 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({
             name="name"
             value={formData.name || ""}
             onChange={handleChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+            className={`mt-1 p-2 border border-gray-300 rounded-md w-full ${
+              validationErrors.includes("Nome é obrigatório")
+                ? "border-red-500"
+                : ""
+            }`}
             placeholder="Seu nome"
           />
         </div>
@@ -63,7 +74,11 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({
             name="cpf"
             value={formData.cpf || ""}
             onChange={handleChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+            className={`mt-1 p-2 border border-gray-300 rounded-md w-full ${
+              validationErrors.includes("CPF é obrigatório")
+                ? "border-red-500"
+                : ""
+            }`}
             placeholder="Seu CPF"
           />
         </div>
@@ -73,7 +88,11 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({
             name="gender"
             value={formData.gender || ""}
             onChange={handleChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+            className={`mt-1 p-2 border border-gray-300 rounded-md w-full ${
+              validationErrors.includes("Gênero é obrigatório")
+                ? "border-red-500"
+                : ""
+            }`}
           >
             <option value="" disabled>
               Selecione seu gênero
@@ -96,12 +115,18 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({
         </div>
       </div>
 
+      <div className="text-red-500">
+        {validationErrors.map((error, index) => (
+          <p key={index}>{error}</p>
+        ))}
+      </div>
+
       <button
         type="submit"
         disabled={!isUpdated}
         className={`w-full mt-4 ${
           !isUpdated ? "bg-gray-300 cursor-not-allowed" : "bg-[#DB5413]"
-        } text-white font-semibold py-2 rounded-md hover:bg-[#C44A11] transition duration-200`}
+        }`}
       >
         Salvar
       </button>

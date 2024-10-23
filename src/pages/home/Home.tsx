@@ -1,4 +1,4 @@
-import StaticCard from "../../components/product/cardProduto/StaticCard";
+import StaticCard from "../../components/product/productCard/StaticCard";
 import SlideHome from "../../components/slide/home/SlideHome";
 
 function Home() {

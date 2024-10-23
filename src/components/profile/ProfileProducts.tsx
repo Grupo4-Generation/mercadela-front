@@ -1,9 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
-import { toastAlerta } from "../../../util/toastAlerta";
-import Product from "../../../models/Product";
-import { FindWitchToken } from "../../../services/Service";
-import { AuthContext } from "../../../contexts/AuthContext";
-import DinamicCard from "../../../components/product/cardProduto/DinamicCard";
+import Product from "../../models/Product";
+import { AuthContext } from "../../contexts/AuthContext";
+import { FindWitchToken } from "../../services/Service";
+import { toastAlerta } from "../../util/toastAlerta";
+import DinamicCard from "../product/productCard/DinamicCard";
 
 interface ProfileProductsProps {
   products: Product[];

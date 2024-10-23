@@ -65,7 +65,15 @@ function Navbar() {
                     navigate("/profile");
                   }}
                 >
-                  <UserCircle size={40} className="justify-self-center" />
+                  {user && user.photo ? (
+                    <img
+                      src={user.photo}
+                      alt="Avatar do usuário"
+                      className="rounded-full w-10 h-10 justify-self-center"
+                    />
+                  ) : (
+                    <UserCircle size={40} className="justify-self-center" />
+                  )}
                   <p className="justify-self-center">Perfil</p>
                 </div>
               )}

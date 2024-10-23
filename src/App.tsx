@@ -9,7 +9,7 @@ import Contact from "./pages/contact/Contato";
 import LoadContact from "./components/loads/ContactLoad";
 import SelectedProduct from "./pages/product/SelectedProduct";
 import ProductList from "./pages/product/ProductList";
-import EditProduct from "./components/product/cardProduto/crud/EditProduct";
+import EditProduct from "./components/product/productCard/crud/EditProduct";
 import CategoryList from "./components/category/categoryList/CategoryList";
 import CategoryForm from "./components/category/categoryForm/CategoryForm";
 import LoadProduto from "./components/loads/ProductLoad";
@@ -54,4 +54,3 @@ function App() {
 }
 
 export default App;
-
