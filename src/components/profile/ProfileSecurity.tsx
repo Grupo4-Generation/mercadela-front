@@ -5,7 +5,6 @@ import { Update } from "../../services/Service";
 import { validateProfileSecurity } from "../../util/validations/ProfileValidation";
 import { CheckCircle, Eye, EyeSlash, XCircle } from "@phosphor-icons/react";
 
-
 interface ProfileSecurityProps {
   formData: UserLogin;
   setFormData: (data: UserLogin) => void;
