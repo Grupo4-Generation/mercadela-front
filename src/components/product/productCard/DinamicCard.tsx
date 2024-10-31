@@ -48,9 +48,9 @@ function DinamicCard({ product }: ProductCardProps) {
         </div>
 
         <div className="flex justify-center my-2">
-          {user.gender === "Feminino" ||
+          {user.admin === true ||
           user.gender === "Outros" ||
-          user.gender === "Admin" ? (
+          user.gender === "Feminino" ? (
             <>
               <Popup
                 trigger={

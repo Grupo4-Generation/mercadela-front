@@ -57,7 +57,7 @@ const ProfileSecurity: React.FC<ProfileSecurityProps> = ({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <h2 className="text-lg font-bold text-primary mb-4">
+      <h2 className="flex justify-center text-lg font-bold text-primary mb-4">
         Segurança da Conta
       </h2>
       <div className="grid grid-cols-1 gap-6">
@@ -113,7 +113,7 @@ const ProfileSecurity: React.FC<ProfileSecurityProps> = ({
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="p-2 rounded-r-md bg-gray-200 hover:bg-gray-300"
+              className="rounded-r-md bg-gray-200 hover:bg-gray-300"
               aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
             >
               {showPassword ? <EyeSlash size={20} /> : <Eye size={20} />}

@@ -46,7 +46,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({
             className="w-32 h-32 object-cover rounded-full mb-4"
           />
         )}
-        <h2 className="text-lg font-bold text-primary mb-2">
+        <h2 className="flex justify-center text-lg font-bold text-primary mb-4">
           Dados do Usuário
         </h2>
       </div>

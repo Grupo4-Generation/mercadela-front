@@ -31,7 +31,7 @@ const ProfileProducts: React.FC<ProfileProductsProps> = ({ products }) => {
 
   return (
     <>
-      <h1 className="text-[#DB5413] text-3xl text-center mb-5">
+      <h1 className="flex justify-center text-lg font-bold text-primary mb-4">
         Meus Produtos
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
