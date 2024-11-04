@@ -37,7 +37,7 @@ function SlideHome() {
           delay: 4000,
           disableOnInteraction: false,
         }}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSwiper={(swiper) => console.log(swiper)}
         className="container">
 
         {slides.map((slide) => (
