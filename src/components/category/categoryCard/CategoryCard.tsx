@@ -20,13 +20,13 @@ function CategoryCard({ category }: CategoryCardProps) {
         <div className='flex h-[20vh] justify-center'>
             <p className='flex text-3xl text-[#C24730] font-bold'>{category.name}</p>
             
-            {user.gender === "Admin"? (<div id='dropCat'>
+            {user.admin? (<div id='dropCat'>
                 
                 <button>
                     <ArrowCircleDown size={26} weight="bold" className='dropIcon' />
                 </button>
                 <div className='dropFilha'>
-                    <Link to={`/editarcategory/${category.id}`}>
+                    <Link to={`/editCategory/${category.id}`}>
                         <button className='editar'>Editar</button>
                     </Link>
 
