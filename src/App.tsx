@@ -10,7 +10,7 @@ import LoadContact from "./components/loads/ContactLoad";
 import SelectedProduct from "./pages/product/SelectedProduct";
 import ProductList from "./pages/product/ProductList";
 import EditProduct from "./components/product/productCard/crud/EditProduct";
-import CategoryList from "./components/category/categoryList/CategoryList";
+import CategoryList from "./pages/categoryList/Category";
 import CategoryForm from "./components/category/categoryForm/CategoryForm";
 import LoadProduto from "./components/loads/ProductLoad";
 import Register from "./pages/register/Register";

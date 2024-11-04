@@ -28,23 +28,11 @@ function Home() {
         <SlideHome />
       </div>
 
-      <h1 className="text-8xl text-primary font-bold py-14 text-center">
-        Products
-      </h1>
 
-      <div className="flex space-x-3 items-center justify-between">
+      <div className="flex my-10 space-x-3 items-center justify-between">
         {products.map((product, index) => (
           <HomeCard key={index} product={product} />
         ))}
-      </div>
-
-      <div className="flex justify-center mt-8">
-        <button
-          onClick={() => navigate("/products")}
-          className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark"
-        >
-          View More
-        </button>
       </div>
     </div>
   );

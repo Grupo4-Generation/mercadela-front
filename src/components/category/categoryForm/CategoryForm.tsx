@@ -4,7 +4,7 @@ import { RotatingLines } from "react-loader-spinner";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { toastAlerta } from "../../../util/toastAlerta";
 import Category from "../../../models/Category";
-import { CreateWitchToken, FindWitchToken, Update } from "../../../services/Service";
+import { CreateWithToken, FindWithToken, Update } from "../../../services/Service";
 
 
 function CategoryForm() {
@@ -21,7 +21,7 @@ function CategoryForm() {
 
     async function buscarPorId(id: string) {
         try {
-            await FindWitchToken(`/category/${id}`, setCategory, {
+            await FindWithToken(`/category/${id}`, setCategory, {
                 headers: {
                     'Authorization': token
                 }
@@ -80,7 +80,7 @@ function CategoryForm() {
 
         } else {
             try {
-                await CreateWitchToken(`/category`, category, setCategory, {
+                await CreateWithToken(`/category`, category, setCategory, {
                     headers: {
                         'Authorization': token
                     }

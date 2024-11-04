@@ -9,7 +9,7 @@ export const CreateWithoutToken = async (url: string, dados: Object, setDados: F
   setDados(resposta.data)
 }
 
-export const CreateWitchToken = async (url: string, dados: Object, setDados: Function, header: Object) => {
+export const CreateWithToken = async (url: string, dados: Object, setDados: Function, header: Object) => {
   const resposta = await api.post(url, dados, header)
   setDados(resposta.data)
 }
@@ -19,7 +19,7 @@ export const FindWithoutToken = async (url: string, setDados: Function) => {
   setDados(resposta.data)
 }
 
-export const FindWitchToken = async (url: string, setDados: Function, header: Object) => {
+export const FindWithToken = async (url: string, setDados: Function, header: Object) => {
   const resposta = await api.get(url, header)
   setDados(resposta.data)
 }

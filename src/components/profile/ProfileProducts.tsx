@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import Product from "../../models/Product";
 import { AuthContext } from "../../contexts/AuthContext";
-import { FindWitchToken } from "../../services/Service";
+import { FindWithToken } from "../../services/Service";
 import { toastAlerta } from "../../util/toastAlerta";
 import DinamicCard from "../product/productCard/DinamicCard";
 
@@ -21,7 +21,7 @@ const ProfileProducts: React.FC<ProfileProductsProps> = ({ products }) => {
 
   const fetchUserProducts = async () => {
     try {
-      await FindWitchToken(`/product/user/${user.id}`, setUserProducts, {
+      await FindWithToken(`/product/user/${user.id}`, setUserProducts, {
         headers: { Authorization: `${user.token}` },
       });
     } catch (error) {

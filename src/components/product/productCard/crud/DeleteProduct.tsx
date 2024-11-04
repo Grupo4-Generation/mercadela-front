@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { Delete, FindWitchToken } from "../../../../services/Service";
+import { Delete, FindWithToken } from "../../../../services/Service";
 import { toastAlerta } from "../../../../util/toastAlerta";
 import { AuthContext } from "../../../../contexts/AuthContext";
 import Product from "../../../../models/Product";
@@ -15,7 +15,7 @@ function DeleteProduct(selectedProduct: Product | any) {
 
   async function findById(id: number) {
     try {
-      await FindWitchToken(`/product/${id}`, setProduct, {
+      await FindWithToken(`/product/${id}`, setProduct, {
         headers: {
           Authorization: token,
         },

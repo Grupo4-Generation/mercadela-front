@@ -11,14 +11,14 @@ interface ProductCardProps {
 }
 
 function DinamicCard({ product }: ProductCardProps) {
-  let precoFormatado = (product.price / 1).toLocaleString("pt-BR", {
+  let formatedPrice = (product.price / 1).toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
   });
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="rounded-lg p-3 shadow-md transition duration-150 hover:shadow-xl bg-white">
+    <div className="bg-backgroundCard p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:-translate-y-1">
       <div className="flex justify-center">
         <img
           className="w-48 h-48 object-cover rounded-lg bg-gray-100"
@@ -34,14 +34,12 @@ function DinamicCard({ product }: ProductCardProps) {
         </div>
 
         <div className="my-2">
-          <p className="text-xl font-semibold text-[#13DBB7]">
-            {precoFormatado}
-          </p>
+          <p className="text-lg text-textHighlight">{formatedPrice}</p>
         </div>
 
-        <div className="my-2">
+        <div>
           <Link to={`/product/${product.id}`}>
-            <p className="rounded-full cursor-pointer bg-[#13DBB7] hover:bg-[#0F9D84] px-4 py-2 text-lg font-semibold transition-transform hover:scale-105 text-white">
+            <p className="rounded cursor-pointer bg-[#13DBB7] hover:bg-[#0F9D84] px-4 py-2 text-lg font-semibold transition-transform hover:scale-105 text-white">
               Comprar
             </p>
           </Link>
@@ -49,12 +47,11 @@ function DinamicCard({ product }: ProductCardProps) {
 
         <div className="flex justify-center my-2">
           {user.admin === true ||
-          user.gender === "Outros" ||
-          user.gender === "Feminino" ? (
+          user.gender === "Outros" ? (
             <>
               <Popup
                 trigger={
-                  <button className="mr-2 rounded-full bg-yellow-400 px-4 py-2 text-lg text-white hover:bg-yellow-600 transition duration-150">
+                  <button className="mr-2 rounded bg-yellow-400 px-4 py-2 text-lg text-white hover:bg-yellow-600 transition duration-150">
                     Editar
                   </button>
                 }
@@ -73,7 +70,7 @@ function DinamicCard({ product }: ProductCardProps) {
 
               <Popup
                 trigger={
-                  <button className="rounded-full bg-red-600 px-4 py-2 text-lg text-white hover:bg-red-700 transition duration-150">
+                  <button className="rounded bg-red-600 px-4 py-2 text-lg text-white hover:bg-red-700 transition duration-150">
                     Deletar
                   </button>
                 }

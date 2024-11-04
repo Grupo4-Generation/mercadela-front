@@ -34,15 +34,13 @@ function ProductList() {
           <div className="col-start-1 justify-self-end rounded-[35px] px-4 py-2 text-2xl text-white bg-[white]"></div>
 
           <h1 className="col-start-2 justify-self-center px-4 text-6xl text-[#DB5413] font-bold">
-            Products
+            Produtos
           </h1>
-          {user.gender === "Feminino" ||
-          user.gender === "Outros" ||
-          user.gender === "Admin" ? (
+          {user.admin ? (
             <Popup
               trigger={
-                <button className="col-start-3 justify-self-end border rounded-[35px] px-4 py-2 text-2xl text-white bg-[#13DBB7] hover:bg-[#0F9D84]">
-                  + criar
+                <button className="col-start-3 justify-self-end rounded cursor-pointer bg-[#13DBB7] hover:bg-[#0F9D84] px-4 py-2 text-lg font-semibold transition-transform hover:scale-105 text-white">
+                  criar produto
                 </button>
               }
               modal

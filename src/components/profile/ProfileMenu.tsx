@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 interface ProfileMenuProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
-  handleLogout: () => void;
 }
 
 const ProfileMenu: React.FC<ProfileMenuProps> = ({
   activeTab,
   setActiveTab,
-  handleLogout,
 }) => {
+  const navigate = useNavigate();
+  const { handleLogout } = useContext(AuthContext);
+
+  const handleLogoutAndRedirect = () => {
+    handleLogout();
+    navigate("/login");
+  };
+
   return (
     <div className="min-w-[200px] max-w-[300px] bg-backgroundLight p-4 shadow-md rounded-lg">
       <h2 className="text-lg font-bold mb-4 text-[#DB5413]">Menu</h2>
@@ -33,7 +41,7 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({
         ))}
       </ul>
       <button
-        onClick={handleLogout}
+        onClick={handleLogoutAndRedirect} // Usando a nova função para o botão de logout
         className="mt-4 w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-200"
       >
         Sair

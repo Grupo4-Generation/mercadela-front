@@ -7,7 +7,7 @@ import category from "../../../models/Category";
 import { RotatingLines } from "react-loader-spinner";
 import { toastAlerta } from "../../../util/toastAlerta";
 import Category from "../../../models/Category";
-import { Delete, FindWitchToken } from "../../../services/Service";
+import { Delete, FindWithToken } from "../../../services/Service";
 
 interface DeleteProps {
     id: number
@@ -25,7 +25,7 @@ function DeleteCategory({id} : DeleteProps) {
 
     async function FindById() {
         try {
-            await FindWitchToken(`/category/${id}`, setCategory, {
+            await FindWithToken(`/category/${id}`, setCategory, {
                 headers: {
                     'Authorization': token
                 }

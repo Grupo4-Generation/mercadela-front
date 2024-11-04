@@ -1,8 +1,8 @@
-import { MagnifyingGlass } from "@phosphor-icons/react";
-import { ShoppingCart, UserCircle } from "@phosphor-icons/react/dist/ssr";
 import { Link, useNavigate } from "react-router-dom";
-import "./Navbar.css";
+import { ShoppingCart, UserCircle } from "@phosphor-icons/react/dist/ssr";
 import { AuthContext } from "../../contexts/AuthContext";
+import SearchTerm from "./SearchTerm";
+import "./Navbar.css";
 import { useContext } from "react";
 
 function Navbar() {
@@ -23,18 +23,7 @@ function Navbar() {
         </div>
 
         <div className="self-center bg-backgroundCard px-2 py-1 rounded-full font-fontProjeto">
-          <form className="flex items-center flex-row">
-            <input
-              id="BarraPesquisa"
-              className="rounded-xl pl-3 w-[25vw] me-2 focus:outline-none"
-              placeholder="Digite aqui"
-            />
-            <Link to="/">
-              <button className="bg-primary hover:bg-hoverPrimary rounded-full text-backgroundCard p-1.5">
-                <MagnifyingGlass size={25} weight="bold" />
-              </button>
-            </Link>
-          </form>
+          <SearchTerm />
         </div>
 
         <div className="flex gap-4 text-primary self-center font-fontProjeto font-bold">

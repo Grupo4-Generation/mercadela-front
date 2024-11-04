@@ -1,11 +1,14 @@
 import React from "react";
 import Product from "../../../models/Product";
+import { useNavigate } from "react-router-dom";
 
 interface HomeCardProps {
   product: Product;
 }
 
 const HomeCard: React.FC<HomeCardProps> = ({ product }) => {
+    const navigate = useNavigate();
+
   return (
     <div
       className="bg-backgroundCard p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:-translate-y-1"
@@ -35,12 +38,13 @@ const HomeCard: React.FC<HomeCardProps> = ({ product }) => {
         R$ {product.price.toFixed(2)}
       </p>
       <button
+        onClick={() => navigate("/products")}
         className="w-full py-2 rounded bg-primary text-white font-semibold hover:bg-hoverPrimary transition-colors duration-200"
         style={{
           backgroundColor: "#DB5413",
         }}
       >
-        Ver Produto
+        Ver Produtos
       </button>
     </div>
   );

@@ -5,7 +5,7 @@ import { AuthContext } from "../../../../contexts/AuthContext";
 import { toastAlerta } from "../../../../util/toastAlerta";
 import Category from "../../../../models/Category";
 import Product from "../../../../models/Product";
-import { CreateWitchToken, FindWitchToken, Update } from "../../../../services/Service";
+import { CreateWithToken, FindWithToken, Update } from "../../../../services/Service";
 
 function EditProduct(selectedProduct: Product | any) {
   let navigate = useNavigate();
@@ -31,7 +31,7 @@ function EditProduct(selectedProduct: Product | any) {
   });
 
   async function findProductById(id: number) {
-    await FindWitchToken(`/product/${id}`, setProduct, {
+    await FindWithToken(`/product/${id}`, setProduct, {
       headers: {
         Authorization: token,
       },
@@ -39,7 +39,7 @@ function EditProduct(selectedProduct: Product | any) {
   }
 
   async function buscarcategoryPorId(id: string) {
-    await FindWitchToken(`/category/${id}`, setcategory, {
+    await FindWithToken(`/category/${id}`, setcategory, {
       headers: {
         Authorization: token,
       },
@@ -47,7 +47,7 @@ function EditProduct(selectedProduct: Product | any) {
   }
 
   async function findCategories() {
-    await FindWitchToken("/category", setCategories, {
+    await FindWithToken("/category", setCategories, {
       headers: {
         Authorization: token,
       },
@@ -114,7 +114,7 @@ function EditProduct(selectedProduct: Product | any) {
     } else {
       try {
         console.log(product );
-        await CreateWitchToken(`/product`, product, setProduct, {
+        await CreateWithToken(`/product`, product, setProduct, {
           headers: {
             Authorization: token,
           },

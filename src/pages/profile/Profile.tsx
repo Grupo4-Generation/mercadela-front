@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import UserLogin from "../../models/UserLogin";
 import Product from "../../models/Product";
-import { FindWitchToken } from "../../services/Service";
+import { FindWithToken } from "../../services/Service";
 import { toastAlerta } from "../../util/toastAlerta";
 import ProfileMenu from "../../components/profile/ProfileMenu";
 import ProfileInfo from "../../components/profile/ProfileInfo";
@@ -30,7 +30,7 @@ const Profile: React.FC = () => {
 
   const fetchUserProducts = async () => {
     try {
-      await FindWitchToken(`/product/user/${user.id}`, setProducts, {
+      await FindWithToken(`/product/user/${user.id}`, setProducts, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
     } catch (error) {
