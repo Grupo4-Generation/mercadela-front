@@ -17,7 +17,7 @@ function DeleteProduct(selectedProduct: Product | any) {
     try {
       await FindWithToken(`/product/${id}`, setProduct, {
         headers: {
-          Authorization: token,
+          Authorization: `Bearer ${token}`,
         },
       });
     } catch (error: any) {
@@ -47,9 +47,9 @@ function DeleteProduct(selectedProduct: Product | any) {
 
   async function DeleteProduct() {
     try {
-      await Delete (`/product/${selectedProduct.id}`, {
+      await Delete(`/product/${selectedProduct.id}`, {
         headers: {
-          Authorization: token,
+          Authorization: `Bearer ${token}`,
         },
       });
 

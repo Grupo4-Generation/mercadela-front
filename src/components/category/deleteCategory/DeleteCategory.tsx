@@ -26,10 +26,10 @@ function DeleteCategory({id} : DeleteProps) {
     async function FindById() {
         try {
             await FindWithToken(`/category/${id}`, setCategory, {
-                headers: {
-                    'Authorization': token
-                }
-            })
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
         } catch (error: any) {
             if (error.toString().includes('403')) {
                 toastAlerta('O token expirou, favor logar novamente', 'erro')
@@ -57,10 +57,10 @@ function DeleteCategory({id} : DeleteProps) {
 
         try {
             await Delete(`/category/${id}`, {
-                headers: {
-                    'Authorization': token
-                }
-            })
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
 
             toastAlerta('category apagada com sucesso', 'sucesso')
 

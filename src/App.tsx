@@ -35,7 +35,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/product/:id" element={<SelectedProduct />} />
               <Route path="/products" element={<ProductList />} />
-              <Route path="/about" element={<AboutUs />} />
+              <Route path="/aboutUs" element={<AboutUs />} />
               <Route path="/createProduct" element={<EditProduct />} />
               <Route path="/category" element={<CategoryList />} />
               <Route path="/createCategory" element={<CategoryForm />} />

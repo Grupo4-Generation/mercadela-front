@@ -26,6 +26,7 @@ function DinamicCard({ product }: ProductCardProps) {
     }
     return false;
   }
+
   return (
     <div className="bg-backgroundCard p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:-translate-y-1">
       <div className="flex justify-center">
@@ -37,7 +38,7 @@ function DinamicCard({ product }: ProductCardProps) {
       </div>
       <div className="flex flex-col justify-between text-center">
         <div className="my-3">
-          <p className="font-bold text-xl text-[#DB5413] truncate">
+          <p className="font-bold text-xl text-primary truncate">
             {product.name}
           </p>
         </div>
@@ -48,7 +49,7 @@ function DinamicCard({ product }: ProductCardProps) {
 
         <div>
           <Link to={`/product/${product.id}`}>
-            <p className="rounded cursor-pointer bg-[#13DBB7] hover:bg-[#0F9D84] px-4 py-2 text-lg font-semibold transition-transform hover:scale-105 text-white">
+            <p className="rounded cursor-pointer bg-secondary hover:bg-hoverSecondary px-4 py-2 text-lg font-semibold transition-transform hover:scale-105 text-white">
               Comprar
             </p>
           </Link>

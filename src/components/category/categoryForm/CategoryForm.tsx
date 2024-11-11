@@ -25,7 +25,7 @@ function CategoryForm() {
     try {
       await FindWithToken(`/category/${id}`, setCategory, {
         headers: {
-          Authorization: token,
+          Authorization: `Bearer ${token}`,
         },
       });
     } catch (error: any) {
@@ -58,7 +58,7 @@ function CategoryForm() {
       try {
         await Update(`/category`, category, setCategory, {
           headers: {
-            Authorization: token,
+            Authorization: `Bearer ${token}`,
           },
         });
         navigate("/loadcategory");
@@ -75,7 +75,7 @@ function CategoryForm() {
       try {
         await CreateWithToken(`/category`, category, setCategory, {
           headers: {
-            Authorization: token,
+            Authorization: `Bearer ${token}`,
           },
         });
         toastAlerta("categoria cadastrada com sucesso", "sucesso");

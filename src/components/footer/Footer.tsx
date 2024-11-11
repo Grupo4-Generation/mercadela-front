@@ -22,7 +22,7 @@ function Footer() {
           <div className="py-2">
             <p className="text-2xl">MercaDela | Copyright: {data}</p>
             <div className="flex justify-evenly">
-              <Link to="/contato">
+              <Link to="/contact">
                 <Envelope size={40} className="hover:text-[#ffffff]" />
               </Link>
 
@@ -41,7 +41,7 @@ function Footer() {
             <p className="hover:text-[#ffffff] cursor-pointer">
               Termos e Condições
             </p>
-            <Link to="/sobre" className="hover:text-[#ffffff]">
+            <Link to="/aboutUs" className="hover:text-[#ffffff]">
               Sobre nós
             </Link>
           </div>
