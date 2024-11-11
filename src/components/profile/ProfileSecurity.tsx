@@ -20,24 +20,10 @@ const ProfileSecurity: React.FC<ProfileSecurityProps> = ({
   const [emailErrors, setEmailErrors] = useState<string[]>([]);
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name as keyof UserLogin]: value });
-
-    if (name === "password") {
-      const errors = validateProfileSecurity({ ...formData, password: value });
-      setPasswordErrors(errors);
-    }
-
-    if (name === "email") {
-      const emailValidationErrors = validateEmail(value);
-      setEmailErrors(emailValidationErrors);
-    }
-  };
-
+  // Função de validação de email
   const validateEmail = (email: string) => {
     const errors: string[] = [];
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex simples para validar email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email) {
       errors.push("Email é obrigatório.");
@@ -47,6 +33,35 @@ const ProfileSecurity: React.FC<ProfileSecurityProps> = ({
     return errors;
   };
 
+  // Função de validação de senha
+  const validatePassword = (password: string) => {
+    const errors: string[] = [];
+    if (!password) {
+      errors.push("Senha é obrigatória.");
+    } else {
+      const passwordErrors = validateProfileSecurity({ ...formData, password });
+      errors.push(...passwordErrors);
+    }
+    return errors;
+  };
+
+  // Função de alteração nos campos
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name as keyof UserLogin]: value });
+
+    if (name === "password") {
+      const errors = validatePassword(value); // Valida apenas a senha
+      setPasswordErrors(errors);
+    }
+
+    if (name === "email") {
+      const emailValidationErrors = validateEmail(value); // Valida apenas o email
+      setEmailErrors(emailValidationErrors);
+    }
+  };
+
+  // Função de envio do formulário
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await Update("/user/update", formData, setFormData, {
@@ -56,7 +71,7 @@ const ProfileSecurity: React.FC<ProfileSecurityProps> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6" autoComplete="on">
       <h2 className="flex justify-center text-lg font-bold text-primary mb-4">
         Segurança da Conta
       </h2>
@@ -69,10 +84,11 @@ const ProfileSecurity: React.FC<ProfileSecurityProps> = ({
             name="email"
             value={formData.email || ""}
             onChange={handleChange}
-            className={`mt-1 p-2 border ${
+            className={`mt-1 p-2 bg-backgroundHeader shadow-md rounded-lg z-10 w-full ${
               emailErrors.length ? "border-red-500" : "border-gray-300"
             } rounded-md w-full`}
             placeholder="Seu e-mail"
+            autoComplete="email"
           />
           {emailErrors.length > 0 && (
             <div className="text-red-500 text-sm mt-1">
@@ -99,16 +115,17 @@ const ProfileSecurity: React.FC<ProfileSecurityProps> = ({
           <label className="block text-sm font-medium text-text">
             Nova Senha
           </label>
-          <div className="flex items-center border border-gray-300 rounded-md">
+          <div className="flex items-center ">
             <input
               type={showPassword ? "text" : "password"}
               name="password"
               value={formData.password || ""}
               onChange={handleChange}
-              className={`mt-1 p-2 flex-grow rounded-l-md ${
+              className={`mt-1 p-2 bg-backgroundHeader shadow-md rounded-lg z-10 w-full ${
                 passwordErrors.length ? "border-red-500" : "border-none"
               }`}
               placeholder="Digite sua nova senha"
+              autoComplete="new-password"
             />
             <button
               type="button"
@@ -116,7 +133,17 @@ const ProfileSecurity: React.FC<ProfileSecurityProps> = ({
               className="rounded-r-md bg-gray-200 hover:bg-gray-300"
               aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
             >
-              {showPassword ? <EyeSlash size={20} /> : <Eye size={20} />}
+              {showPassword ? (
+                <EyeSlash
+                  className="bg-backgroundHeader shadow-md rounded-lg z-10 w-full"
+                  size={20}
+                />
+              ) : (
+                <Eye
+                  className="bg-backgroundHeader shadow-md rounded-lg z-10 w-full"
+                  size={20}
+                />
+              )}
             </button>
           </div>
           {passwordErrors.length > 0 && (

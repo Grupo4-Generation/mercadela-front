@@ -1,6 +1,6 @@
 import React from "react";
-import Product from "../../../models/Product";
 import { useNavigate } from "react-router-dom";
+import Product from "../../models/Product";
 
 interface HomeCardProps {
   product: Product;

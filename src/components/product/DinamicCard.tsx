@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
-import { AuthContext } from "../../../contexts/AuthContext";
 import { useContext } from "react";
 import EditProduct from "./crud/EditProduct";
 import DeleteProduct from "./crud/DeleteProduct";
-import Product from "../../../models/Product";
+import Product from "../../models/Product";
+import { AuthContext } from "../../contexts/AuthContext";
 
 interface ProductCardProps {
   product: Product;
@@ -17,6 +17,15 @@ function DinamicCard({ product }: ProductCardProps) {
   });
   const { user } = useContext(AuthContext);
 
+  function isProductOwner(product: Product) {
+    if (user.admin) {
+      return true;
+    }
+    if (user.id === product.user?.id) {
+      return true;
+    }
+    return false;
+  }
   return (
     <div className="bg-backgroundCard p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:-translate-y-1">
       <div className="flex justify-center">
@@ -46,8 +55,7 @@ function DinamicCard({ product }: ProductCardProps) {
         </div>
 
         <div className="flex justify-center my-2">
-          {user.admin === true ||
-          user.gender === "Outros" ? (
+          {user.admin === true || isProductOwner(product) ? (
             <>
               <Popup
                 trigger={

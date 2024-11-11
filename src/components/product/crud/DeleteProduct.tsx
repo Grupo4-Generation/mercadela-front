@@ -1,9 +1,9 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { Delete, FindWithToken } from "../../../../services/Service";
-import { toastAlerta } from "../../../../util/toastAlerta";
-import { AuthContext } from "../../../../contexts/AuthContext";
-import Product from "../../../../models/Product";
+import Product from "../../../models/Product";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { Delete, FindWithToken } from "../../../services/Service";
+import { toastAlerta } from "../../../util/toastAlerta";
 
 function DeleteProduct(selectedProduct: Product | any) {
   const [produto, setProduct] = useState<Product>({} as Product);

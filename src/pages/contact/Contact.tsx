@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { toastAlerta } from "../../util/toastAlerta";
 
-export function Contact() {
+export default function Contact() {
   const navigate = useNavigate();
   function retornar(){
-    navigate ('/LoadContato')
+    navigate ('/LoadContact')
     toastAlerta('Mensagem enviada com sucesso', 'sucesso')
   }
 
@@ -78,5 +78,3 @@ export function Contact() {
     </>
   );
 }
-
-export default Contact

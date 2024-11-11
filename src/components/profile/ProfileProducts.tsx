@@ -3,7 +3,7 @@ import Product from "../../models/Product";
 import { AuthContext } from "../../contexts/AuthContext";
 import { FindWithToken } from "../../services/Service";
 import { toastAlerta } from "../../util/toastAlerta";
-import DinamicCard from "../product/productCard/DinamicCard";
+import DinamicCard from "../product/DinamicCard";
 
 interface ProfileProductsProps {
   products: Product[];

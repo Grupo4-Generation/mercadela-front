@@ -1,22 +1,18 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import SlideHome from "../../components/slide/home/SlideHome";
 import Product from "../../models/Product";
 import { FindWithoutToken } from "../../services/Service";
-import HomeCard from "../../components/product/productCard/HomeCard";
+import HomeCard from "../../components/product/HomeCard";
 
 function Home() {
   const [products, setProducts] = useState<Product[]>([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    // Function to shuffle products and pick 4 randomly
     const shuffleAndPick = (products: Product[]) => {
       const shuffled = products.sort(() => 0.5 - Math.random());
       return shuffled.slice(0, 4);
     };
 
-    // Fetch products from backend
     FindWithoutToken("/product", (data: Product[]) => {
       setProducts(shuffleAndPick(data));
     });

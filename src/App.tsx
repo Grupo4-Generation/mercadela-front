@@ -5,19 +5,19 @@ import Home from "./pages/home/Home";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import { ToastContainer } from "react-toastify";
-import Contact from "./pages/contact/Contato";
+import Contact from "./pages/contact/Contact";
 import LoadContact from "./components/loads/ContactLoad";
 import SelectedProduct from "./pages/product/SelectedProduct";
 import ProductList from "./pages/product/ProductList";
-import EditProduct from "./components/product/productCard/crud/EditProduct";
 import CategoryList from "./pages/categoryList/CategoryList";
 import CategoryForm from "./components/category/categoryForm/CategoryForm";
 import LoadProduto from "./components/loads/ProductLoad";
 import Register from "./pages/register/Register";
 import CategoryLoad from "./components/loads/CategoryLoad";
 import AboutUs from "./pages/aboutUs/AboutUs";
-import Login from "./pages/Login/Login";
 import Profile from "./pages/profile/Profile";
+import Login from "./pages/login/Login";
+import EditProduct from "./components/product/crud/EditProduct";
 
 function App() {
   return (

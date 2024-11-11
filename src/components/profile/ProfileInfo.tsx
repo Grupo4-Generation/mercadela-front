@@ -59,7 +59,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({
             name="name"
             value={formData.name || ""}
             onChange={handleChange}
-            className={`mt-1 p-2 border border-gray-300 rounded-md w-full ${
+            className={`mt-1 p-2 bg-backgroundHeader shadow-md rounded-lg z-10 w-full  ${
               validationErrors.includes("Nome é obrigatório")
                 ? "border-red-500"
                 : ""
@@ -74,7 +74,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({
             name="cpf"
             value={formData.cpf || ""}
             onChange={handleChange}
-            className={`mt-1 p-2 border border-gray-300 rounded-md w-full ${
+            className={`mt-1 p-2 bg-backgroundHeader shadow-md rounded-lg z-10 w-full ${
               validationErrors.includes("CPF é obrigatório")
                 ? "border-red-500"
                 : ""
@@ -88,7 +88,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({
             name="gender"
             value={formData.gender || ""}
             onChange={handleChange}
-            className={`mt-1 p-2 border border-gray-300 rounded-md w-full ${
+            className={`mt-1 p-2 bg-backgroundHeader shadow-md rounded-lg z-10 w-full ${
               validationErrors.includes("Gênero é obrigatório")
                 ? "border-red-500"
                 : ""
@@ -109,7 +109,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({
             name="photo"
             value={formData.photo || ""}
             onChange={handleChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+            className="mt-1 p-2 bg-backgroundHeader shadow-md rounded-lg z-10 w-full"
             placeholder="URL da foto"
           />
         </div>

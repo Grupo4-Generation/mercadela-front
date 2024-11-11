@@ -9,14 +9,21 @@ import ProfileMenu from "../../components/profile/ProfileMenu";
 import ProfileInfo from "../../components/profile/ProfileInfo";
 import ProfileSecurity from "../../components/profile/ProfileSecurity";
 import ProfileProducts from "../../components/profile/ProfileProducts";
+import { useNavigate } from "react-router-dom";
 
-
-const Profile: React.FC = () => {
-  const { user, handleLogout } = useContext(AuthContext);
+export default function Profile() {
+  const { user } = useContext(AuthContext);
   const [formData, setFormData] = useState<UserLogin>(user);
   const [isUpdated, setIsUpdated] = useState(false);
   const [activeTab, setActiveTab] = useState("info");
   const [products, setProducts] = useState<Product[]>([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user?.token) {
+      navigate("/login");
+    }
+  }, [user]);
 
   useEffect(() => {
     setIsUpdated(JSON.stringify(formData) !== JSON.stringify(user));
@@ -44,11 +51,7 @@ const Profile: React.FC = () => {
 
   return (
     <div className="flex w-full">
-      <ProfileMenu
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        handleLogout={handleLogout}
-      />
+      <ProfileMenu activeTab={activeTab} setActiveTab={setActiveTab} />
       <div className="flex-grow p-4 bg-backgroundCard rounded-lg shadow-md">
         {activeTab === "info" && (
           <ProfileInfo
@@ -68,6 +71,4 @@ const Profile: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Profile;
+}

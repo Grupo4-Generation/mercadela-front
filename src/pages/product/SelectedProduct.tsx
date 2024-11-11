@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 import "../../models/Product";
@@ -11,9 +11,7 @@ import Product from "../../models/Product";
 function SelectedProduct() {
   const { id } = useParams<{ id: string }>();
 
-  const { user, handleLogout } = useContext(AuthContext);
-  const token = user.token;
-  const navigate = useNavigate();
+  const { handleLogout } = useContext(AuthContext);
   const [quantidade, setQuantidade] = useState<number>(1);
   const [product, setproduct] = useState<Product>({} as Product);
   async function findById(id: string) {
@@ -26,14 +24,7 @@ function SelectedProduct() {
       }
     }
   }
-
-  // useEffect(() => {
-  //   if (token === "") {
-  //     toastAlerta("Você precisa estar logado", "erro");
-  //     navigate("/login");
-  //   }
-  // }, [token]);
-
+  
   useEffect(() => {
     if (id !== undefined) {
       findById(id);

@@ -1,11 +1,11 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../../contexts/AuthContext";
+import Product from "../../../models/Product";
+import { AuthContext } from "../../../contexts/AuthContext";
+import Category from "../../../models/Category";
+import { CreateWithToken, FindWithToken, Update } from "../../../services/Service";
+import { toastAlerta } from "../../../util/toastAlerta";
 
-import { toastAlerta } from "../../../../util/toastAlerta";
-import Category from "../../../../models/Category";
-import Product from "../../../../models/Product";
-import { CreateWithToken, FindWithToken, Update } from "../../../../services/Service";
 
 function EditProduct(selectedProduct: Product | any) {
   let navigate = useNavigate();
@@ -97,7 +97,7 @@ function EditProduct(selectedProduct: Product | any) {
         console.log({ product });
         await Update(`/product`, product, setProduct, {
           headers: {
-            Authorization: token,
+            Authorization: `Bearer ${token}`,
           },
         });
         toastAlerta("product atualizado com sucesso", "sucesso");
