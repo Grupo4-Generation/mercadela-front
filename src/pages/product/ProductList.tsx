@@ -36,7 +36,7 @@ function ProductList() {
           <h1 className="col-start-2 justify-self-center px-4 text-6xl text-[#DB5413] font-bold">
             Produtos
           </h1>
-          {user.admin ? (
+          {user.token !== "" ? (
             <Popup
               trigger={
                 <button className="col-start-3 justify-self-end rounded cursor-pointer bg-[#13DBB7] hover:bg-[#0F9D84] px-4 py-2 text-lg font-semibold transition-transform hover:scale-105 text-white">

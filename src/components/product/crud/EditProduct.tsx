@@ -17,7 +17,7 @@ function EditProduct(selectedProduct: Product | any) {
   const token = user.token;
 
   const [categories, setCategories] = useState<Category[]>([]);
-  const [isCategoriesLoading, setIsCategoriesLoading] = useState(true); // Novo estado para o carregamento inicial das categorias
+  const [isCategoriesLoading, setIsCategoriesLoading] = useState(true);
   const [product, setProduct] = useState<Product>({
     id: 0,
     name: "",
@@ -37,13 +37,13 @@ function EditProduct(selectedProduct: Product | any) {
   }
 
   async function findCategories() {
-    setIsCategoriesLoading(true); // Ativa o estado de carregamento das categorias
+    setIsCategoriesLoading(true);
     await FindWithToken("/category", setCategories, {
       headers: {
         Authorization: token,
       },
     });
-    setIsCategoriesLoading(false); // Desativa o estado de carregamento após o carregamento
+    setIsCategoriesLoading(false);
   }
 
   useEffect(() => {
@@ -69,13 +69,12 @@ function EditProduct(selectedProduct: Product | any) {
     }));
   }
 
-  function back() {
-    navigate("/loadProduct");
+  function handleUpdate() {
+    window.location.reload(); // Força a recarga total da página
   }
 
   async function createProduct(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(product);
 
     if (!product.category || product.category.id === 0) {
       toastAlerta("Selecione uma categoria", "erro");
@@ -84,7 +83,6 @@ function EditProduct(selectedProduct: Product | any) {
 
     if (selectedProduct.id !== undefined) {
       try {
-        console.log({ product });
         await Update(`/product`, product, setProduct, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -99,10 +97,9 @@ function EditProduct(selectedProduct: Product | any) {
           toastAlerta("Erro ao atualizar o produto", "erro");
         }
       }
-      back();
+      handleUpdate;
     } else {
       try {
-        console.log(product);
         await CreateWithToken(`/product`, product, setProduct, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -117,7 +114,7 @@ function EditProduct(selectedProduct: Product | any) {
           toastAlerta("Erro ao cadastrar o produto", "erro");
         }
       }
-      back();
+      handleUpdate();
     }
   }
 
@@ -219,6 +216,7 @@ function EditProduct(selectedProduct: Product | any) {
         <button
           disabled={isCategoriesLoading}
           type="submit"
+          onClick={handleUpdate}
           className="font-fontProjeto rounded-[20px] disabled:bg-slate-200 bg-[#13DBB7] hover:bg-[#0F9D84] text-white font-bold text-2xl px-10 mx-auto block py-2"
         >
           {isCategoriesLoading ? (
