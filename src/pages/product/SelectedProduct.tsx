@@ -12,8 +12,6 @@ function SelectedProduct() {
   const { id } = useParams<{ id: string }>();
 
   const { user, handleLogout } = useContext(AuthContext);
-  const token = user.token;
-  const navigate = useNavigate();
   const [quantidade, setQuantidade] = useState<number>(1);
   const [product, setproduct] = useState<Product>({} as Product);
   async function findById(id: string) {
