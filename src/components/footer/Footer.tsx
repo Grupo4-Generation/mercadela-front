@@ -41,7 +41,7 @@ function Footer() {
             <p className="hover:text-[#ffffff] cursor-pointer">
               Termos e Condições
             </p>
-            <Link to="/sobre" className="hover:text-[#ffffff]">
+            <Link to="/about" className="hover:text-[#ffffff]">
               Sobre nós
             </Link>
           </div>
