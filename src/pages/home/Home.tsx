@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import SlideHome from "../../components/slide/home/SlideHome";
 import Product from "../../models/Product";
 import { FindWithoutToken } from "../../services/Service";
