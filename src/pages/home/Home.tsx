@@ -7,7 +7,6 @@ import HomeCard from "../../components/product/productCard/HomeCard";
 
 function Home() {
   const [products, setProducts] = useState<Product[]>([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Function to shuffle products and pick 4 randomly
