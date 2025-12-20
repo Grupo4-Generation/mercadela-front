@@ -1,18 +1,19 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
+import { Dispatch, SetStateAction } from "react";
 
 interface ProfileMenuProps {
   activeTab: string;
-  setActiveTab: (tab: string) => void;
+  setActiveTab: Dispatch<SetStateAction<string>>;
+  handleLogout: () => void;
 }
 
 const ProfileMenu: React.FC<ProfileMenuProps> = ({
   activeTab,
   setActiveTab,
+  handleLogout,
 }) => {
   const navigate = useNavigate();
-  const { handleLogout } = useContext(AuthContext);
 
   const handleLogoutAndRedirect = () => {
     handleLogout();
@@ -22,6 +23,7 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({
   return (
     <div className="min-w-[200px] max-w-[300px] bg-backgroundLight p-4 shadow-md rounded-lg">
       <h2 className="text-lg font-bold mb-4 text-[#DB5413]">Menu</h2>
+
       <ul className="space-y-2">
         {["info", "security", "products"].map((tab) => (
           <li key={tab}>
@@ -40,8 +42,9 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({
           </li>
         ))}
       </ul>
+
       <button
-        onClick={handleLogoutAndRedirect} // Usando a nova função para o botão de logout
+        onClick={handleLogoutAndRedirect}
         className="mt-4 w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-200"
       >
         Sair
